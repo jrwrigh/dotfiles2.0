@@ -1,0 +1,21 @@
+pandas
+numpy
+scipy
+sympy
+matplotlib
+cython
+ipython
+jupyter
+numba           # JIT compiler for speeding up numpy
+prompt_toolkit  # Provides autocomplete for CLI apps
+param           # Provides type and range checking for class attributes
+pylint          # Classic Python Linter
+python-utils    # Misc Python Utils
+scrapy          # WebPage Scraper
+selenium        # Python browser
+dill            # Pickle, but for all/more object types
+requests        # For URL requests
+
+# pywin32       # Windows Python Bindings
+# pythonocc-core     # Python bindings for OCC CAD library
+# yapf          # Google formater
