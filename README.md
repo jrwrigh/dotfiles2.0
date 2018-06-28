@@ -6,6 +6,13 @@ On Linux, this is done by:
 ln -s [ACTUALFILE] [DESTINATION]
 ```
 
+# Terminator
+
+## Color Theme
+Follow instructions from [terminator](https://github.com/EliverLara/terminator-themes).
+Requires `requests` package for python 2.7+
+Preferred color combo is `Monokai Soda`
+
 # Neovim
 
 ## Color Theme

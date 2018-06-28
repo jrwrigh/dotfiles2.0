@@ -1,0 +1,79 @@
+[global_config]
+  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  title_font = Fira Code 10
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 6508bbea-08df-4fcf-9f37-e94dbc1b9c96
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:27
+      size = 960, 984
+      title = u2berggeist@Exia00: ~/gitRepos/dotfiles
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 490
+      ratio = 0.50051072523
+      type = VPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = Monokai Soda
+      type = Terminal
+      uuid = bc985e50-80e0-40d2-b386-a7493d0f4ccf
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = Monokai Soda
+      type = Terminal
+      uuid = 6508bbea-08df-4fcf-9f37-e94dbc1b9c96
+  [[New Layout]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 5a5da63e-81a0-4dd8-bde8-ff674a00c5cc
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:27
+      size = 960, 984
+      title = u2berggeist@Exia00: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 5a5da63e-81a0-4dd8-bde8-ff674a00c5cc
+[plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_darkness = 0.67
+    cursor_color = "#aaaaaa"
+    font = Anonymous Pro for Powerline 11
+    use_system_font = False
+  [[3024 Day]]
+    background_color = "#f7f7f7"
+    cursor_color = "#4a4543"
+    foreground_color = "#4a4543"
+    palette = "#090300:#db2d20:#01a252:#fded02:#01a0e4:#a16a94:#b5e4f4:#a5a2a2:#5c5855:#e8bbd0:#3a3432:#4a4543:#807d7c:#d6d5d4:#cdab53:#f7f7f7"
+  [[Monokai Soda]]
+    background_color = "#1a1a1a"
+    copy_on_selection = True
+    cursor_color = "#f6f7ec"
+    font = Anonymous Pro for Powerline 11
+    foreground_color = "#c4c5b5"
+    palette = "#1a1a1a:#f4005f:#98e024:#fa8419:#9d65ff:#f4005f:#58d1eb:#c4c5b5:#625e4c:#f4005f:#98e024:#e0d561:#9d65ff:#f4005f:#58d1eb:#f6f6ef"
+    use_system_font = False
+  [[Monokai dark]]
+    background_color = "#272822"
+    cursor_color = "#ffffff"
+    foreground_color = "#f8f8f2"
+    palette = "#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#2aa198:#f9f8f5:#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#2aa198:#f9f8f5"
