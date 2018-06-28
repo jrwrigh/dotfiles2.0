@@ -1,38 +1,27 @@
 [global_config]
   enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   title_font = Fira Code 10
+  always_split_with_profile = True
 [keybindings]
 [layouts]
   [[default]]
     [[[child0]]]
       fullscreen = False
-      last_active_term = 6508bbea-08df-4fcf-9f37-e94dbc1b9c96
+      last_active_term = bc985e50-80e0-40d2-b386-a7493d0f4ccf
       last_active_window = True
       maximised = False
       order = 0
       parent = ""
       position = 0:27
-      size = 960, 984
+      size = 921, 795
       title = u2berggeist@Exia00: ~/gitRepos/dotfiles
       type = Window
-    [[[child1]]]
+    [[[terminal1]]]
       order = 0
       parent = child0
-      position = 490
-      ratio = 0.50051072523
-      type = VPaned
-    [[[terminal2]]]
-      order = 0
-      parent = child1
       profile = Monokai Soda
       type = Terminal
       uuid = bc985e50-80e0-40d2-b386-a7493d0f4ccf
-    [[[terminal3]]]
-      order = 1
-      parent = child1
-      profile = Monokai Soda
-      type = Terminal
-      uuid = 6508bbea-08df-4fcf-9f37-e94dbc1b9c96
   [[New Layout]]
     [[[child0]]]
       fullscreen = False
