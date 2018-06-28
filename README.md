@@ -6,7 +6,18 @@ On Linux, this is done by:
 ln -s [ACTUALFILE] [DESTINATION]
 ```
 
+# Neovim
+
+## Color Theme
+Use `wget` to transfer the contents of the following link into `~/.config/nvim/colors`:
+https://raw.githubusercontent.com/crusoexia/vim-monokai/master/colors/monokai.vim
+
 ## Neovim Plugins
 Install `vim-plug` into `~/.local/share/nvim/plugged`
-
 Then run `:PlugInstall` inside neovim to download and install the plugins
+
+### Airline Powerline Fonts
+To get the arrows part of airline working correctly, you need to use install powerline fonts. Refer to the wiki of vim-airline to figure it out.
+
+### YouCompleteMe Setup
+Run the `:PlugInstall` per usual, then go to `~/.local/share/nvim/plugged/YouCompleteMe` and run `install.py` in there. It requires `cmake`, so that may need to be installed via `sudo apt install cmake`
