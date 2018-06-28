@@ -1,7 +1,8 @@
 [global_config]
-  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  title_font = Fira Code 10
   always_split_with_profile = True
+  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  inactive_color_offset = 0.5
+  title_font = Fira Code 10
 [keybindings]
 [layouts]
   [[default]]
