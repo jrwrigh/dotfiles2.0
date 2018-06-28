@@ -33,6 +33,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'brennier/quicktex'
+Plug 'lervag/vim-foam'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
