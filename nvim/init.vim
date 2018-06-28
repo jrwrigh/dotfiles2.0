@@ -17,6 +17,7 @@ set gdefault            " Use 'g' flag by default for :s/foo/bar/
 syntax on
 colorscheme monokai
 
+""""""""""""""""""""""""
 " Plugins---------------
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -29,6 +30,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-commentary'
+Plug 'brennier/quicktex'
 
 call plug#end()
 
@@ -44,3 +48,31 @@ let g:airline#extensions#whitespace#enabled = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" ctrlp-----------------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" QuickTeX---------------------
+let g:quicktex_tex = {
+    \' '   : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \'m'   : '\( <+++> \) <++>',
+    \'prf' : "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
+\}
+
+let g:quicktex_math = {
+    \' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \'fr'   : '\mathcal{R} ',
+    \'eq'   : '= ',
+    \'set'  : '\{ <+++> \} <++>',
+    \'frac' : '\frac{<+++>}{<++>} <++>',
+    \'one'  : '1 ',
+    \'st'   : ': ',
+    \'in'   : '\in ',
+    \'bn'   : '\mathbb{N} ',
+\}
+
+"""""""""""""""""""""""""""""""
+" Remaps-------------------
+
+" Makes the <++> tag work
+inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
