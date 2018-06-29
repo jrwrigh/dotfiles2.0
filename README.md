@@ -5,6 +5,22 @@ On Linux, this is done by:
 ```bash
 ln -s [ACTUALFILE] [DESTINATION]
 ```
+# `.bashrc`
+
+## ranger-cd command:
+Copy this to the end of `.bashrc`:
+```bash
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+```
+
 
 # Terminator
 
