@@ -35,6 +35,10 @@ Plug 'tpope/vim-commentary'
 Plug 'brennier/quicktex'
 Plug 'lervag/vim-foam'
 Plug 'davidhalter/jedi-vim'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+Plug 'nvie/vim-flake8'
 
 call plug#end()
 
