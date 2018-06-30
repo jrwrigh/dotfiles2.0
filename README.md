@@ -20,6 +20,13 @@ function ranger-cd {
     rm -f -- "$tempfile"
 }
 ```
+## git-completion
+
+Copy this to the end of `.bashrc` for git completions:
+
+```bash
+source ~/gitRepos/dotfiles/git_completion.bash
+```
 
 
 # Terminator
