@@ -1,4 +1,4 @@
-set relativenumber
+set number relativenumber
 set termguicolors
 
 set showmatch           " Show matching brakets.
