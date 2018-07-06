@@ -1,4 +1,4 @@
-set number relativenumber
+set number relativenumber " hybrid relative line numbers
 set termguicolors
 
 set showmatch           " Show matching brakets.
@@ -13,6 +13,8 @@ set splitright          " Vetical split to right of current
 set ignorecase          " Make searching case insensitive...
 set smartcase           " ... unless the query has a capital letter in it
 set gdefault            " Use 'g' flag by default for :s/foo/bar/
+
+set scrolloff=2         " Forces a minimum number of lines above and below cursor
 
 syntax on
 colorscheme monokai

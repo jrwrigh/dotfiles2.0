@@ -45,7 +45,7 @@
 [profiles]
   [[default]]
     allow_bold = False
-    background_darkness = 0.67
+    background_darkness = 0.3
     cursor_color = "#aaaaaa"
     font = Anonymous Pro for Powerline 11
     use_system_font = False
