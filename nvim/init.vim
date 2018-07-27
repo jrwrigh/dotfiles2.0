@@ -1,5 +1,6 @@
 set number relativenumber " hybrid relative line numbers
-set termguicolors
+" set termguicolors     " Done due to MobaXterm not displaying cursor
+" correctly
 
 set showmatch           " Show matching brakets.
 set formatoptions+=o	" Continue comment marker in new line
