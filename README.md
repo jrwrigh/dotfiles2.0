@@ -28,6 +28,10 @@ Copy this to the end of `.bashrc` for git completions:
 source ~/gitRepos/dotfiles/git_completion.bash
 ```
 
+# tmux
+
+## Install tmux Plugin Manager
+Go to https://github.com/tmux-plugins/tpm for instructions
 
 # Terminator
 
