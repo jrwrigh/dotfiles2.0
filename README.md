@@ -30,6 +30,10 @@ source ~/gitRepos/dotfiles/git_completion.bash
 
 # tmux
 
+## Installing tmux on cluster
+Use the script in `./tmux/tmux_local_install.sh`. Based from git gist: https://gist.github.com/elfosardo/b23058f9d609fcb0878fc42f5b6c935d
+Note: the script in this repo is not the script in the gist itself. It is the script posted in the comments on Jun 30, 2018.
+
 ## Install tmux Plugin Manager
 Go to https://github.com/tmux-plugins/tpm for instructions
 
