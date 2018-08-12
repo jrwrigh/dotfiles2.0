@@ -1,7 +1,16 @@
+# Bindings to make new windows/panes open in the same directory as the window/pane that it was opened in
+bind '"' split-window -c "#{pane_current_path"
+bind % split-window -h -c "#{pane_current_path"
+bind c new-window -c "#{pane_current_path"
+
+# Themepack setting
+set -g @themepack 'powerline/block/orange'
+
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'jimeh/tmux-themepack'
+
 
 
 
