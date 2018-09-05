@@ -37,6 +37,13 @@ Note: the script in this repo is not the script in the gist itself. It is the sc
 ## Install tmux Plugin Manager
 Go to https://github.com/tmux-plugins/tpm for instructions
 
+## 256 Color setting
+An alias must be put in `.bashrc` to force tmux to use 256 bit colors:
+
+```bash
+alias tmux="tmux -2"
+```
+
 # Terminator
 
 ## Color Theme

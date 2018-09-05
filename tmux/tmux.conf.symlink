@@ -3,6 +3,9 @@ bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
 
+# Make colors correct by forcing 256 bit
+set -g default-terminal "xterm-256color"
+
 # Themepack setting
 set -g @themepack 'powerline/block/orange'
 
