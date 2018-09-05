@@ -37,11 +37,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'brennier/quicktex'
 Plug 'lervag/vim-foam'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'nvie/vim-flake8'
+
+" " <DEOPLETE>
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " else
@@ -50,6 +52,26 @@ Plug 'nvie/vim-flake8'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
 " let g:deoplete#enable_at_startup = 1
+" " call  deoplete#custom#option('num_processes', 1)
+" " <DEOPLETE/>
+
+" <NCM2>
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+" <NCM2/>
 
 call plug#end()
 
