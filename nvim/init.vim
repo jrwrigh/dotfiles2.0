@@ -20,8 +20,9 @@ set scrolloff=2         " Forces a minimum number of lines above and below curso
 syntax on
 colorscheme monokai
 
-""""""""""""""""""""""""
-" Plugins---------------
+"############################
+" PLUGINS-------------------
+"############################
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -75,7 +76,9 @@ Plug 'ncm2/ncm2-jedi'
 
 call plug#end()
 
-" Plugin Settings--------------
+"############################
+" PLUGIN SETTINGS-------------------
+"############################
 
 " Airline
 let g:airline_powerline_fonts=1
@@ -110,8 +113,16 @@ let g:quicktex_math = {
     \'bn'   : '\mathbb{N} ',
 \}
 
-"""""""""""""""""""""""""""""""
-" Remaps-------------------
+"############################
+" REMAPS-------------------
+"############################
 
 " Makes the <++> tag work
 inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+
+" Remaps for Tabs
+nnoremap tn :tabnew<Space>
+nnoremap tl :tabnext<CR>
+nnoremap th :tabprev<CR>
+nnoremap tj :tabfirst<CR>
+nnoremap tk :tablast<CR>
