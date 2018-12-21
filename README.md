@@ -5,7 +5,15 @@ On Linux, this is done by:
 ```bash
 ln -s [ACTUALFILE] [DESTINATION]
 ```
-# `.bashrc`
+# .zshrc
+ 
+Add
+```bash
+eval `dircolors ~/gitRepos/dotfiles/dircolors.monokai`
+```
+to .zshrc or .bashrc to fix the `ls` highlighting issues when using WSL and (maybe) Oh My ZSH
+
+# .bashrc
 
 ## ranger-cd command:
 Copy this to the end of `.bashrc`:
