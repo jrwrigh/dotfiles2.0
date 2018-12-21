@@ -1,3 +1,7 @@
+" #######################################################
+" -------------- COMPUTER SETTINGS SETUP -----------------
+" #######################################################
+
 " Find the computer.vim file if available
 let vimrcdir = fnamemodify($MYVIMRC, ':p:h')
 if has('win32')
@@ -16,6 +20,9 @@ if computer=="DellBrick"
     autocmd VimEnter * echom "Vim setup: DellBrick"
 endif
 
+" #######################################################
+" -------------- GENERAL SETTINGS -----------------
+" #######################################################
 set number relativenumber " hybrid relative line numbers
 " set termguicolors     " Done due to MobaXterm not displaying cursor
 " correctly
@@ -38,9 +45,9 @@ set scrolloff=2         " Forces a minimum number of lines above and below curso
 syntax on
 colorscheme monokai
 
-"######################################
-"------------PLUGINS-------------------
-"######################################
+" #######################################################
+" ---------------------- PLUGINS ------------------------
+" #######################################################
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -94,9 +101,9 @@ Plug 'ncm2/ncm2-jedi'
 
 call plug#end()
 
-"###############################################
-"-------------PLUGIN SETTINGS-------------------
-"###############################################
+" #######################################################
+" ------------------ PLUGIN SETTINGS --------------------
+" #######################################################
 
 " Airline
 let g:airline_powerline_fonts=1
@@ -131,9 +138,9 @@ let g:quicktex_math = {
     \'bn'   : '\mathbb{N} ',
 \}
 
-"#########################################
-"-----------------REMAPS------------------
-"#########################################
+" #######################################################
+" ---------------------- REMAPS -------------------------
+" #######################################################
 
 " Makes the <++> tag work
 inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
