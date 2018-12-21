@@ -126,3 +126,6 @@ nnoremap tl :tabnext<CR>
 nnoremap th :tabprev<CR>
 nnoremap tj :tabfirst<CR>
 nnoremap tk :tablast<CR>
+
+" Remap for Tab to window switch
+nnoremap <Tab> <C-W>W
