@@ -51,6 +51,8 @@ An alias must be put in `.bashrc` to force tmux to use 256 bit colors:
 ```bash
 alias tmux="tmux -2"
 ```
+## Powerline
+Install via instructions in github.com/powerline/powerline. The `.tmux.conf` file already has the commands necessary to make it work.
 
 # Terminator
 
@@ -74,3 +76,14 @@ To get the arrows part of airline working correctly, you need to use install pow
 
 ### YouCompleteMe Setup
 Run the `:PlugInstall` per usual, then go to `~/.local/share/nvim/plugged/YouCompleteMe` and run `install.py` in there. It requires `cmake`, so that may need to be installed via `sudo apt install cmake`
+
+# Other useful stuff
+
+## zsh
+zsh is great. It's just a better bash.
+
+To help with that, use (oh-my-zsh)[https://github.com/robbyrussell/oh-my-zsh] to make pretty and stuff. Just us the default settings when it first loads up.
+
+## lazygit
+Really nice terminal GUI-esque utility. https://github.com/jesseduffield/lazygit
+
