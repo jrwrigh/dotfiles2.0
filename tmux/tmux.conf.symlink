@@ -17,8 +17,14 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
 # Setup tmux powerline stuff(?)
-source "/home/u2berggeist/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"
+if-shell  '[$(cat ~/.computerID) = "PalmettoClusterSSH" ]' \
+    'source "/home/jrwrigh/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"' \
+    ''
 
+if-shell  '[$(cat ~/.computerID) = "DellBrick" ]' \
+    'source "/home/u2berggeist/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"' \
+    ''
+source "/home/jrwrigh/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"
 
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of .tmux.conf)
