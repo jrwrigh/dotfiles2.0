@@ -1,3 +1,21 @@
+" Find the computer.vim file if available
+let vimrcdir = fnamemodify($MYVIMRC, ':p:h')
+if has('win32')
+    let computervimdir = join([vimrcdir,'computer.vim'], '\')
+else
+    let computervimdir = join([vimrcdir,'computer.vim'], '/')
+endif
+
+try
+    exec "source". computervimdir
+catch
+    " If file not there, do nothing
+endtry
+
+if computer=="DellBrick"
+    autocmd VimEnter * echom "Vim setup: DellBrick"
+endif
+
 set number relativenumber " hybrid relative line numbers
 " set termguicolors     " Done due to MobaXterm not displaying cursor
 " correctly
