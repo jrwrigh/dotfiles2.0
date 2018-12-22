@@ -54,6 +54,8 @@ alias tmux="tmux -2"
 ## Powerline
 Install via instructions in github.com/powerline/powerline. The `.tmux.conf` file already has the commands necessary to make it work.
 
+Must add `.computerID` file to `~` directory where the contents of the file correspond to the if statements in `tmux.conf`.
+
 # Terminator
 
 ## Color Theme
@@ -62,6 +64,9 @@ Requires `requests` package for python 2.7+
 Preferred color combo is `Monokai Soda`
 
 # Neovim
+
+## Computer based setup
+Must include a `computer.vim` file in the same directory as the `init.vim` file. The contents of the file should be `let computer={computername}` where `{computername}` is whatever is referenced in the `init.vim` that corresponds to the settings you need.
 
 ## Color Theme
 Use `wget` to transfer the contents of the following link into `~/.config/nvim/colors`:
