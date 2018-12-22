@@ -143,7 +143,7 @@ let g:quicktex_math = {
 " #######################################################
 
 " Makes the <++> tag work
-inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+" inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 
 " Remaps for Tabs
 nnoremap tn :tabnew<Space>
