@@ -51,10 +51,12 @@ An alias must be put in `.bashrc` to force tmux to use 256 bit colors:
 ```bash
 alias tmux="tmux -2"
 ```
-## Powerline
+## Powerline for tmux
 Install via instructions in github.com/powerline/powerline. The `.tmux.conf` file already has the commands necessary to make it work.
 
 Must add `.computerID` file to `~` directory where the contents of the file correspond to the if statements in `tmux.conf`.
+
+`default.json` is the config file that needs to be placed in `~/.config/powerline/themes/tmux`. This will setup the correct lower powerline confirguration for tmux.
 
 # Terminator
 
