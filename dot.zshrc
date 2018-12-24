@@ -1,5 +1,5 @@
 # Performance Profiler
-zmodload zsh/zprof
+# zmodload zsh/zprof
 # NOTE: Current setup heavily based on dotfile from the GitHub repo: tonylambiris/dotfiles
 
 # =============================================================================
@@ -102,4 +102,4 @@ fi
 zplug load
 
 # Performance Profiler
-zprof
+# zprof
