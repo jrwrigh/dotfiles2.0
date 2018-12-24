@@ -59,6 +59,7 @@ zplug "plugins/history",           from:oh-my-zsh
 zplug "plugins/tmux",              from:oh-my-zsh
 # zplug "plugins/tmuxinator",        from:oh-my-zsh
 # zplug "plugins/urltools",          from:oh-my-zsh
+# zplug "plugins/vi-mode",           from:oh-my-zsh
 # zplug "plugins/web-search",        from:oh-my-zsh
 
 # Make ls colors not horrible for WSL
@@ -79,6 +80,14 @@ alias ll='ls -l'
 alias lal='ls -al'
 
 alias lzg='lazygit'
+
+# Set editor preference to nvim if available.
+if (( $+commands[nvim] )); then
+	alias vim='() { $(whence -p nvim) $@ }'
+else
+	alias vim='() { $(whence -p vim) $@ }'
+fi
+
 # =============================================================================
 #                                  Settings
 # =============================================================================
