@@ -14,10 +14,13 @@
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
 # Power on the Oh-My-ZSH suite
 source $ZSH/oh-my-zsh.sh
+
+# Prevent setup `nice(5) failed: operation not permitted` issues
+unsetopt BG_NICE
 
 # =============================================================================
 #                                   Plugins
@@ -56,13 +59,16 @@ zplug "plugins/tmux",              from:oh-my-zsh
 zplug "plugins/tmuxinator",        from:oh-my-zsh
 zplug "plugins/urltools",          from:oh-my-zsh
 zplug "plugins/web-search",        from:oh-my-zsh
-zplug "plugins/z",                 from:oh-my-zsh
-zplug "plugins/fancy-ctrl-z",      from:oh-my-zsh
 
 # Make ls colors not horrible for WSL
 # Directory colors
 zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 # eval `dircolors ~/gitRepos/dotfiles/dircolors.monokai`
+
+##### Theme through Zplug
+# Make sure prompt is able to be generated properly.
+setopt prompt_subst 
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:2
 
 # =============================================================================
 #                                   Aliases
@@ -90,3 +96,6 @@ if zplug check "seebi/dircolors-solarized"; then
   which dircolors &> /dev/null && \
 	  eval $(dircolors ~/.zplug/repos/seebi/dircolors-solarized/dircolors.256dark)
 fi
+
+# load up all the zplug options and commands
+zplug load
