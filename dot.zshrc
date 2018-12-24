@@ -86,7 +86,7 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 # To stop the security errors related to folder permissions in ~/.oh-my-zsh
-export ZSH_DISABLE_COMPFIX="true"
+# export ZSH_DISABLE_COMPFIX="true"
 
 # =============================================================================
 #                                  Startup
