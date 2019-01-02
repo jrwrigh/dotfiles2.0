@@ -39,7 +39,7 @@ unsetopt BG_NICE
 # =============================================================================
 # Check if zplug is installed
 
-# [ ! -d $HOME/.zplug ] && git clone https://github.com/zplug/zplug ~/.zplug
+# [ ! -d ~/.zplug ] && git clone https://github.com/zplug/zplug ~/.zplug
 source ~/.zplug/init.zsh
 
 # zplug to update itself on `zplug --update`
@@ -80,7 +80,7 @@ zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 ##### Theme through Zplug
 # Make sure prompt is able to be generated properly.
 setopt prompt_subst 
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:2
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
 # =============================================================================
 #                                   Aliases
@@ -114,10 +114,9 @@ export EDITOR="$VISUAL"
 if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     export common="/common/miller/jrwrigh"
     PATH=/home/jrwrigh/local/bin:$PATH:$HOME/bin:/home/jrwrigh/bin/neovim/squashfs-root/usr/bin
-    PATH=$PATH:/home/jrwrigh/.local/bin
+    PATH=$PATH:/home/jrwrigh/.local/bin:/bin
     export PATH
 fi
-
 
 # To stop the security errors related to folder permissions in ~/.oh-my-zsh
 # export ZSH_DISABLE_COMPFIX="true"
