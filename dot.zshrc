@@ -82,6 +82,9 @@ zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 setopt prompt_subst 
 zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
 
+# load up all the zplug options and commands
+zplug load
+
 # =============================================================================
 #                                   Aliases
 # =============================================================================
@@ -99,7 +102,6 @@ fi
 
 if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     alias ranger="python /home/jrwrigh/bin/ranger/ranger.py"
-    alias tmux="tmux -2"
     alias qstatu="qstat -u $USER"
 elif [ $(cat $HOME/.computerID) = "DellBrick" ]; then
     alias lzg='lazygit'
@@ -116,8 +118,8 @@ if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     PATH=/home/jrwrigh/local/bin:$PATH:$HOME/bin:/home/jrwrigh/bin/neovim/squashfs-root/usr/bin
     PATH=$PATH:/home/jrwrigh/.local/bin:/bin
     export PATH
-    # module load anaconda3/5.1.0
     module load python/3.4
+    export TERM="xterm-256color" # makes colors correct in MobaXterm tmux (replaces alias tmux="tmux -2"
 fi
 
 # To stop the security errors related to folder permissions in ~/.oh-my-zsh
@@ -133,8 +135,6 @@ if zplug check "seebi/dircolors-solarized"; then
 	  eval $(dircolors $HOME/.zplug/repos/seebi/dircolors-solarized/dircolors.256dark)
 fi
 
-# load up all the zplug options and commands
-zplug load
 
 # Performance Profiler
 # zprof
