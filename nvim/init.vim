@@ -118,6 +118,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " ctrlp-----------------------
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_show_hidden = 1
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " Ignore source control folders
 
 " QuickTeX---------------------
 let g:quicktex_tex = {
@@ -137,6 +140,15 @@ let g:quicktex_math = {
     \'in'   : '\in ',
     \'bn'   : '\mathbb{N} ',
 \}
+
+" ncm2----------------------------
+
+" Possible fix for limited # of character auto-complete-menu-trigger limit
+" let g:ncm2#complete_length=[[1,1],[7,2]]
+
+" let g:ncm2#auto_popup = 0
+" imap <C-a> <Plug>(ncm2_manual_trigger)
+
 
 " #######################################################
 " ---------------------- REMAPS -------------------------
