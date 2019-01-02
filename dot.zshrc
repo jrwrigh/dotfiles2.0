@@ -103,6 +103,7 @@ fi
 if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     alias ranger="python /home/jrwrigh/bin/ranger/ranger.py"
     alias qstatu="qstat -u $USER"
+    alias lzg='lazygit'
 elif [ $(cat $HOME/.computerID) = "DellBrick" ]; then
     alias lzg='lazygit'
 fi
