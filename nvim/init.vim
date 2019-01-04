@@ -68,6 +68,8 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'nvie/vim-flake8'
+Plug 'svermeulen/vim-subversive'
+    " adds substitute commmmands to paste over a text object (ie. `siw`)
 
 " " <DEOPLETE>
 " if has('nvim')
@@ -149,6 +151,21 @@ let g:quicktex_math = {
 " let g:ncm2#auto_popup = 0
 " imap <C-a> <Plug>(ncm2_manual_trigger)
 
+" subversive----------------------------
+    " s for substitute
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
+    " For doing fancy substitutions without using `:s/foo/bar/gc`
+nmap <leader>s <plug>(SubversiveSubstituteRange)
+xmap <leader>s <plug>(SubversiveSubstituteRange)
+nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+
+    " same as fancy substitutions, but with confirmation at each substitute
+nmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
+xmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
+nmap <leader>crr <plug>(SubversiveSubstituteWordRangeConfirm)
 
 " #######################################################
 " ---------------------- REMAPS -------------------------
