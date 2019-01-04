@@ -68,8 +68,8 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 Plug 'nvie/vim-flake8'
-Plug 'svermeulen/vim-subversive'
-    " adds substitute commmmands to paste over a text object (ie. `siw`)
+Plug 'svermeulen/vim-subversive' " adds substitute commmmands to paste over a text object (ie. `siw`)
+Plug 'chrisbra/improvedft' "allows f, t, F, and T to be used over multiple lines
 
 " " <DEOPLETE>
 " if has('nvim')
