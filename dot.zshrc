@@ -1,3 +1,4 @@
+# vim: set filetype=sh :
 # Performance Profiler
 # zmodload zsh/zprof
 # NOTE: Current setup heavily based on dotfile from the GitHub repo: tonylambiris/dotfiles
