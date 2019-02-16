@@ -6,12 +6,14 @@ On Linux, this is done by:
 ln -s [ACTUALFILE] [DESTINATION]
 ```
 # .zshrc
+
+## dircolors (Probably Deprecated)
  
 Add
 ```bash
 eval `dircolors ~/gitRepos/dotfiles/dircolors.monokai`
 ```
-to .zshrc or .bashrc to fix the `ls` highlighting issues when using WSL and (maybe) Oh My ZSH
+to .zshrc or .bashrc to fix the `ls` highlighting issues when using WSL and (maybe) Oh My ZSH 
 
 # .bashrc
 
