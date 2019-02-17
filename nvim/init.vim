@@ -42,6 +42,8 @@ set gdefault            " Use 'g' flag by default for :s/foo/bar/
 
 set scrolloff=2         " Forces a minimum number of lines above and below cursor
 
+set cursorline          " Highlights the current line of the cursor
+
 syntax on
 colorscheme monokai
 
