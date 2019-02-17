@@ -91,7 +91,7 @@ Run the `:PlugInstall` per usual, then go to `~/.local/share/nvim/plugged/YouCom
 ## zsh
 zsh is great. It's just a better bash.
 
-To help with that, use (oh-my-zsh)[https://github.com/robbyrussell/oh-my-zsh] to make pretty and stuff. Just us the default settings when it first loads up.
+To help with that, use [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) to make pretty and stuff. Just us the default settings when it first loads up.
 
 ## lazygit
 Really nice terminal GUI-esque utility. https://github.com/jesseduffield/lazygit
