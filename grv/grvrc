@@ -1,0 +1,5 @@
+# " vim: syntax=vim
+    # " Change theme to classic
+set theme classic
+    # " display a commit graph
+set commit-graph true
