@@ -146,12 +146,8 @@ let g:quicktex_math = {
 \}
 
 " ncm2----------------------------
-
-" Possible fix for limited # of character auto-complete-menu-trigger limit
-" let g:ncm2#complete_length=[[1,1],[7,2]]
-
-" let g:ncm2#auto_popup = 0
-" imap <C-a> <Plug>(ncm2_manual_trigger)
+    " custom key mapping for manual trigger
+inoremap <C-space> <C-r>=ncm2#force_trigger()<cr>
 
 " subversive----------------------------
     " s for substitute
