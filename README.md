@@ -93,6 +93,9 @@ zsh is great. It's just a better bash.
 
 To help with that, use [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) to make pretty and stuff. Just us the default settings when it first loads up.
 
-## lazygit
+## lazygit [DEPRECATED]
 Really nice terminal GUI-esque utility. https://github.com/jesseduffield/lazygit
+
+## GRV (Git Repository Viewer)
+More powerful, stabler version of lazygit. Simply download the executable and make it executable (`chmod +x grv`).  https://github.com/rgburke/grv
 
