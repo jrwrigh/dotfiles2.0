@@ -101,3 +101,6 @@ More powerful, stabler version of lazygit. Simply download the executable and ma
 
 Create link to `./grv/grvrc` file in `$XDG_CONFIG_HOME/grv/grvrc` (which is normally `~/.config/grv`)
 
+# ranger_devicons
+Ranger plugin to add glyphs and icons to ranger. Simplly copy the repo and do `make install` in the directory. [ranger_devicons](https://github.com/alexanderjeurissen/ranger_devicons)
+
