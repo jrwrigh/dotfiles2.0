@@ -1,3 +1,6 @@
+#################################
+# BINDINGS
+#################################
 # Bindings to make new windows/panes open in the same directory as the window/pane that it was opened in
 bind '"' split-window -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
@@ -6,15 +9,16 @@ bind c new-window -c "#{pane_current_path}"
 # Make colors correct by forcing 256 bit
 set -g default-terminal "xterm-256color"
 
-# Themepack setting
-# set -g @themepack 'powerline/block/orange'
+#################################
+# PLUGINS
+#################################
 
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'jimeh/tmux-themepack'
-set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'tmux-plugins/tpm' # Tmux Plugin Manager
+set -g @plugin 'tmux-plugins/tmux-sensible' # Basic options (nothing significant)
+set -g @plugin 'tmux-plugins/tmux-pain-control' # Use hjkl keys to swtich, split, and resize panes
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight' # Makes lower left corner change color when prefix is used
+
+# POWERLINE
 
 # Setup tmux powerline stuff(?)
 if-shell  '[ $(cat ~/.computerID) = "PalmettoClusterSSH" ]' \
@@ -25,6 +29,7 @@ if-shell  '[ $(cat ~/.computerID) = "DellBrick" ]' \
     'source "/home/u2berggeist/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"' \
     ''
 
+# Display the currently detected computer
 if-shell  '[ $(cat ~/.computerID) = "DellBrick" ]' \
     'run-shell "echo 'DellBrick'"' \
     ''
@@ -32,5 +37,15 @@ if-shell  '[ $(cat ~/.computerID) = "PalmettoClusterSSH" ]' \
     'run-shell "echo 'PalmettoClusterSSH'"' \
     ''
 
-# Initialize TMUX plugin manager (keep this line at the very bottom of .tmux.conf)
+#################################
+# WINDOW PANE FORMAT
+#################################
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+
+#################################
+# MISC
+#################################
+
+# Initialize TMUX plugin manager (KEEP THIS LINE AT THE VERY BOTTOM OF .TMUX.CONF)
 run '~/.tmux/plugins/tpm/tpm'
