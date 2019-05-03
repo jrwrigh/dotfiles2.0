@@ -182,3 +182,6 @@ nnoremap tk :tablast<CR>
 " Remap for Tab to window switch
 nnoremap <Tab> <C-W>W
 nnoremap <S-Tab> <C-W>w
+
+" Terminal Mode exit
+tnoremap <Esc> <C-\><C-n>
