@@ -72,6 +72,7 @@ Plug 'google/vim-glaive'
 Plug 'nvie/vim-flake8'
 Plug 'svermeulen/vim-subversive' " adds substitute commmmands to paste over a text object (ie. `siw`)
 Plug 'chrisbra/improvedft' "allows f, t, F, and T to be used over multiple lines
+Plug 'mboughaba/i3config.vim' " adds i3config filetype
 
 " " <DEOPLETE>
 " if has('nvim')
