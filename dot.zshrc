@@ -17,6 +17,8 @@ elif [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     if [ -f /etc/zshrc ]; then
     	. /etc/zshrc
     fi
+elif [ $(cat $HOME/.computerID) = "CUBManjaro" ]; then
+    export ZSH="/home/jrwrigh/.oh-my-zsh"
 else
     echo "ERROR: no file '$HOME/.computerID' found."
     exit 1
