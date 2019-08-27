@@ -7,6 +7,7 @@ set $mod Mod4
 
 # Make large monitor primary
 exec --no-startup-id xrandr --output DP-1 --primary --pos 0x0 --output DVI-I-1 --pos 3840x0
+workspace 1 output DP-1
 
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
@@ -41,21 +42,9 @@ bindsym $mod+d exec --no-startup-id dmenu_recency
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym $mod+Shift+Ctrl+k exec --no-startup-id playerctl play-pause
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
