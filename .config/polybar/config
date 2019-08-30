@@ -221,7 +221,7 @@ separator =
 
 ;dim-value = 1.0
 
-tray-position = right
+tray-position = none
 tray-detached = false
 tray-maxsize = 20
 tray-background = ${colors.background}
