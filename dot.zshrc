@@ -19,6 +19,9 @@ elif [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     fi
 elif [ $(cat $HOME/.computerID) = "CUBManjaro" ]; then
     export ZSH="/home/jrwrigh/.oh-my-zsh"
+elif [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
+    export ZSH="/users/jrwrigh/.oh-my-zsh"
+    export PATH=$HOME/bin:/usr/local/bin:$PATH
 else
     echo "ERROR: no file '$HOME/.computerID' found."
     exit 1
@@ -83,8 +86,11 @@ zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 ##### Theme through Zplug
 # Make sure prompt is able to be generated properly.
 setopt prompt_subst 
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
-
+if [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
+    zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:2
+else 
+    zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
+fi
 # load up all the zplug options and commands
 zplug load
 
@@ -96,6 +102,16 @@ alias ll='ls -l'
 alias lal='ls -al'
 
 
+if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
+    alias ranger="python /home/jrwrigh/bin/ranger/ranger.py"
+    alias qstatu="qstat -u $USER"
+    alias lzg='lazygit'
+elif [ $(cat $HOME/.computerID) = "DellBrick" ]; then
+    alias lzg='lazygit'
+elif [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
+    alias nvim='~/bin/nvim.appimage'
+fi
+
 # Set editor preference to nvim if available.
 if (( $+commands[nvim] )); then
 	alias vim='() { $(whence -p nvim) $@ }'
@@ -103,18 +119,10 @@ else
 	alias vim='() { $(whence -p vim) $@ }'
 fi
 
-if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
-    alias ranger="python /home/jrwrigh/bin/ranger/ranger.py"
-    alias qstatu="qstat -u $USER"
-    alias lzg='lazygit'
-elif [ $(cat $HOME/.computerID) = "DellBrick" ]; then
-    alias lzg='lazygit'
-fi
-
 # =============================================================================
 #                                  Settings
 # =============================================================================
-export VISUAL="nvim"
+export VISUAL='nvim'
 export EDITOR="$VISUAL"
 
 if [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
