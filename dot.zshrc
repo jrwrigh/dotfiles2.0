@@ -19,6 +19,10 @@ elif [ $(cat $HOME/.computerID) = "PalmettoClusterSSH" ]; then
     fi
 elif [ $(cat $HOME/.computerID) = "CUBManjaro" ]; then
     export ZSH="/home/jrwrigh/.oh-my-zsh"
+elif [ $(cat $HOME/.computerID) = "YogaManjaro" ]; then
+    export ZSH="/home/jrwrigh/.oh-my-zsh"
+    export TERMINAL=xfce4-terminal
+    TERMINAL=xfce4-terminal
 elif [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
     export ZSH="/users/jrwrigh/.oh-my-zsh"
     export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -80,8 +84,11 @@ zplug "plugins/tmux",              from:oh-my-zsh
 
 # Make ls colors not horrible for WSL
 # Directory colors
-zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
-# eval `dircolors $HOME/gitRepos/dotfiles/dircolors.monokai`
+if [ $(cat $HOME/.computerID) = "YogaManjaro" ]; then
+    eval `dircolors $HOME/gitRepos/dotfiles/dircolors.monokai`
+else
+    zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
+fi
 
 ##### Theme through Zplug
 # Make sure prompt is able to be generated properly.
