@@ -168,6 +168,10 @@ nmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 xmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 nmap <leader>crr <plug>(SubversiveSubstituteWordRangeConfirm)
 
+" commentary---------------------------------
+" Correct commenting on .Xdefaults and .Xresources
+autocmd FileType xdefaults setlocal commentstring=!\ %s
+
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################

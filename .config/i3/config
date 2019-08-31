@@ -30,8 +30,8 @@ font pango:ShureTechMono Nerd Font Mono 14
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec xfce4-terminal
+# start a terminal based on $TERMINAL
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
