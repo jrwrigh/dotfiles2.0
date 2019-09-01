@@ -23,6 +23,7 @@ elif [ $(cat $HOME/.computerID) = "YogaManjaro" ]; then
     export ZSH="/home/jrwrigh/.oh-my-zsh"
     export TERMINAL=xfce4-terminal
     TERMINAL=xfce4-terminal
+    export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 elif [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
     export ZSH="/users/jrwrigh/.oh-my-zsh"
     export PATH=$HOME/bin:/usr/local/bin:$PATH
