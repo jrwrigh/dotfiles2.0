@@ -47,6 +47,12 @@ set cursorline          " Highlights the current line of the cursor
 syntax on
 colorscheme monokai
 
+" Make background opacity terminal emulator dependent 
+" !! Must be after colorsceme setting
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+
 " #######################################################
 " ---------------------- PLUGINS ------------------------
 " #######################################################
