@@ -30,14 +30,6 @@ BackupDir="$HomeDir/.dotfiles.backups"
 CurrentDir=$(pwd -P)
 DotfileDir=$CurrentDir
 
-symlink_dotfile() {
-    filepath=$1
-    filedirpath=$(dirname $filepath)
-    filename=$(basename $filepath)
-
-    mkdir -p $HomeDir/$filedirpath && ln -s $CurrentDir/$filepath $HomeDir/$filepath
-}
-
 backup_dotfile() {
     if [[ ! -e $BackupDir ]]; then
       echo "Creating backups folder $BackupDir..."
@@ -56,6 +48,18 @@ backup_dotfile() {
     fi
 }
 
-backup_dotfile $1
-symlink_dotfile $1
+symlink_dotfile() {
+    filepath=$1
+    filedirpath=$(dirname $filepath)
+    filename=$(basename $filepath)
+
+    mkdir -p $HomeDir/$filedirpath && ln -s $CurrentDir/$filepath $HomeDir/$filepath
+}
+
+for dotfilepath in $@;
+do
+    echo WORKING ON $dotfilepath '............'
+    backup_dotfile $dotfilepath
+    symlink_dotfile $dotfilepath
+done
 
