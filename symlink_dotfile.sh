@@ -4,19 +4,15 @@
 # 
 # This script will create symlinks of the specified file in the same relative location while backing up.
 
-# $CurrentDir/path/to/new_dotfile --> symlink_dotfile.sh
+# $DotfileDir/path/to/new_dotfile --> symlink_dotfile.sh
 # ==> $HomeDir/path/to/old_dotfile --moved--> $BackupDir/path/to/old_dotfile_timestamp
-# ==> $HomeDir/path/to/new_dotfile --symlink--> $CurrentDir/path/to/new_dotfile
+# ==> $HomeDir/path/to/new_dotfile --symlink--> $DotfileDir/path/to/new_dotfile
 #
 # ...where by default:
 # HomeDir=$HOME
 # BackupDir="$HomeDir/.dotfiles.backups"
 # CurrentDir=$(pwd -P)
-# DotfileDir=$CurrentDir
-#
-# Note: $CurrentDir should be the actual base directory for the dotfiles git. 
-
-# In other words, THIS SHOULD BE RUN AT THE DOTFILES GIT DIRECTORY LEVEL!!
+# DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
 
 
 
@@ -28,7 +24,7 @@ fi
 HomeDir=$HOME
 BackupDir="$HomeDir/.dotfiles.backups"
 CurrentDir=$(pwd -P)
-DotfileDir=$CurrentDir
+DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
 
 backup_dotfile() {
     if [[ ! -e $BackupDir ]]; then
@@ -36,7 +32,7 @@ backup_dotfile() {
       mkdir $BackupDir
     fi
 
-    filepath=$1
+    filepath=$(realpath --relative-to=$DotfileDir $1)
     filedirpath=$(dirname $filepath)
     if [[ -e "$HomeDir/$filepath" ]]; then
         echo "$filepath already exists. Backing up to $BackupDir"
@@ -49,11 +45,11 @@ backup_dotfile() {
 }
 
 symlink_dotfile() {
-    filepath=$1
+    filepath=$(realpath --relative-to=$DotfileDir $1)
     filedirpath=$(dirname $filepath)
     filename=$(basename $filepath)
 
-    mkdir -p $HomeDir/$filedirpath && ln -s $CurrentDir/$filepath $HomeDir/$filepath
+    mkdir -p $HomeDir/$filedirpath && ln -s $DotfileDir/$filepath $HomeDir/$filepath
 }
 
 for dotfilepath in $@;
