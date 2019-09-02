@@ -2,6 +2,6 @@
 
 <channel name="xfce4-session" version="1.0">
   <property name="general" type="empty">
-    <property name="LockCommand" type="string" value="i3lock -i /home/jrwrigh/Downloads/BoulderFlatIrons.png"/>
+      <property name="LockCommand" type="string" value="i3lock -i /home/jrwrigh/.local/share/backgrounds/BoulderFlatIrons.png"/>
   </property>
 </channel>
