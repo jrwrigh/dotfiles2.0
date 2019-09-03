@@ -6,10 +6,6 @@
 #   System Display Settings
 ################################
 
-# Make large monitor primary for CUBManjaro (kept only for that)
-exec --no-startup-id xrandr --output DP-1 --primary --pos 0x0 --output DVI-I-1 --pos 3840x480
-workspace 1 output DP-1
-
 ################################
 #   Basic Settings
 ################################
