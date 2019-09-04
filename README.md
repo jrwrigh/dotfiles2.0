@@ -15,6 +15,9 @@ git rebase master
 ```
 If the transfer was successful, you can go back into `master` and push the result to the remote.
 
+Note that when pushing the resulting branch to remote, this must be done with a `--force` because reasons.
+
+
 
 
 ### Update my local computer branch with latest master branch:
