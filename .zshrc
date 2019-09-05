@@ -39,6 +39,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/extract",           from:oh-my-zsh
 zplug "plugins/web-search",        from:oh-my-zsh
+zplug "plugins/tmux",              from:oh-my-zsh
 
 
 ##### Theme through Zplug
