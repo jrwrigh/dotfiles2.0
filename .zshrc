@@ -44,11 +44,8 @@ zplug "plugins/web-search",        from:oh-my-zsh
 ##### Theme through Zplug
 # Make sure prompt is able to be generated properly.
 setopt prompt_subst 
-if [ $(cat $HOME/.computerID) = "CUBPortalVNC" ]; then
-    zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:2
-else 
-    zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
-fi
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
+
 # load up all the zplug options and commands
 zplug load
 
