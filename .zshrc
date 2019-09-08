@@ -45,7 +45,7 @@ zplug "plugins/tmux",              from:oh-my-zsh
 ##### Theme through Zplug
 # Make sure prompt is able to be generated properly.
 setopt prompt_subst 
-zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # load up all the zplug options and commands
 zplug load
