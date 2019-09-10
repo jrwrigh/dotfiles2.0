@@ -74,7 +74,7 @@ export EDITOR="$VISUAL"
 # 	alias vim='() { $(whence -p vim) $@ }'
 # fi
 
-eval `dircolors $HOME/gitRepos/dotfiles/dircolors.monokai`
+eval `dircolors $HOME/gitRepos/dotfiles2.0/dircolors.monokai`
 # =============================================================================
 #                                  Startup
 # =============================================================================
