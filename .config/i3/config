@@ -209,17 +209,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-set $Lock i3lock -i /home/jrwrigh/.local/share/backgrounds/BoulderFlatIrons.png && sleep 120 && xset s activate
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id i3exit_custom lock, mode "default"
+    bindsym s exec --no-startup-id i3exit_custom suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit_custom switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit_custom logout, mode "default"
+    bindsym h exec --no-startup-id i3exit_custom hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit_custom reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit_custom shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -227,7 +226,7 @@ mode "$mode_system" {
     bindsym q mode "default"
 }
 # Lock screen
-bindsym $mod+9 exec --no-startup-id $Lock
+bindsym $mod+9 exec --no-startup-id i3exit_custom lock
 
 ################################
 #   Autostart Applications
@@ -241,7 +240,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id xautolock -time 10 -locker $Lock
+exec --no-startup-id xautolock -time 10 -locker i3exit_custom lock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
