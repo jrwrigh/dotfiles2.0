@@ -4,7 +4,7 @@
 # with openrc use loginctl
 [[ $(cat /proc/1/comm) == "systemd" ]] && logind=systemctl || logind=loginctl
 
-backgroundimg="$HOME/.local/share/backgrounds/BoulderFlatIrons.png"
+backgroundimg="$HOME/.local/share/backgrounds/colorado4kwallpaper.png"
 
 function lockfunc {
     if [[ "$1" = -sleep ]]; then
