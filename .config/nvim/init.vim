@@ -176,3 +176,10 @@ nnoremap <S-Tab> <C-W>w
 
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
+
+" #######################################################
+" --------------- FILE TYPE OVERRIDES -------------------
+" #######################################################
+
+autocmd FileType c setlocal expandtab tabstop=2 shiftwidth=2
+
