@@ -1,0 +1,21 @@
+#! /usr/bin/env bash
+# ----
+# Wrapper for odrive sync agent to allow for multiple file arguements
+#
+
+odrive_exe=odrive
+echo "NOTE! Using odrivesync (the shell wrapper), not the odrive executable directly"
+
+if [[ ${1#*.} =~ .*\.?(cloud|cloudf)$ ]]; then
+    # echo "File is an odrive placeholder"
+    for file in $@;
+    do
+        $odrive_exe sync $file
+    done
+else
+    $odrive_exe $@
+fi
+
+
+
+
