@@ -4,11 +4,15 @@
 # with openrc use loginctl
 [[ $(cat /proc/1/comm) == "systemd" ]] && logind=systemctl || logind=loginctl
 
-lock="i3lock -i $HOME/.local/share/backgrounds/BoulderFlatIrons.png && sleep 120 && xset s activate"
+backgroundimg="$HOME/.local/share/backgrounds/BoulderFlatIrons.png"
+
+function lockfunc {
+    i3lock -t -i $backgroundimg && sleep 120 && xset s activate
+}
 
 case "$1" in
     lock)
-        $lock
+        lockfunc
         ;;
     logout)
         i3-msg exit
@@ -17,10 +21,10 @@ case "$1" in
         dm-tool switch-to-greeter
         ;;
     suspend)
-        $lock && $logind suspend
+        lockfunc && $logind suspend
         ;;
     hibernate)
-        $lock && $logind hibernate
+        lockfunc && $logind hibernate
         ;;
     reboot)
         $logind reboot
