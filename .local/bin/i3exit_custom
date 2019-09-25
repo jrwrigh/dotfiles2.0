@@ -7,12 +7,17 @@
 backgroundimg="$HOME/.local/share/backgrounds/BoulderFlatIrons.png"
 
 function lockfunc {
-    i3lock -t -i $backgroundimg && sleep 120 && xset s activate
+    if [[ "$1" = -sleep ]]; then
+        i3lock -t -i $backgroundimg && sleep 120 && xset s activate
+    else
+        i3lock -t -i $backgroundimg
+    fi
+    return 0
 }
 
 case "$1" in
     lock)
-        lockfunc
+        lockfunc -sleep
         ;;
     logout)
         i3-msg exit
