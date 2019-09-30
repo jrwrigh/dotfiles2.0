@@ -10,6 +10,7 @@ set formatoptions+=o	" Continue comment marker in new line
 set expandtab           " Insert spaces when <TAB> is pressed
 set tabstop=4           " Set number of spaces inserted when <TAB> is pressed
 set shiftwidth=4        " Indentation amount when using << and >>
+set shiftround          " Makes the shift command move in multiples of shiftwidth
 
 set splitbelow          " Horizontal split below current
 set splitright          " Vetical split to right of current
