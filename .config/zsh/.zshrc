@@ -74,6 +74,10 @@ eval "$(starship init zsh)"
 [ -f "$HOME/.config/aliasrc" ] && source $HOME/.config/aliasrc
 [ -f "$ZSH_CONFIG_DIR/aliases.zsh" ] && source $ZSH_CONFIG_DIR/aliases.zsh
 
+function soft () {
+    eval "`/usr/local/bin/soft-dec sh $1 $2`"
+}
+
 # =============================================================================
 #                                  Startup
 # =============================================================================
