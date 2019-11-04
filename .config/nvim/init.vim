@@ -172,6 +172,9 @@ nnoremap <S-Tab> <C-W>w
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
 
+" Command to toggle line numbers for copying
+:command Copymode set number! rnu!
+
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
 " #######################################################
