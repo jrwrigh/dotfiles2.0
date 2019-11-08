@@ -2,7 +2,7 @@
 " -------------- GENERAL SETTINGS -----------------
 " #######################################################
 set number relativenumber " hybrid relative line numbers
-" set termguicolors     " Done due to MobaXterm not displaying cursor
+set termguicolors     " Done due to MobaXterm not displaying cursor
 " correctly
 
 set showmatch           " Show matching brakets.
