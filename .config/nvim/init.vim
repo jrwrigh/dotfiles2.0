@@ -172,8 +172,16 @@ nnoremap <S-Tab> <C-W>w
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
 
+function! Toggle_SignColumn()
+if &signcolumn == 'yes'
+    let &signcolumn='no'
+else
+    let &signcolumn='yes'
+endif
+endfunction
+
 " Command to toggle line numbers for copying
-:command Copymode set number! rnu!
+:command! Copymode set number! rnu! | call Toggle_SignColumn()
 
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
