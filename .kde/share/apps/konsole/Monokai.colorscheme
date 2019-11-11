@@ -1,21 +1,16 @@
-# --- special colors ---
-
 [Background]
+Color=39,40,34
+
+[BackgroundFaint]
 Color=39,40,34
 
 [BackgroundIntense]
 Color=39,40,34
 
-[Foreground]
-Color=241,235,235
-
-[ForegroundIntense]
-Color=241,235,235
-Bold=true
-
-# --- standard colors ---
-
 [Color0]
+Color=72,72,62
+
+[Color0Faint]
 Color=72,72,62
 
 [Color0Intense]
@@ -24,10 +19,16 @@ Color=118,113,94
 [Color1]
 Color=220,37,102
 
+[Color1Faint]
+Color=220,37,102
+
 [Color1Intense]
 Color=250,39,114
 
 [Color2]
+Color=143,192,41
+
+[Color2Faint]
 Color=143,192,41
 
 [Color2Intense]
@@ -36,10 +37,16 @@ Color=167,226,46
 [Color3]
 Color=212,201,110
 
+[Color3Faint]
+Color=212,201,110
+
 [Color3Intense]
 Color=231,219,117
 
 [Color4]
+Color=85,188,206
+
+[Color4Faint]
 Color=85,188,206
 
 [Color4Intense]
@@ -48,10 +55,16 @@ Color=102,217,238
 [Color5]
 Color=147,88,254
 
+[Color5Faint]
+Color=147,88,254
+
 [Color5Intense]
 Color=174,130,255
 
 [Color6]
+Color=86,183,165
+
+[Color6Faint]
 Color=86,183,165
 
 [Color6Intense]
@@ -60,13 +73,23 @@ Color=102,239,213
 [Color7]
 Color=172,173,161
 
+[Color7Faint]
+Color=172,173,161
+
 [Color7Intense]
 Color=207,208,194
 
-# --- general options ---
+[Foreground]
+Color=241,235,235
+
+[ForegroundFaint]
+Color=241,235,235
+
+[ForegroundIntense]
+Color=241,235,235
 
 [General]
+Blur=false
 Description=Monokai
 Opacity=0.96
 Wallpaper=
-
