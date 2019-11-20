@@ -318,7 +318,7 @@ function! Toggle_SignColumn()
 endfunction
 
 " Command to toggle line numbers for copying
-:command! Copymode set number! rnu! | call Toggle_SignColumn()
+:command! Copymode set number! rnu! | call Toggle_SignColumn() | :IndentLinesToggle
 
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
