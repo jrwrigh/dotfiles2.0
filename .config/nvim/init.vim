@@ -81,6 +81,9 @@ if intellisense_plugin=="ncm2"
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-jedi'
+    
+    " custom key mapping for manual trigger
+    inoremap <C-space> <C-r>=ncm2#force_trigger()<cr>
     " <NCM2/>
 elseif intellisense_plugin=="coc.nvim"
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -264,9 +267,6 @@ let g:quicktex_math = {
             \'bn'   : '\mathbb{N} ',
             \}
 
-" ncm2----------------------------
-" custom key mapping for manual trigger
-inoremap <C-space> <C-r>=ncm2#force_trigger()<cr>
 
 " subversive----------------------------
 " s for substitute
