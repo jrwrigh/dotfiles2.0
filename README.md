@@ -35,3 +35,8 @@ git checkout [local computer branch]
 git rebase master
 ```
 
+## Other Setup Notes
+
+### git alias
+
+`git config --global alias.la "log --all --graph --online --decorate"`
