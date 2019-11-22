@@ -8,7 +8,11 @@ backgroundimg="$HOME/.local/share/backgrounds/BoulderFlatIrons.png"
 
 function lockfunc {
     if [[ "$1" = -sleep ]]; then
-        i3lock -t -i $backgroundimg && sleep 120 && xset s activate
+        i3lock -t -i $backgroundimg &&  xautolock -time 1 -locker 'xset s activate' &
+        while [[ $(pgrep -x i3lock) ]]; do # loop while computer is locked
+            sleep 5
+        done
+        xautolock -exit # stop xautolock when unlocked
     else
         i3lock -t -i $backgroundimg
     fi
