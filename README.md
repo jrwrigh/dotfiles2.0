@@ -39,4 +39,17 @@ git rebase master
 
 ### git alias
 
-`git config --global alias.la "log --all --graph --online --decorate"`
+If no other `[include]` is in the `~/.gitconfig`, then use:
+`git config --global include.path '~/.config/gitconfig.aliases'`
+
+Otherwise simply add `'~/.config/gitconfig.aliases'` to `~/.gitconfig`:
+
+```
+[include]
+    path = {EXISTING PATH}
+    path = ~/.config/gitconfig.aliases
+```
+
+Generally advised to put the includes at the beginning of the `.gitconfig` so
+that directives in that file override the ones in the included file
+
