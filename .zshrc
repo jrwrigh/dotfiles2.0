@@ -53,13 +53,8 @@ zplug load
 # =============================================================================
 #                                   Aliases
 # =============================================================================
-alias la='ls -a'
-alias ll='ls -lh'
-alias lal='ls -alh'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 
+[ -f "$HOME/.config/aliasrc" ] && source $HOME/.config/aliasrc
 
 # =============================================================================
 #                                  Settings
@@ -67,12 +62,6 @@ alias mv='mv -i'
 export VISUAL='nvim'
 export EDITOR="$VISUAL"
 
-# # Set editor preference to nvim if available.
-# if (( $+commands[nvim] )); then
-# 	alias vim='() { $(whence -p nvim) $@ }'
-# else
-# 	alias vim='() { $(whence -p vim) $@ }'
-# fi
 
 eval `dircolors $HOME/gitRepos/dotfiles2.0/dircolors.monokai`
 # =============================================================================

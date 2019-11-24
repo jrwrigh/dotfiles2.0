@@ -1,0 +1,9 @@
+#!/bin/sh
+
+alias la='ls -a'
+alias ll='ls -lh'
+alias lal='ls -alh'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
