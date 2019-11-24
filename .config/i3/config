@@ -233,6 +233,7 @@ bindsym $mod+9 exec --no-startup-id i3exit_custom lock
 #   Autostart Applications
 ################################
 
+exec --no-startup-id udiskie -Ant
 exec --no-startup-id volumeicon
 exec compton
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

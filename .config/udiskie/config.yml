@@ -1,0 +1,7 @@
+device_config:
+    - mount_path: /var/lib/snap/*
+      ignore: true
+    - mount_path: /snap/*
+      ignore: true
+    - id_type: squashfs
+      ignore: true
