@@ -6,6 +6,8 @@
 # =============================================================================
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Add git 2.12.2 to path
+export PATH=/usr/local/git/2.12.2/bin:$PATH
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}"/ripgrep.config
