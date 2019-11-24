@@ -1,10 +1,10 @@
 #!/bin/bash
 # ---
-# Create symlinks for dotfile
+# SYMLiNk DOTFiles (symlndotf)
 # 
 # This script will create symlinks of the specified file in the same relative location while backing up.
 
-# $DotfileDir/path/to/new_dotfile --> symlink_dotfile.sh
+# $DotfileDir/path/to/new_dotfile --> symlndotf.sh
 # ==> $HomeDir/path/to/old_dotfile --moved--> $BackupDir/path/to/old_dotfile_timestamp
 # ==> $HomeDir/path/to/new_dotfile --symlink--> $DotfileDir/path/to/new_dotfile
 #

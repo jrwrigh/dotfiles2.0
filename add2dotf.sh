@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# ADD 2 DOTFiles (add2dotf)
+# 
+# ---
+# Move file(s) to dotfiles repository, then add a sym link to the new location
+# 
+
+# .dotfile --> add2dotf.sh
+# ==> $HomeDir/path/to/.dotfile --moved--> $DotfileDir/path/to/.dotfile
+# ==> $DotfileDir/path/to/.dotfile --symlink--> $HomeDir/path/to/.dotfile
+#
+# ...where by default:
+# HomeDir=$HOME
+# CurrentDir=$(pwd -P)
+# DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
 
 if [[ $SUDO_USER ]]; then
   echo "Running scripts you find on the internet as root is dangerous. Try again without 'sudo'."
