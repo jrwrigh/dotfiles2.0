@@ -6,6 +6,8 @@
 # =============================================================================
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Add git 2.12.2 to path
+export PATH=/usr/local/git/2.12.2/bin:$PATH
 
 # =============================================================================
 #                                 Functions
