@@ -10,7 +10,7 @@ if [ -f /etc/zshrc ]; then
 fi
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-export ZSH="/home/jrwrigh/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh # Power on the Oh-My-ZSH suite
 
 # Prevent setup `nice(5) failed: operation not permitted` issues
