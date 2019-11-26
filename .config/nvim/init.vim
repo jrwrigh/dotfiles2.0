@@ -324,6 +324,18 @@ endfunction
 " --------------- FILE TYPE OVERRIDES -------------------
 " #######################################################
 
-autocmd FileType c setlocal expandtab tabstop=2 shiftwidth=2
-autocmd FileType fortran setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType c call SetCOptions()
+autocmd FileType fortran call SetFortranOptions()
+
+function SetCOptions()
+    setlocal expandtab
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+endfunction
+
+function SetFortranOptions()
+    setlocal expandtab
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+endfunction
 
