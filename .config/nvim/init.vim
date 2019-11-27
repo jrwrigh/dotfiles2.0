@@ -95,6 +95,7 @@ elseif intellisense_plugin=="coc.nvim"
     Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
     Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
     Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 
     """" DEFAULT CONFIG BELOW """""
     " if hidden is not set, TextEdit might fail.
