@@ -114,6 +114,10 @@ elseif intellisense_plugin=="coc.nvim"
 
     set signcolumn=yes " always show signcolumns
 
+    " Scroll forward and backward (f & b) through floating window
+	nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+	nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
     inoremap <silent><expr> <TAB>
