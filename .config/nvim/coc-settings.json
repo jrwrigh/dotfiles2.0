@@ -1,4 +1,5 @@
 {
+    "python.jediEnabled": false,
     "languageserver": {
         "fortran": {
             "command": "fortls",
