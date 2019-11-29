@@ -94,7 +94,8 @@ elseif intellisense_plugin=="coc.nvim"
     \ 'coc-markdownlint',
     \ 'coc-pairs',
     \ 'coc-sh',
-    \ 'coc-python'
+    \ 'coc-python',
+    \ 'coc-vimlsp'
     \ ]
 
     """" DEFAULT CONFIG BELOW """""
