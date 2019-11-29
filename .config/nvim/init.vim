@@ -86,15 +86,16 @@ if intellisense_plugin=="ncm2"
     " <NCM2/>
 elseif intellisense_plugin=="coc.nvim"
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-    Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'josa42/coc-sh', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-highlight',
+    \ 'coc-lists',
+    \ 'coc-snippets',
+    \ 'coc-markdownlint',
+    \ 'coc-pairs',
+    \ 'coc-sh',
+    \ 'coc-python'
+    \ ]
 
     """" DEFAULT CONFIG BELOW """""
     " if hidden is not set, TextEdit might fail.
