@@ -6,9 +6,11 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
-denysdovhan/spaceship-prompt
+denysdovhan/spaceship-prompt # Theme
 
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/extract
 robbyrussell/oh-my-zsh path:plugins/web-search
 robbyrussell/oh-my-zsh path:plugins/tmux
+
+molovo/tipz # alias tips
