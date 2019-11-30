@@ -1,8 +1,15 @@
 #!/bin/sh
 
-alias la='ls -a'
-alias ll='ls -lh'
-alias lal='ls -alh'
+if [ -x "$(command -v exa)" ]; then
+    alias ls='exa'
+    alias la='exa -a --color=always --group-directories-first'
+    alias ll='exa -l --color=always --group-directories-first'
+    alias lal='exa -al --color=always --group-directories-first'
+else
+    alias la='ls -a'
+    alias ll='ls -lh'
+    alias lal='ls -alh'
+fi
 
 alias rm='rm -i'
 alias cp='cp -i'
