@@ -2,13 +2,17 @@
 # zmodload zsh/zprof # Performance Profiler
 
 # =============================================================================
-#                              Oh-My-Zsh Setup
+#                              Initialization
 # =============================================================================
 
 if [ -f /etc/zshrc ]; then
     . /etc/zshrc
 fi
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# =============================================================================
+#                              Oh-My-Zsh Setup
+# =============================================================================
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh # Power on the Oh-My-ZSH suite
@@ -19,36 +23,18 @@ unsetopt BG_NICE
 # =============================================================================
 #                                   Plugins
 # =============================================================================
-# Check if zplug is installed
 
-[ ! -d ~/.zplug ] && git clone https://github.com/zplug/zplug ~/.zplug
-source ~/.zplug/init.zsh
+# Plugins are listed in ~/.config/zshPluginList
+ANTIBODY_PLUGIN_LOAD_PATH=~/.config/zsh/.antibody_plugin_load.sh
 
-# zplug to update itself on `zplug --update`
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+antibody_bundle_loadfile() {
+        # Create plugin load file
+	antibody bundle < ~/.config/zsh/zshPluginList > $ANTIBODY_PLUGIN_LOAD_PATH
+    source $ANTIBODY_PLUGIN_LOAD_PATH
+}
 
-# Fancy change directory plugin
-zplug "b4b4r07/enhancd", use:init.sh
-
-# zsh-syntax-highlighting must be loaded after executing compinit command
-# and sourcing other plugins
-zplug "zsh-users/zsh-completions" 
-zplug "zsh-users/zsh-autosuggestions" 
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/extract",           from:oh-my-zsh
-zplug "plugins/web-search",        from:oh-my-zsh
-zplug "plugins/tmux",              from:oh-my-zsh
-
-
-##### Theme through Zplug
-# Make sure prompt is able to be generated properly.
-setopt prompt_subst 
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
-
-# load up all the zplug options and commands
-zplug load
+# The load file is then sourced
+[ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
 
 # =============================================================================
 #                                   Aliases
