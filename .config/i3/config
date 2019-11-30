@@ -17,7 +17,7 @@ for_window [class="^.*"] border pixel 3
 default_border pixel 3
 default_floating_border normal
 hide_edge_borders none
-font pango:ShureTechMono Nerd Font Mono 14
+font pango:ShureTechMono Nerd Font Mono NoLiga 14
 
 # change borders
 bindsym $mod+u border none
