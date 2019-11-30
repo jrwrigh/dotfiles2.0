@@ -56,7 +56,6 @@ Plug 'nvie/vim-flake8'
 Plug 'svermeulen/vim-subversive' " adds substitute commmmands to paste over a text object (ie. `siw`)
 Plug 'chrisbra/improvedft' "allows f, t, F, and T to be used over multiple lines
 Plug 'chrisbra/Colorizer' "Highlights hex values in their respective color
-" Plug 'mboughaba/i3config.vim' " adds i3config filetype
 Plug 'Yggdroot/indentLine' " add pipe line stuff
 Plug 'adelarsq/vim-matchit' " for '%' to go between do/endo and if/else/elseif/endif statements
 Plug 'sheerun/vim-polyglot' " lots of language syntax support
