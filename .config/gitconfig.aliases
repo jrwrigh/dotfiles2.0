@@ -10,8 +10,9 @@
 # If your .gitconfig doesn't already have any [include], can use terminal command:
 #
 #   git config --global include.path '~/.config/gitconfig.aliases'
+
 [alias]
-	la = log --oneline --graph --decorate --all
+    la = log --oneline --graph --decorate --all --topo-order
     st = status
     sts = status -s
     cp = cherry-pick
