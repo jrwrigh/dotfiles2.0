@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+clickupDir=$HOME/.local/bin
+
+cd $clickupDir
+clickupAppImage=$(ls | grep -e 'clickup-desktop.*\.AppImage')
+${clickupAppImage}
