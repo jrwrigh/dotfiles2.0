@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-clickupDir=$HOME/.local/bin
+clickupScriptPath=$(which $0)
+clickupDir=$(dirname $clickupScriptPath)
 
 cd $clickupDir
 clickupAppImage=$(ls | grep -e 'clickup-desktop.*\.AppImage')
+
 ${clickupAppImage}
