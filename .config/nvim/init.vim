@@ -241,6 +241,7 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
 
 let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
 
 " NERDTree------------------
 autocmd StdinReadPre * let s:std_in=1
