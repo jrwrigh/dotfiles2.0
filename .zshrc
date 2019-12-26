@@ -29,7 +29,7 @@ ANTIBODY_PLUGIN_LOAD_PATH=~/.config/zsh/.antibody_plugin_load.sh
 
 antibody_bundle_loadfile() {
         # Create plugin load file
-	antibody bundle < ~/.config/zsh/zshPluginList > $ANTIBODY_PLUGIN_LOAD_PATH
+    antibody bundle < ~/.config/zsh/zshPluginList > $ANTIBODY_PLUGIN_LOAD_PATH
     source $ANTIBODY_PLUGIN_LOAD_PATH
 }
 
