@@ -315,6 +315,10 @@ nnoremap <S-Tab> <C-W>w
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
 
+" #######################################################
+" --------------- COMMANDS & FUNCTIONS ------------------
+" #######################################################
+
 function! Toggle_SignColumn()
     if &signcolumn == 'yes'
         let &signcolumn='no'
