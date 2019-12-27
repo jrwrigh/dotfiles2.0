@@ -239,7 +239,7 @@ call plug#end()
 
 colorscheme monokai
 
-" Airline
+" Airline------------------
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
 
@@ -293,10 +293,6 @@ nmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 xmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 nmap <leader>crr <plug>(SubversiveSubstituteWordRangeConfirm)
 
-" commentary---------------------------------
-" Correct commenting on .Xdefaults and .Xresources
-autocmd FileType xdefaults setlocal commentstring=!\ %s
-
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
@@ -340,6 +336,8 @@ endfunction
 
 autocmd FileType c call SetCOptions()
 autocmd FileType fortran call SetFortranOptions()
+autocmd FileType xdefaults call SetXdefaultsOptions()
+
 
 function SetCOptions()
     setlocal expandtab
@@ -354,3 +352,6 @@ function SetFortranOptions()
     setlocal shiftwidth=2
 endfunction
 
+function SetXdefaultsOptions()
+    setlocal commentstring=!\ %s
+endfunction
