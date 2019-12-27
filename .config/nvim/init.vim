@@ -24,7 +24,6 @@ set scrolloff=2         " Forces a minimum number of lines above and below curso
 set cursorline          " Highlights the current line of the cursor
 
 syntax on
-colorscheme monokai
 
 " Make background opacity terminal emulator dependent
 " !! Must be after colorsceme setting
@@ -59,6 +58,7 @@ Plug 'chrisbra/Colorizer' "Highlights hex values in their respective color
 Plug 'Yggdroot/indentLine' " add pipe line stuff
 Plug 'adelarsq/vim-matchit' " for '%' to go between do/endo and if/else/elseif/endif statements
 Plug 'sheerun/vim-polyglot' " lots of language syntax support
+Plug 'crusoexia/vim-monokai' " for monokai color scheme
 
 let intellisense_plugin = "coc.nvim"
 
@@ -235,6 +235,8 @@ call plug#end()
 " #######################################################
 " ------------------ PLUGIN SETTINGS --------------------
 " #######################################################
+
+colorscheme monokai
 
 " Airline
 let g:airline_powerline_fonts=1
