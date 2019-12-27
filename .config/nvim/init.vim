@@ -94,6 +94,7 @@ elseif intellisense_plugin=="coc.nvim"
     \ 'coc-pairs',
     \ 'coc-sh',
     \ 'coc-python',
+    \ 'coc-word',
     \ 'coc-vimlsp'
     \ ]
 

@@ -1,5 +1,9 @@
 {
     "python.jediEnabled": false,
+    "coc.source.word.filetypes": [
+        "text",
+        "markdown"
+    ],
     "languageserver": {
         "fortran": {
             "command": "fortls",
