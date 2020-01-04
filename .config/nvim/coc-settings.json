@@ -1,14 +1,38 @@
 {
-    "python.jediEnabled": false,
     "coc.source.word.filetypes": [
         "text",
         "markdown"
     ],
-    "languageserver": {
-        "fortran": {
-            "command": "fortls",
-            "filetypes": ["fortran"],
-            "rootPatterns": [".fortls", ".git/"]
-        }
-    }
+	"python.jediEnabled": false,
+	"languageserver": {
+		"fortran": {
+			"command": "fortls",
+			"filetypes": [
+				"fortran"
+			],
+			"rootPatterns": [
+				".fortls",
+				".git/"
+			]
+		},
+		"ccls": {
+			"command": "ccls",
+			"filetypes": [
+				"c",
+				"cpp",
+				"cuda",
+				"objc",
+				"objcpp"
+			],
+			"rootPatterns": [
+				".ccls-root",
+				"compile_commands.json"
+			],
+			"initializationOptions": {
+				"cache": {
+					"directory": ".ccls-cache"
+				}
+			}
+		}
+	}
 }
