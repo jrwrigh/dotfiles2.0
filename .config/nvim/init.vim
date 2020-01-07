@@ -337,6 +337,7 @@ endfunction
 autocmd FileType c call SetCOptions()
 autocmd FileType fortran call SetFortranOptions()
 autocmd FileType xdefaults call SetXdefaultsOptions()
+autocmd FileType text,markdown setlocal spell
 
 
 function SetCOptions()
