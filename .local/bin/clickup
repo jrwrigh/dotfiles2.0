@@ -6,4 +6,4 @@ clickupDir=$(dirname $clickupScriptPath)
 cd $clickupDir
 clickupAppImage=$(ls | grep -e 'clickup-desktop.*\.AppImage')
 
-${clickupAppImage}
+${clickupAppImage} &
