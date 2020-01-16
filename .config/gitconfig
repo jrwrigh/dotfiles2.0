@@ -1,15 +1,23 @@
-# vim: set ft=gitconfig :
-# For adding git aliases to the .gitconfig file via a [include] directive
+# For adding git config settings without overwriting native settings
 #
 # ie. ~/.gitconfig:
 # ...
 # [include]
-#     path = ~/.config/gitconfig.aliases
+#     path = ~/.config/gitconfig
 # EOF
 #
 # If your .gitconfig doesn't already have any [include], can use terminal command:
 #
-#   git config --global include.path '~/.config/gitconfig.aliases'
+#   git config --global include.path '~/.config/gitconfig'
+
+[include]
+    path = ~/.config/gitconfig.aliases
+[merge]
+	conflictStyle = diff3
+[commit]
+    verbose = true
+[user]
+	email = jameswright@jameswright.xyz
 
 [alias]
     la = log --oneline --graph --decorate --all --topo-order
