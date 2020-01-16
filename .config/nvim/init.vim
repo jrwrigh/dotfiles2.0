@@ -59,6 +59,7 @@ Plug 'Yggdroot/indentLine' " add pipe line stuff
 Plug 'adelarsq/vim-matchit' " for '%' to go between do/endo and if/else/elseif/endif statements
 Plug 'sheerun/vim-polyglot' " lots of language syntax support
 Plug 'crusoexia/vim-monokai' " for monokai color scheme
+Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 
 let intellisense_plugin = "coc.nvim"
 
