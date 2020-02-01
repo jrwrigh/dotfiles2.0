@@ -7,6 +7,7 @@
 	"languageserver": {
 		"fortran": {
 			"command": "fortls",
+            "args":["--use_signature_help"],
 			"filetypes": [
 				"fortran"
 			],
