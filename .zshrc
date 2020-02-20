@@ -36,9 +36,14 @@ antibody_bundle_loadfile() {
 # The load file is then sourced
 [ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
 
+
 # =============================================================================
-#                                   Aliases
+#                                   fzf Setup
 # =============================================================================
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && \
+    source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
 
 [ -f "$HOME/.config/aliasrc" ] && source $HOME/.config/aliasrc
 
@@ -76,3 +81,4 @@ bindkey '^Z' fancy-ctrl-z
 
 # Performance Profiler
 # zprof
+
