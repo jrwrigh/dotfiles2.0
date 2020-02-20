@@ -37,6 +37,13 @@ antibody_bundle_loadfile() {
 [ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
 
 # =============================================================================
+#                                   fzf Setup
+# =============================================================================
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && \
+    source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
+
+# =============================================================================
 #                                  Settings
 # =============================================================================
 export VISUAL='nvim'
