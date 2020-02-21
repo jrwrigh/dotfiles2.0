@@ -111,10 +111,6 @@ class odrivesync(Command):
         import shlex
         from functools import partial
 
-        if not os.access(r'odrive', os.X_OK):
-            self.fm.notify('odrive executable not available.')
-            return
-
         def is_directory_with_files(path):
             return os.path.isdir(path) and not os.path.islink(path) and len(os.listdir(path)) > 0
 
