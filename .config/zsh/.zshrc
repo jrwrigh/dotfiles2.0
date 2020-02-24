@@ -73,6 +73,8 @@ eval "$(starship init zsh)"
 #                                  Startup
 # =============================================================================
 
+export QSTAT_HEADER='Score:JobID:User:WallTime:QueuedTime:RunTime:TimeRemaining:Nodes:State:Mode:Procs:Preemptable:Queue:StartTime:Index:Project'
+
 
 # Performance Profiler
 # zprof
