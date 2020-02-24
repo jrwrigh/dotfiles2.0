@@ -2,6 +2,14 @@
 
 Need to update documentation. Notice the helper scripts `add2dotf.sh` and `symlndotf.sh`.
 
+There are a few "master-esque" branches. The first is obviously `master`. This
+holds common items for the other two "master-esque" branches. The other two are
+`desktop` and `server`. `desktop` is all configurations related to computers
+that I use the desktop on and have more liberal control over. `server` is for
+configurations on machines I don't have control over and generally only access
+via ssh. The primary goal of this is to have `server` contain as minimal a
+dependency list as possible.
+
 ### Made a commit on a local computer branch, but it should also go in master:
 
 First, find the commit hash that you want to move. Let's say it's `abcd123`.
