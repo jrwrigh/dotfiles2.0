@@ -61,3 +61,14 @@ Otherwise simply add `'~/.config/gitconfig.aliases'` to `~/.gitconfig`:
 Generally advised to put the includes at the beginning of the `.gitconfig` so
 that directives in that file override the ones in the included file
 
+
+## List of common packages I use (and should remember)
+
+| Utility Type | Program Name |
+|--------------|--------------|
+| Screen Shots | Spectacle    |
+| GIF Screen Recorder | peek  |
+| PDF          | Master PDF Editor 4 |
+| GUI File Manager | pcmanfm  |
+| VNC Client   | tigervnc     |
+
