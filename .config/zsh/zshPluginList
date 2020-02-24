@@ -1,10 +1,13 @@
 # List of Plugins loaded by antibody
-
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 
+denysdovhan/spaceship-prompt # Theme
+
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/extract
+robbyrussell/oh-my-zsh path:plugins/web-search
 robbyrussell/oh-my-zsh path:plugins/tmux
 
 molovo/tipz # alias tips
+zpm-zsh/colorize # to colorize programs, requires grc to be installed
