@@ -44,6 +44,7 @@ eval "$(starship init zsh)"
 export VISUAL='nvim'
 export EDITOR="$VISUAL"
 export MYDOTFILES="${HOME}/gitRepos/dotfiles2.0"
+export QSTAT_HEADER='Score:JobID:User:WallTime:QueuedTime:RunTime:TimeRemaining:Nodes:State:Mode:Procs:Preemptable:Queue:StartTime:Index:Project'
 
 
 eval $(dircolors ${MYDOTFILES}/dircolors.monokai)
