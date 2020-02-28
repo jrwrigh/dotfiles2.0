@@ -92,9 +92,6 @@ call plug#end()
 
 colorscheme monokai
 
-" Must be set after plugins to override
-set conceallevel=0      " Doesn't allow characters to be hidden
-
 " Airline------------------
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
@@ -194,6 +191,7 @@ autocmd FileType c call SetCOptions()
 autocmd FileType fortran call SetFortranOptions()
 autocmd FileType xdefaults call SetXdefaultsOptions()
 autocmd FileType text,markdown setlocal spell
+autocmd FileType markdown call SetMarkdownOptions()
 
 
 function SetCOptions()
@@ -212,4 +210,8 @@ endfunction
 
 function SetXdefaultsOptions()
     setlocal commentstring=!\ %s
+endfunction
+
+function SetMarkdownOptions()
+    let b:indentLine_enabled = 0
 endfunction
