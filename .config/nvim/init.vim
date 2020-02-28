@@ -92,6 +92,9 @@ call plug#end()
 
 colorscheme monokai
 
+" Must be set after plugins to override
+set conceallevel=0      " Doesn't allow characters to be hidden
+
 " Airline------------------
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
