@@ -60,6 +60,8 @@ Plug 'adelarsq/vim-matchit' " for '%' to go between do/endo and if/else/elseif/e
 Plug 'sheerun/vim-polyglot' " lots of language syntax support
 Plug 'crusoexia/vim-monokai' " for monokai color scheme
 Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
+Plug 'junegunn/gv.vim' " For browsing git commit history (requires fugitive)
+Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 
 let intellisense_plugin = "ncm2"
 
