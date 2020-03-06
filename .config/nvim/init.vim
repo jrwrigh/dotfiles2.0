@@ -61,7 +61,7 @@ Plug 'sheerun/vim-polyglot' " lots of language syntax support
 Plug 'crusoexia/vim-monokai' " for monokai color scheme
 Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 
-let intellisense_plugin = "coc.nvim"
+let intellisense_plugin = "ncm2"
 
 if intellisense_plugin=="ncm2"
     Plug 'ncm2/ncm2'
