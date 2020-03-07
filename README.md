@@ -71,4 +71,5 @@ that directives in that file override the ones in the included file
 | PDF          | Master PDF Editor 4 |
 | GUI File Manager | pcmanfm  |
 | VNC Client   | tigervnc     |
+| G600 Mouse driver | piper |
 
