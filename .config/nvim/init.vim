@@ -31,7 +31,7 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Create docstring 
 Plug '~/.local/src/fzf'
 Plug 'junegunn/fzf.vim'
 
-let intellisense_plugin = "none"
+let intellisense_plugin = "coc.nvim"
 
 "" NCM2 Settings
 if intellisense_plugin=="ncm2"
