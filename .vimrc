@@ -98,4 +98,14 @@ if empty(mapcheck('<C-W>', 'i'))
   inoremap <C-W> <C-G>u<C-W>
 endif
 
+" ------------------------------------------------
+" ------------- CUSTOM SETTINGS -----------------
+" ------------------------------------------------
+
+set number
+set relativenumber
+colorscheme peachpuff
+
+
+
 " vim:set ft=vim et sw=2:
