@@ -53,6 +53,7 @@ antibody_bundle_loadfile() {
 compinit
 
 eval "$(starship init zsh)"
+export LANG=en_US.UTF-8
 
 # =============================================================================
 #                                   fzf Setup
