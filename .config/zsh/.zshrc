@@ -51,6 +51,7 @@ antibody_bundle_loadfile() {
 [ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
 
 eval "$(starship init zsh)"
+export LANG=en_US.UTF-8
 
 # =============================================================================
 #                                   fzf Setup
