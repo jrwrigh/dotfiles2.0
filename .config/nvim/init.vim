@@ -162,9 +162,11 @@ nnoremap th :tabprev<CR>
 nnoremap tj :tabfirst<CR>
 nnoremap tk :tablast<CR>
 
-" Remap for Tab to window switch
-nnoremap <Tab> <C-W>W
-nnoremap <S-Tab> <C-W>w
+" Navigate splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
