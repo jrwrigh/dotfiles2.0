@@ -90,6 +90,10 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight LineNr ctermbg=none
 
+set list
+set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
+set showbreak=↳\
+
 " #######################################################
 " ------------------ PLUGIN SETTINGS --------------------
 " #######################################################
