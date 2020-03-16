@@ -30,7 +30,7 @@ Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 Plug 'junegunn/gv.vim' " For browsing git commit history (requires fugitive)
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 
-let intellisense_plugin = "ncm2"
+let intellisense_plugin = "none"
 
 if intellisense_plugin=="ncm2"
     Plug 'ncm2/ncm2'
