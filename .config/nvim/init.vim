@@ -1,37 +1,4 @@
 " #######################################################
-" -------------- GENERAL SETTINGS -----------------
-" #######################################################
-set number relativenumber " hybrid relative line numbers
-set termguicolors     " Done due to MobaXterm not displaying cursor
-" correctly
-
-set showmatch           " Show matching brakets.
-set formatoptions+=o	" Continue comment marker in new line
-set expandtab           " Insert spaces when <TAB> is pressed
-set tabstop=4           " Set number of spaces inserted when <TAB> is pressed
-set shiftwidth=4        " Indentation amount when using << and >>
-set shiftround          " Makes the shift command move in multiples of shiftwidth
-
-set splitbelow          " Horizontal split below current
-set splitright          " Vetical split to right of current
-
-set ignorecase          " Make searching case insensitive...
-set smartcase           " ... unless the query has a capital letter in it
-" set gdefault            " Use 'g' flag by default for :s/foo/bar/
-
-set scrolloff=2         " Forces a minimum number of lines above and below cursor
-
-set cursorline          " Highlights the current line of the cursor
-
-syntax on
-
-" Make background opacity terminal emulator dependent
-" !! Must be after colorsceme setting
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-
-" #######################################################
 " ---------------------- PLUGINS ------------------------
 " #######################################################
 call plug#begin('~/.local/share/nvim/plugged')
@@ -81,7 +48,7 @@ if intellisense_plugin=="ncm2"
     Plug 'ncm2/ncm2-tmux'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-jedi'
-    
+
     " custom key mapping for manual trigger
     inoremap <C-space> <C-r>=ncm2#force_trigger()<cr>
 endif
@@ -89,10 +56,43 @@ endif
 call plug#end()
 
 " #######################################################
-" ------------------ PLUGIN SETTINGS --------------------
+" ----------------- GENERAL SETTINGS --------------------
 " #######################################################
+set number relativenumber " hybrid relative line numbers
+set termguicolors     " Done due to MobaXterm not displaying cursor
+" correctly
+
+set showmatch           " Show matching brakets.
+set formatoptions+=o    " Continue comment marker in new line
+set expandtab           " Insert spaces when <TAB> is pressed
+set tabstop=4           " Set number of spaces inserted when <TAB> is pressed
+set shiftwidth=4        " Indentation amount when using << and >>
+set shiftround          " Makes the shift command move in multiples of shiftwidth
+
+set splitbelow          " Horizontal split below current
+set splitright          " Vetical split to right of current
+
+set ignorecase          " Make searching case insensitive...
+set smartcase           " ... unless the query has a capital letter in it
+" set gdefault            " Use 'g' flag by default for :s/foo/bar/
+
+set scrolloff=2         " Forces a minimum number of lines above and below cursor
+
+set cursorline          " Highlights the current line of the cursor
+
+syntax on
 
 colorscheme monokai
+
+" Make background opacity terminal emulator dependent
+" !! Must be after colorsceme setting
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+
+" #######################################################
+" ------------------ PLUGIN SETTINGS --------------------
+" #######################################################
 
 " Airline------------------
 let g:airline_powerline_fonts=1
