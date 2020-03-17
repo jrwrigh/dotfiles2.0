@@ -98,6 +98,17 @@ set showbreak=↳\
 " ------------------ PLUGIN SETTINGS --------------------
 " #######################################################
 
+" Coc.Nvim-----------------
+hi CocUnderline gui=undercurl term=undercurl cterm=undercurl
+hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl cterm=undercurl
+hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl cterm=undercurl
+
+" Spell--------------------
+hi SpellBad     gui=undercurl guisp=red term=undercurl cterm=undercurl
+hi SpellCap     gui=undercurl guisp=purple term=undercurl cterm=undercurl
+hi SpellLocal   gui=undercurl term=undercurl cterm=undercurl
+hi SpellRare    gui=undercurl term=undercurl cterm=undercurl
+
 " Airline------------------
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
