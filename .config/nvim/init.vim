@@ -190,6 +190,7 @@ endfunction
 " Command to toggle line numbers for copying
 :command! Copymode set number! rnu! | call Toggle_SignColumn() | :IndentLinesToggle
 :command! Chars :w !wc -m
+:command! Erc :e $MYVIMRC
 
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
