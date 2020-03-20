@@ -14,7 +14,7 @@
 # CurrentDir=$(pwd -P)
 # DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
 
-
+set -e # Stop script on any error
 
 if [[ $SUDO_USER ]]; then
   echo "Running scripts you find on the internet as root is dangerous. Try again without 'sudo'."
@@ -35,12 +35,12 @@ backup_dotfile() {
     filepath=$(realpath --relative-to=$DotfileDir $1)
     filedirpath=$(dirname $filepath)
     if [[ -e "$HomeDir/$filepath" ]]; then
-        echo "$filepath already exists. Backing up to $BackupDir"
+        echo "    $filepath already exists. Backing up to $BackupDir"
         mkdir -p $BackupDir/$filedirpath
         datesuffix=$(date '+%Y%m%d%H%M%S')
             # Copy the file while removing symlinks if present
         cp -L $HomeDir/$filepath $BackupDir/${filepath}_$datesuffix && rm $HomeDir/$filepath
-        echo "$(basename filepath) backed up to $BackupDir/${filepath}_$datesuffix"
+        echo "    $(basename filepath) backed up to $BackupDir/${filepath}_$datesuffix"
     fi
 }
 
