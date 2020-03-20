@@ -32,7 +32,7 @@ backup_dotfile() {
       mkdir $BackupDir
     fi
 
-    filepath=$(realpath --relative-to=$DotfileDir $1)
+    filepath=$(realpath -s --relative-to=$DotfileDir $1)
     filedirpath=$(dirname $filepath)
     if [[ -e "$HomeDir/$filepath" ]]; then
         echo "    $filepath already exists. Backing up to $BackupDir"
@@ -40,16 +40,19 @@ backup_dotfile() {
         datesuffix=$(date '+%Y%m%d%H%M%S')
             # Copy the file while removing symlinks if present
         cp -L $HomeDir/$filepath $BackupDir/${filepath}_$datesuffix && rm $HomeDir/$filepath
-        echo "    $(basename filepath) backed up to $BackupDir/${filepath}_$datesuffix"
+        echo "    $(basename $filepath) backed up to $BackupDir/${filepath}_$datesuffix"
     fi
 }
 
 symlink_dotfile() {
-    filepath=$(realpath --relative-to=$DotfileDir $1)
+    filepath=$(realpath -s --relative-to=$DotfileDir $1)
     filedirpath=$(dirname $filepath)
     filename=$(basename $filepath)
 
-    mkdir -p $HomeDir/$filedirpath && ln -s $DotfileDir/$filepath $HomeDir/$filepath
+        # Get actual file path (if symlink, otherwise it's the same)
+    filepath_expanded=$(realpath --relative-to=$DotfileDir $1)
+
+    mkdir -p $HomeDir/$filedirpath && ln -s $DotfileDir/$filepath_expanded $HomeDir/$filepath
 }
 
 for dotfilepath in $@;
