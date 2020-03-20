@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ---
 # SYMLiNk DOTFiles (symlndotf)
 # 
@@ -55,7 +55,19 @@ symlink_dotfile() {
     mkdir -p $HomeDir/$filedirpath && ln -s $DotfileDir/$filepath_expanded $HomeDir/$filepath
 }
 
-for dotfilepath in $@;
+declare -a dotfilepaths
+
+# Loop to:
+#   A) Expand directories into individual files in them
+#   B) Only allow regular files and symlinks to be passed through
+for input in $@;
+do
+    [ -d $input ] && dotfilepaths+=($(find $input -type f))
+    [ -f $input ] && dotfilepaths+=($input)
+    [ -L $input ] && dotfilepaths+=($input)
+done
+
+for dotfilepath in "${dotfilepaths[@]}";
 do
     echo WORKING ON $dotfilepath '............'
     backup_dotfile $dotfilepath
