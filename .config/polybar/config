@@ -119,7 +119,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "ShureTechMono Nerd Font:size=11;2"
+font-0 = "ShureTechMono Nerd Font NoLiga:size=11;2"
 
 modules-left = i3 xwindow
 modules-center = 
