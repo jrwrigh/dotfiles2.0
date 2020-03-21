@@ -10,32 +10,30 @@ configurations on machines I don't have control over and generally only access
 via ssh. The primary goal of this is to have `server` contain as minimal a
 dependency list as possible.
 
-### Made a commit on a local computer branch, but it should also go in master:
+## Made a commit on a local computer branch, but it should also go in master
 
 First, find the commit hash that you want to move. Let's say it's `abcd123`.
 
-```
+```sh
 git checkout master
 git pull
 git cherry-pick abcd123
 git checkout [local computer branch]
 git rebase master
 ```
-If the transfer was successful, you can go back into `master` and push the result to the remote.
 
-Note that when pushing the resulting branch to remote, this must be done with a `--force` because reasons.
+If the transfer was successful, you can go back into `master` and push the
+result to the remote.
 
+Note that when pushing the resulting branch to remote, this must be done with a
+`--force` because this is changing the history. **`master` cannot be force pushed**
 
+### Update my local computer branch with latest master branch
 
+If something goes wrong, simply `git reset --hard ORIG_HEAD` will get you back
+to the branches original state.
 
-### Update my local computer branch with latest master branch:
-
-Probably a good idea to make a tag of the current status of the branch via `git tag [tagname,likeBACKUP]`.
-This way if things go wrong you can simply (theoretically) do a `git reset --hard [tagname]` to undo.
-
-This is possibly already done via a `ORIG_HEAD` tag when a rebase is performed, but I could be wrong.
-
-```
+```sh
 git checkout master
 git pull
 git push
@@ -45,6 +43,8 @@ git rebase master
 
 ## Other Setup Notes
 
+See `SETUP.md` for more detailed notes on setting up a system.
+
 ### git alias
 
 If no other `[include]` is in the `~/.gitconfig`, then use:
@@ -52,12 +52,23 @@ If no other `[include]` is in the `~/.gitconfig`, then use:
 
 Otherwise simply add `'~/.config/gitconfig.aliases'` to `~/.gitconfig`:
 
-```
+```gitconfig
 [include]
     path = {EXISTING PATH}
     path = ~/.config/gitconfig.aliases
 ```
 
 Generally advised to put the includes at the beginning of the `.gitconfig` so
-that directives in that file override the ones in the included file
+that directives in that the local file overrides these "default" settings.
 
+## List of common packages I use (and should remember)
+
+| Utility Type | Program Name |
+|--------------|--------------|
+| Screen Shots | Spectacle, flameshot  |
+| GIF Screen Recorder | peek  |
+| PDF          | Master PDF Editor 4 |
+| GUI File Manager | pcmanfm  |
+| VNC Client   | tigervnc     |
+| G600 Mouse driver | piper |
+| Emoji Font for Web | noto-fonts-emoji |
