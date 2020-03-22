@@ -24,7 +24,7 @@ unsetopt BG_NICE
 #                                   Plugins
 # =============================================================================
 
-# Plugins are listed in ~/.config/zshPluginList
+# Plugins are listed in ~/.config/zsh/zshPluginList
 ANTIBODY_PLUGIN_LOAD_PATH=~/.config/zsh/.antibody_plugin_load.sh
 
 antibody_bundle_loadfile() {
