@@ -198,10 +198,18 @@ function! Toggle_SignColumn()
     endif
 endfunction
 
+function RemoveDiffHighlights()
+    :highlight clear DiffAdd
+    :highlight clear DiffDelete
+    :highlight clear DiffChange
+    :highlight clear DiffText
+endfunction
+
 " Command to toggle line numbers for copying
 :command! Copymode set number! rnu! | call Toggle_SignColumn() | :IndentLinesToggle
 :command! Chars :w !wc -m
 :command! Erc :e $MYVIMRC
+:command! RemoveDiffHi call RemoveDiffHighlights()
 
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
