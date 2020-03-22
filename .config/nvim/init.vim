@@ -89,6 +89,8 @@ set list
 set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
 set showbreak=↳\
 
+set diffopt+=algorithm:minimal
+
 " #######################################################
 " ------------------ PLUGIN SETTINGS --------------------
 " #######################################################
