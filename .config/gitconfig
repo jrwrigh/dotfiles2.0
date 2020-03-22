@@ -17,7 +17,11 @@
 [commit]
     verbose = true
 [user]
-	email = jameswright@jameswright.xyz
+	email = james@jameswright.xyz
+
+[diff]
+    mnemonicPrefix = true
+    algorithm = minimal
 
 [alias]
     la = log --oneline --graph --decorate --all --topo-order
