@@ -14,5 +14,9 @@ fi
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias lzg='lazygit'
+
 alias dotf=${MYDOTFILES}
+
+alias lzg='lazygit'
+alias fugi='nvim +G' # Open nvim with vim-fugitive
+alias flg='nvim +Flog' # Open nvim with Flog
