@@ -118,7 +118,6 @@ let g:airline#extensions#branch#displayed_head_limit = 10
 
 " NERDTree------------------
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " ctrlp-----------------------
 let g:ctrlp_map = '<c-p>'
