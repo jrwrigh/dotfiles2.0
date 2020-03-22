@@ -194,7 +194,7 @@ function! Toggle_SignColumn()
     endif
 endfunction
 
-function RemoveDiffHighlights()
+function! RemoveDiffHighlights()
     :highlight clear DiffAdd
     :highlight clear DiffDelete
     :highlight clear DiffChange
@@ -218,24 +218,24 @@ autocmd FileType text,markdown setlocal spell
 autocmd FileType markdown call SetMarkdownOptions()
 
 
-function SetCOptions()
+function! SetCOptions()
     setlocal expandtab
     setlocal tabstop=2
     setlocal shiftwidth=2
     setlocal commentstring=//\ %s
 endfunction
 
-function SetFortranOptions()
+function! SetFortranOptions()
     setlocal expandtab
     setlocal tabstop=2
     setlocal shiftwidth=2
     :syn clear fortranSerialNumber
 endfunction
 
-function SetXdefaultsOptions()
+function! SetXdefaultsOptions()
     setlocal commentstring=!\ %s
 endfunction
 
-function SetMarkdownOptions()
+function! SetMarkdownOptions()
     let b:indentLine_enabled = 0
 endfunction
