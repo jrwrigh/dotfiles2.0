@@ -29,6 +29,7 @@ Plug 'crusoexia/vim-monokai' " for monokai color scheme
 Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 Plug 'junegunn/gv.vim' " For browsing git commit history (requires fugitive)
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
+Plug 'rbong/vim-flog' " for browsing git log branches
 
 let intellisense_plugin = "none"
 
