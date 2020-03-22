@@ -6,6 +6,10 @@
 #   System Display Settings
 ################################
 
+# Make large monitor primary
+exec --no-startup-id xrandr --output DP-1-4 --auto --primary --output eDP1 --right-of DP-1-4
+workspace 1 output DP-1-4
+
 ################################
 #   Basic Settings
 ################################
