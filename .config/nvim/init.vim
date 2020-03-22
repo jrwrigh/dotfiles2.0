@@ -14,10 +14,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'brennier/quicktex'
-Plug 'lervag/vim-foam'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
 Plug 'nvie/vim-flake8'
 Plug 'svermeulen/vim-subversive' " adds substitute commmmands to paste over a text object (ie. `siw`)
 Plug 'chrisbra/improvedft' "allows f, t, F, and T to be used over multiple lines
@@ -25,9 +21,7 @@ Plug 'chrisbra/Colorizer' "Highlights hex values in their respective color
 Plug 'Yggdroot/indentLine' " add pipe line stuff
 Plug 'adelarsq/vim-matchit' " for '%' to go between do/endo and if/else/elseif/endif statements
 Plug 'sheerun/vim-polyglot' " lots of language syntax support
-Plug 'crusoexia/vim-monokai' " for monokai color scheme
 Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
-Plug 'junegunn/gv.vim' " For browsing git commit history (requires fugitive)
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 Plug 'rbong/vim-flog' " for browsing git log branches
 
