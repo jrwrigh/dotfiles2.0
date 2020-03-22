@@ -15,3 +15,4 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias lzg='lazygit'
+alias dotf=${MYDOTFILES}

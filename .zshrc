@@ -47,9 +47,10 @@ antibody_bundle_loadfile() {
 # =============================================================================
 export VISUAL='nvim'
 export EDITOR="$VISUAL"
+export MYDOTFILES="${HOME}/gitRepos/dotfiles2.0"
 
 
-eval `dircolors $HOME/gitRepos/dotfiles2.0/dircolors.monokai`
+eval $(dircolors ${MYDOTFILES}/dircolors.monokai)
 
 # =============================================================================
 #                                 Functions
