@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+killall -q odriveagent
+
 nohup "$HOME/.odrive-agent/bin/odriveagent" > /dev/null 2>&1 &
 
 
