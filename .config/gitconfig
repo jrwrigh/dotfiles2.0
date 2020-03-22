@@ -23,6 +23,13 @@
     mnemonicPrefix = true
     algorithm = minimal
 
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+    prompt = false
+
+[merge]
+    tool = nvim
+
 [alias]
     la = log --oneline --graph --decorate --all --topo-order
     st = status
