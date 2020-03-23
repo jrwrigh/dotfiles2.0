@@ -27,6 +27,7 @@ Plug 'rbong/vim-flog' " for browsing git log branches
 
 let intellisense_plugin = "none"
 
+"" NCM2 Settings
 if intellisense_plugin=="ncm2"
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
@@ -95,35 +96,35 @@ set diffopt+=algorithm:minimal
 " ------------------ PLUGIN SETTINGS --------------------
 " #######################################################
 
-" Coc.Nvim-----------------
+"" Coc.Nvim-----------------
 hi CocUnderline gui=undercurl term=undercurl cterm=undercurl
 hi CocErrorHighlight ctermfg=red  guifg=#c4384b gui=undercurl term=undercurl cterm=undercurl
 hi CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=undercurl term=undercurl cterm=undercurl
 
-" Spell--------------------
+"" Spell--------------------
 hi SpellBad     gui=undercurl guisp=red term=undercurl cterm=undercurl
 hi SpellCap     gui=undercurl guisp=purple term=undercurl cterm=undercurl
 hi SpellLocal   gui=undercurl term=undercurl cterm=undercurl
 hi SpellRare    gui=undercurl term=undercurl cterm=undercurl
 
-" Airline------------------
+"" Airline------------------
 let g:airline_powerline_fonts=1
 let g:airline_theme='molokai'
 
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 
-" NERDTree------------------
+"" NERDTree------------------
 autocmd StdinReadPre * let s:std_in=1
 
-" ctrlp-----------------------
+"" ctrlp-----------------------
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_show_hidden = 1
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " Ignore source control folders
 
-" QuickTeX---------------------
+"" QuickTeX---------------------
 let g:quicktex_tex = {
             \' '   : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
             \'m'   : '\( <+++> \) <++>',
@@ -143,7 +144,7 @@ let g:quicktex_math = {
             \}
 
 
-" subversive----------------------------
+"" subversive----------------------------
 " s for substitute
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
@@ -217,6 +218,8 @@ autocmd FileType xdefaults call SetXdefaultsOptions()
 autocmd FileType text,markdown setlocal spell
 autocmd FileType markdown call SetMarkdownOptions()
 
+source ~/.config/nvim/i3config_folding.vim
+source ~/.config/nvim/vim_folding.vim
 
 function! SetCOptions()
     setlocal expandtab
