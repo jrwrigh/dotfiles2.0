@@ -82,9 +82,9 @@ colorscheme monokai
 
 " Make background opacity terminal emulator dependent
 " !! Must be after colorsceme setting
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
+highlight Normal ctermbg=none guibg=none
+highlight NonText ctermbg=none guibg=none
+highlight LineNr ctermbg=none guibg=none
 
 set list
 set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
