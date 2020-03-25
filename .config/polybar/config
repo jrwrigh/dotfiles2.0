@@ -44,35 +44,40 @@ format-padding =
 format-margin =
 format-offset =
 
+[monokai]
+; as based on terminal.sexy collection->monokai
+bg = #272822
+fg = #f1ebeb
+
+ngrey    = #48483e
+npink    = #dc2566
+ngreen   = #8fc029
+ntan     = #d4c96e
+nblue    = #55bcce
+npurple  = #9358fe
+nteal    = #56b7a5
+nwhite   = #acada1
+
+agrey    = #76715e
+apink    = #fa2772
+agreen   = #a7e22e
+atan     = #e7db75
+ablue    = #66d9ee
+apurple  = #ae82ff
+ateal    = #66efd5
+awhite   = #cfd0c2
+
+lpink    = #dc447a
+
 [colors]
 ; Nord theme ============
-background = #292d3e
-foreground = #c0c5ce
+background = ${monokai.bg}
+foreground = ${monokai.fg}
 alert = #bd2c40
 volume-min = #a3be8c
 volume-med = #ebcb8b
 volume-max = #bf616a
 ; =======================
-
-; Gotham theme ==========
-; background = #0a0f14
-; foreground = #99d1ce
-; alert = #d26937
-; volume-min = #2aa889
-; volume-med = #edb443
-; volume-max = #c23127
-; =======================
-
-; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
 
 ################################################################################
 ################################################################################
@@ -238,8 +243,8 @@ format = <label-state> <label-mode>
 
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-foreground = #000000
-label-mode-background = #FFBB00
+label-mode-foreground = ${monokai.bg}
+label-mode-background = ${monokai.ateal}
 
 ; Available tokens:
 ;   %name%
@@ -251,7 +256,7 @@ label-mode-background = #FFBB00
 label-focused = %icon% %name%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline = #AD69AF
+label-focused-underline = ${monokai.agreen}
 label-focused-padding = 2
 
 ; Available tokens:
@@ -280,7 +285,7 @@ label-visible-padding = 2
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
-label-urgent-foreground = #db104e
+label-urgent-foreground = ${monokai.apink}
 label-urgent-padding = 2
 
 format-foreground = ${colors.foreground}
@@ -306,16 +311,16 @@ format-background = ${colors.background}
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #82AAFF
-content-background = #292d3e
+content-foreground = ${monokai.nblue}
+content-background = ${monokai.bg}
 
 [module/arrow2]
 ; grey to Blue
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #C792EA
-content-background = #82AAFF
+content-foreground = ${monokai.ngreen}
+content-background = ${monokai.nblue}
 
 ; [module/arrow4]
 ; ; grey to Blue
@@ -338,8 +343,8 @@ content-background = #82AAFF
 type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
-content-foreground = #C3E88D
-content-background = #C792EA
+content-foreground = ${monokai.lpink}
+content-background = ${monokai.ngreen}
 
 [module/arrow4]
 ; grey to Blue
@@ -347,7 +352,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = ${colors.background}
-content-background = #C3E88D
+content-background = ${monokai.lpink}
 
 
 ################################################################################
@@ -438,20 +443,20 @@ full-at = 100
 format-charging = <label-charging>
 label-charging = %percentage:3%%
 format-charging-foreground = ${colors.background}
-format-charging-background = #C3E88D
+format-charging-background = ${monokai.lpink}
 format-charging-underline = 
 
 format-discharging = <label-discharging>
 label-discharging = %percentage:3%%
 format-discharging-underline =
 format-discharging-foreground = ${colors.background}
-format-discharging-background = #C3E88D
+format-discharging-background = ${monokai.lpink}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.background}
 format-full-underline = 
 format-foreground = ${colors.background}
-format-background = #C3E88D
+format-background = ${monokai.lpink}
 
 ################################################################################
 
@@ -517,7 +522,7 @@ type = internal/cpu
 ; Default: 1
 interval = 1
 format-foreground = ${colors.background}
-format-background = #C792EA
+format-background = ${monokai.ngreen}
 format-prefix = " "
 format-prefix-foreground = ${colors.background}
 
@@ -698,9 +703,9 @@ label = %percentage_used%%
 
 format = Mem <label>
 format-prefix = " "
-format-prefix-foreground = #292d3e
-format-foreground = #292d3e
-format-background = #82AAFF
+format-prefix-foreground = ${monokai.bg}
+format-foreground = ${monokai.bg}
+format-background = ${monokai.nblue}
 
 [module/networkspeedup]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
