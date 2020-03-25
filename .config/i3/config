@@ -124,11 +124,6 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 #   Workspace Settings/Bindings
 ################################
 
-# workspace back and forth (with/without active container)
-workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-
 # Workspace names
 set $ws1 1
 set $ws2 2
