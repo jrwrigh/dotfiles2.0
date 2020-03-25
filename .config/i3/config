@@ -249,7 +249,6 @@ bindsym $mod+9 exec --no-startup-id i3exit_custom lock
 
 exec --no-startup-id udiskie -Ant
 exec --no-startup-id volumeicon
-exec picom
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
