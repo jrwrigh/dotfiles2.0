@@ -53,6 +53,7 @@ symlink_dotfile() {
     filepath_expanded=$(realpath --relative-to=$DotfileDir $1)
 
     mkdir -p $HomeDir/$filedirpath && ln -s $DotfileDir/$filepath_expanded $HomeDir/$filepath
+    [ -L "${HomeDir}/${filepath}" ] && echo "SUCCESS SYMLINKING $1"
 }
 
 declare -a dotfilepaths
