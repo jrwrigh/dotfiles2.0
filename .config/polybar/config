@@ -109,12 +109,12 @@ radius = 0.0
 line-size = 2
 line-color = #000000
 
-border-size = 5
+; border-size = 5
 ;border-left-size = 25
 ;border-right-size = 25
 ;border-top-size = 0
-;border-bottom-size = 25
-border-color = #00000000
+border-bottom-size = 3
+; border-color = #00000000
 
 padding-left = 1
 padding-right = 1
@@ -274,7 +274,7 @@ label-unfocused-underline =
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${monokai.apink}
 label-visible-padding = 2
 
 ; Available tokens:
@@ -287,6 +287,10 @@ label-urgent = %icon% %name%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = ${monokai.apink}
 label-urgent-padding = 2
+
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = ${monokai.agrey}
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}

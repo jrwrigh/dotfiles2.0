@@ -11,7 +11,8 @@ for m in $(polybar --list-monitors | cut -d":" -f1)
 do
     polybarlogpath=/tmp/polybar_${m}.log
     echo "---" | tee -a $polybarlogpath
-    MONITOR=$m polybar mainbar-i3 2>&1 | awk '{ print strftime("%c: "), $0; fflush(); }' | tee -a $polybarlogpath  &
+    MONITOR=$m polybar mainbar-i3 2>&1 | \
+        awk '{ print strftime("%c: "), $0; fflush(); }' | tee -a $polybarlogpath &
 done
 
 echo "Bars launched..."
