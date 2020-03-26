@@ -29,24 +29,11 @@ let intellisense_plugin = "none"
 
 "" NCM2 Settings
 if intellisense_plugin=="ncm2"
-    Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
+    source ~/.config/nvim/ncm2_settings.vim
 
-    " enable ncm2 for all buffers
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-
-    " IMPORTANTE: :help Ncm2PopupOpen for more information
-    set completeopt=noinsert,menuone,noselect
-
-    " NOTE: you need to install completion sources to get completions. Check
-    " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-tmux'
-    Plug 'ncm2/ncm2-path'
-    Plug 'ncm2/ncm2-jedi'
-
-    " custom key mapping for manual trigger
-    inoremap <C-space> <C-r>=ncm2#force_trigger()<cr>
+"" Coc.Nvim Settings
+elseif intellisense_plugin=="coc.nvim"
+    source ~/.config/nvim/coc_settings.vim
 endif
 
 call plug#end()
