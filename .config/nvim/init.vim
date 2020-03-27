@@ -227,6 +227,11 @@ nnoremap <leader>fL :BLines<CR>
 " Removes ANSI Escape codes for older (< 2.12.2) git versions
 let g:flog_default_arguments = { 'format': '%ai [%h] {%an}%d %s' }
 
+"" flog-------------------
+
+" Removes ANSI Escape codes for older (< 2.12.2) git versions
+let g:flog_default_arguments = { 'format': '%ai [%h] {%an}%d %s' }
+
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
