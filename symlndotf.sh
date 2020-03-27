@@ -21,7 +21,7 @@ if [[ $SUDO_USER ]]; then
   exit 1
 fi
 
-HomeDir=$HOME
+HomeDir=$(readlink -f $HOME)
 BackupDir="$HomeDir/.dotfiles.backups"
 CurrentDir=$(pwd -P)
 DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
@@ -32,7 +32,10 @@ backup_dotfile() {
       mkdir $BackupDir
     fi
 
-    filepath=$(realpath -s --relative-to=$DotfileDir $1)
+    inputabs=$(readlink -f $1)
+
+    # get input relative to the dotfile directory via string subtraction
+    filepath="${inputabs#"$DotfileDir"}"
     filedirpath=$(dirname $filepath)
     if [[ -e "$HomeDir/$filepath" ]]; then
         echo "    $filepath already exists. Backing up to $BackupDir"
