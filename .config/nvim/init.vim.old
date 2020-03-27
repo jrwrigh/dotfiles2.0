@@ -219,7 +219,6 @@ let g:easy_align_delimiters = {
 \   },
 \ }
 
-
 "" fzf-------------------
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fF :Files
@@ -230,6 +229,11 @@ nnoremap <leader>fL :BLines<CR>
 
 "" Vim-tex ---------------
 let g:vimtex_view_method = 'zathura'
+
+"" flog-------------------
+
+" Removes ANSI Escape codes for older (< 2.12.2) git versions
+let g:flog_default_arguments = { 'format': '%ai [%h] {%an}%d %s' }
 
 " #######################################################
 " ---------------------- REMAPS -------------------------
