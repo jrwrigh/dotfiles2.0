@@ -215,6 +215,10 @@ nmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
+"" flog-------------------
+
+" Removes ANSI Escape codes for older (< 2.12.2) git versions
+let g:flog_default_arguments = { 'format': '%ai [%h] {%an}%d %s' }
 
 "" fzf-------------------
 nnoremap <leader>ff :Files<CR>
