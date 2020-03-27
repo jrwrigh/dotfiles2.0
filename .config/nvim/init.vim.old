@@ -33,7 +33,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-repeat'
 Plug 'lervag/vimtex'
 
-let intellisense_plugin = "none"
+let intellisense_plugin = "ncm2"
 
 "" NCM2 Settings
 if intellisense_plugin=="ncm2"
