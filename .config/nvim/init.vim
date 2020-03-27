@@ -29,7 +29,7 @@ Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 Plug 'rbong/vim-flog' " for browsing git log branches
 
-let intellisense_plugin = "none"
+let intellisense_plugin = "ncm2"
 
 "" NCM2 Settings
 if intellisense_plugin=="ncm2"
