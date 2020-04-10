@@ -195,6 +195,16 @@ endfunction
 :command! Erc :e $MYVIMRC
 :command! RemoveDiffHi call RemoveDiffHighlights()
 
+" View the syntax group of item under cursor
+function! ShowSyntaxGroup()
+    :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+" \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+endfunction
+
+:command! ShowSynGroup call ShowSyntaxGroup()
+
 " #######################################################
 " --------------- FILE TYPE OVERRIDES -------------------
 " #######################################################
