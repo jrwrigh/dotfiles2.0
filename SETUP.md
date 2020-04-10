@@ -53,7 +53,8 @@
 
 1. Install via aur
 2. Login and sync
-3. Add ZotFile, zotero-shortdoi, and zotero-better-bibtex
+3. Add ZotFile, zotero-shortdoi, zutilo, and zotero-better-bibtex
+4. Setup quick copy as a Zotero context menu item (via Zutilo settings)
 
 ## VSCode
 
