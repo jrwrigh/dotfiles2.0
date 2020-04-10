@@ -12,7 +12,8 @@ let g:coc_global_extensions = [
 \ 'coc-sh',
 \ 'coc-python',
 \ 'coc-word',
-\ 'coc-vimlsp'
+\ 'coc-vimlsp',
+\ 'coc-texlab'
 \ ]
 
 """" DEFAULT CONFIG BELOW """""
