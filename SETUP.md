@@ -61,3 +61,9 @@
 2. Install the settings-sync extension
 3. Log into the settings sync extension and download settings
 4. (Possibly?) Need to add TeXLive to path in `.profile` to make it behave
+
+## Manjaro i3 GUI themes
+
+1. Kvantum (Qt): KvOxygen
+2. In `.config/gtk-3.0`, set `gtk-theme-name=Clearlooks`
+3. Adjust masterpdfeditor4 to default look
