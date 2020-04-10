@@ -106,6 +106,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export JUPYTER_CONFIG_DIR=${XDG_CONFIG_HOME:-$HOME/.config}/jupyter
 
 # Performance Profiler
 # zprof
