@@ -211,6 +211,9 @@ for_window [class="Chromium" window_role="pop-up"] floating enable
 for_window [class="fontforge" title="FontForge"] floating enable
 for_window [class="Zotero" title="Zotero Preferences"] floating enable
 for_window [class="Zotero" instance="Toplevel"] floating enable
+for_window [title="^pdfpc - present"] border none floating enable
+for_window [class="Gnucash"] floating enable
+for_window [class="Gnucash" title=".* - GnuCash"] floating disable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
