@@ -94,6 +94,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym $mod+Shift+Ctrl+k exec --no-startup-id playerctl play-pause
+bindsym $mod+Shift+Ctrl+j exec --no-startup-id playerctl previous
+bindsym $mod+Shift+Ctrl+l exec --no-startup-id playerctl next
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
