@@ -40,3 +40,5 @@ alias xo='xdg-open'
 
 ## SYSTEM SPECIFIC ALIASES BELOW: ##
 alias qstatu='qstat -u $USER'
+export ph_aesp='/lus/theta-fs0/projects/PHASTA_aesp/'
+alias ph_aesp=${ph_aesp}
