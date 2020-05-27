@@ -22,3 +22,5 @@ alias fugi='nvim +G' # Open nvim with vim-fugitive
 alias flg='nvim +Flog' # Open nvim with Flog
 
 alias xo='xdg-open'
+
+## SYSTEM SPECIFIC ALIASES BELOW: ##
