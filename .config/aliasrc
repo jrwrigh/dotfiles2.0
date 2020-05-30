@@ -1,14 +1,17 @@
 #!/bin/sh
 
 if [ -x "$(command -v exa)" ]; then
-    alias ls='exa'
-    alias la='exa -a --color=always --group-directories-first'
-    alias ll='exa -l --color=always --group-directories-first'
-    alias lal='exa -al --color=always --group-directories-first'
+    alias ls='exa -h'
+    alias la='exa -ah --color=always --group-directories-first'
+    alias ll='exa -lh --color=always --group-directories-first --time-style=long-iso '
+    alias lal='exa -alh --color=always --group-directories-first --time-style=long-iso '
+    alias lalt='exa -alh --color=always --group-directories-first --time-style=long-iso --modified'
 else
+    export TIME_STYLE=long-iso
     alias la='ls -a'
     alias ll='ls -lh'
     alias lal='ls -alh'
+    alias lalt='ls -alht'
 fi
 
 alias rm='rm -i'
