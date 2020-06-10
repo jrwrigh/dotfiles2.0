@@ -1,6 +1,10 @@
 " #######################################################
 " ---------------------- PLUGINS ------------------------
 " #######################################################
+
+" Avoid matlab/mathematica confusion. See vim-polyglot/#498
+let g:polyglot_disabled = ['mathematica']
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
