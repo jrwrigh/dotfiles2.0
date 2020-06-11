@@ -79,7 +79,7 @@ highlight LineNr ctermbg=none guibg=none
 
 set list
 set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
-set showbreak=↳\
+set showbreak=↳\ \ \ \ 
 
 set diffopt+=algorithm:minimal
 
