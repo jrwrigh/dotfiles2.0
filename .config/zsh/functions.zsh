@@ -104,3 +104,10 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+
+# Get comment line from full qstat job report
+qstatcom () {
+    qstat -f $1 | grep comment
+}
+
