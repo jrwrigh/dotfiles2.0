@@ -14,6 +14,8 @@
     path = ~/.config/gitconfig.aliases
 [merge]
 	conflictStyle = diff3
+[pull]
+    ff = only
 [commit]
     verbose = true
 [user]
