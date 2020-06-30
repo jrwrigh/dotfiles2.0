@@ -31,6 +31,12 @@
 4. Start neovim
 5. Run `:PlugInstall`
 
+## fzf
+
+1. Load git repository to `~/.local/src/fzf`
+2. Install using `~/.local/src/fzf/install --xdg`
+3. Symlink `.config/fzf/fzf.zsh`
+
 ## git
 
 1. `symlndotf` `.config/gitaliases`
