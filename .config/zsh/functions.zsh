@@ -108,6 +108,13 @@ bindkey '^Z' fancy-ctrl-z
 
 # Get comment line from full qstat job report
 qstatcom () {
-    qstat -f $1 | grep comment
+    if [ -z $1 ]; then
+        Jobs=($(qstatu | awk '$1 ~ /[[:digit:]]/ {print $1}'))
+        for job in $Jobs; do
+            qstatcom $job
+        done
+    else
+        echo -e "$1\t"
+        qstat -f $1 | grep comment
+    fi
 }
-
