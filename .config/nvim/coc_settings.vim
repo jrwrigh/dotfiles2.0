@@ -1,4 +1,4 @@
-"" Settings for Coc.Nvim
+" Settings for Coc.Nvim
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
 \ 'coc-python',
 \ 'coc-word',
 \ 'coc-vimlsp',
+\ 'coc-clangd',
 \ 'coc-texlab'
 \ ]
 
