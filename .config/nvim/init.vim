@@ -151,6 +151,13 @@ nmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 xmap <leader>cr <plug>(SubversiveSubstituteRangeConfirm)
 nmap <leader>crr <plug>(SubversiveSubstituteWordRangeConfirm)
 
+"" polyglot
+" let YAML and TOML frontmatter be handled
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_style_pythonic = 1
+
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
