@@ -28,6 +28,7 @@ Plug 'sheerun/vim-polyglot' " lots of language syntax support
 Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 Plug 'rbong/vim-flog' " for browsing git log branches
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Create docstring using :Pydocstring
 
 let intellisense_plugin = "none"
 
@@ -158,6 +159,10 @@ let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_folding_style_pythonic = 1
 
+"" pydocstring
+
+let g:pydocstring_formatter = 'numpy'
+let g:pydocstring_enable_mapping = 0
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
