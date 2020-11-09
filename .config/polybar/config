@@ -85,6 +85,10 @@ volume-max = #bf616a
 ################################################################################
 ################################################################################
 
+[bar/sidebar-i3]
+inherit = bar/mainbar-i3
+tray-position = 
+
 [bar/mainbar-i3]
 ;https://github.com/jaagr/polybar/wiki/Configuration
 
