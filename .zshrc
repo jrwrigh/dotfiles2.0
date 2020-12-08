@@ -56,6 +56,9 @@ export MYDOTFILES="${HOME}/gitRepos/dotfiles2.0"
 
 eval $(dircolors ${MYDOTFILES}/dircolors.monokai)
 
+zstyle ':completion:*:ssh:*' hosts on
+zstyle ':completion:*:scp:*' hosts on
+
 # =============================================================================
 #                                   Aliases
 # =============================================================================
