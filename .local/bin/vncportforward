@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# set -x
+# port=$(dmenu -p "Which port number for VNC?: ")
+# pass=$(dmenu -p "SSH Password: ")
+port=$1
+
+function sshAndVNC {
+    port=$1
+    sshCommand="ssh -fNT -L59${port}:portal1:59${port} jumpgate-portforward"
+    echo $sshCommand
+    pid=$(pgrep -f "$sshCommand")
+
+    if [ -z $pid ]; then
+        eval $sshCommand
+    else
+        echo "Killing $pid"
+        kill $pid
+        echo $sshCommand
+        eval $sshCommand
+    fi
+
+    setsid -f vncviewer localhost:59${port}
+}
+
+sshAndVNC $port
+# i3-sensible-terminal --commands="sshAndVNC ${port}; exit"
