@@ -96,6 +96,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 bindsym $mod+Shift+Ctrl+k exec --no-startup-id playerctl play-pause
 bindsym $mod+Shift+Ctrl+j exec --no-startup-id playerctl previous
 bindsym $mod+Shift+Ctrl+l exec --no-startup-id playerctl next
+bindsym $mod+Shift+Ctrl+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym $mod+Shift+Ctrl+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
