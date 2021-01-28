@@ -7,7 +7,6 @@ let g:coc_global_extensions = [
 \ 'coc-highlight',
 \ 'coc-lists',
 \ 'coc-snippets',
-\ 'coc-markdownlint',
 \ 'coc-pairs',
 \ 'coc-sh',
 \ 'coc-python',
