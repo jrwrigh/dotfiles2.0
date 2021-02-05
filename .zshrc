@@ -43,6 +43,9 @@ antibody_bundle_loadfile() {
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && \
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/fzf-tab-config.zsh ] && \
+    source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/fzf-tab-config.zsh
+
 # =============================================================================
 #                                  Settings
 # =============================================================================

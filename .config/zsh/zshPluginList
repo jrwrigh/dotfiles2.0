@@ -8,4 +8,4 @@ robbyrussell/oh-my-zsh path:plugins/extract
 robbyrussell/oh-my-zsh path:plugins/tmux
 
 molovo/tipz # alias tips
-changyuheng/zsh-interactive-cd # interactive cd with fzf via <Tab>
+Aloxaf/fzf-tab # use fzf as the zsh tab completion interface
