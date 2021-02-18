@@ -272,6 +272,7 @@ autocmd FileType fortran call SetFortranOptions()
 autocmd FileType xdefaults call SetXdefaultsOptions()
 autocmd FileType text,markdown setlocal spell
 autocmd FileType markdown call SetMarkdownOptions()
+autocmd FileType git call SetGitOptions()
 
 source ~/.config/nvim/i3config_folding.vim
 source ~/.config/nvim/vim_folding.vim
@@ -296,4 +297,8 @@ endfunction
 
 function! SetMarkdownOptions()
     let b:indentLine_enabled = 0
+endfunction
+
+function! SetGitOptions()
+    setlocal foldlevel=20
 endfunction
