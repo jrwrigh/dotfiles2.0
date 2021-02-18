@@ -225,6 +225,9 @@ map <C-l> <C-w>l
 " Terminal Mode exit
 tnoremap <Esc> <C-\><C-n>
 
+" Add visual selection search
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " #######################################################
 " --------------- COMMANDS & FUNCTIONS ------------------
 " #######################################################
