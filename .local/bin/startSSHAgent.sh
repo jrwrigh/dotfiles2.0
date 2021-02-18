@@ -1,4 +1,4 @@
-## Run via `eval $(cat startSSHAgent.sh)`
+## Run via `source .local/bin/startSSHAgent.sh` inside .zprofile
 
 # Start the ssh-agent
 # From https://stackoverflow.com/a/18915067/7564988 and http://mah.everybody.org/docs/ssh#run-ssh-agent
