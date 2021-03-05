@@ -15,7 +15,6 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'brennier/quicktex'
 Plug 'nvie/vim-flake8'
@@ -29,6 +28,8 @@ Plug 'editorconfig/editorconfig-vim' " for using .editorconfig files
 Plug 'tpope/vim-git' " plugin/syntax stuff for git files (commit, rebase -i, etc)
 Plug 'rbong/vim-flog' " for browsing git log branches
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Create docstring using :Pydocstring
+Plug '~/.local/src/fzf'
+Plug 'junegunn/fzf.vim'
 
 let intellisense_plugin = "none"
 
