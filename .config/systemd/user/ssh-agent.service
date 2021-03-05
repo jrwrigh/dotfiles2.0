@@ -1,0 +1,15 @@
+# # From https://stackoverflow.com/a/38980986/7564988 on using systemd to manage
+# # ssh-agent
+# # Add the following to .zshrc:
+# export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+[Unit]
+Description=SSH key agent
+
+[Service]
+Type=simple
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target
