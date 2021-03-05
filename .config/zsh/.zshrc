@@ -7,6 +7,10 @@
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# From https://stackoverflow.com/a/38980986/7564988 on using systemd to manage
+# ssh-agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # =============================================================================
 #                                 Functions
 # =============================================================================
