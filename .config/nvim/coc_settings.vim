@@ -9,7 +9,7 @@ let g:coc_global_extensions = [
 \ 'coc-snippets',
 \ 'coc-pairs',
 \ 'coc-sh',
-\ 'coc-python',
+\ 'coc-pyright',
 \ 'coc-word',
 \ 'coc-vimlsp',
 \ 'coc-clangd',
