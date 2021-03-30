@@ -203,6 +203,11 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 let g:pydocstring_formatter = 'numpy'
 let g:pydocstring_enable_mapping = 0
+
+"" indentLine
+let g:indentLine_fileTypeExclude = ['tex', 'markdown']
+let g:indentLine_char = "┊"
+
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
