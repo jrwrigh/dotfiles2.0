@@ -1,2 +1,5 @@
 [directory]
 fish_style_pwd_dir_length = 2
+
+[java]
+disabled=true
