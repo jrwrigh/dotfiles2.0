@@ -95,7 +95,7 @@ bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+z exec --no-startup-id morc_menu
 
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+bindsym $mod+Ctrl+m exec terminal -e 'pavucontrol'
 bindsym $mod+Shift+Ctrl+k exec --no-startup-id playerctl play-pause
 bindsym $mod+Shift+Ctrl+j exec --no-startup-id playerctl previous
 bindsym $mod+Shift+Ctrl+l exec --no-startup-id playerctl next
@@ -263,7 +263,8 @@ mode "$mode_system" {
 ################################
 
 exec --no-startup-id udiskie -Ant
-exec --no-startup-id volumeicon
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id pa-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id nm-applet
