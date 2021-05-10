@@ -439,8 +439,8 @@ bar-empty = ─
 [module/battery2]
 ;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
-battery = BAT1
-adapter = ACAD
+battery = BAT0
+adapter = AC
 full-at = 100
 ;
 ; #C3E88D
