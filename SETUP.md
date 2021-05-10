@@ -10,7 +10,8 @@
 3. Remove `oh-my-zsh`'s `.zshrc`
 4. `symlndotf` the `.zshrc` file and `.config/zsh/zshPluginList`
 5. Source `.zshrc` and run `antibody_bundle_loadfile`
-6. (Optional) Download starship (MUSL version) and place in `.local/bin`
+6. Download starship to `.local/src/starship` (MUSL version if on remote
+   system) and symlink to `.local/bin`
 7. Source `.zshrc` again
    - Everything should now be running normally
 
@@ -39,9 +40,15 @@
 
 ## git
 
-1. `symlndotf` `.config/gitaliases`
-2. `git config --global include.path '~/.config/gitconfig'`
-3. Setup `git-credential-libsecret` if available
+1. `symlndotf` `.config/git/gitconfig`
+2. `git config --global include.path '~/.config/git/gitconfig'`
+
+## ssh-agent systemd service
+
+1. `symlndotf .config/systemd/user/ssh-agent.service`
+2. `cd ~/.config/systemd/user`
+3. `systemd --user enable ssh-agent`
+4. `systemd --user start ssh-agent`
 
 ## odrive
 
@@ -74,4 +81,4 @@
 1. Kvantum (Qt): KvOxygen
 2. In `.config/gtk-3.0`, set `gtk-theme-name=Clearlooks`
 3. Adjust masterpdfeditor4 to default look
-4. Mouse pointer is "X11 Default Black" (as found on KDE or Gnome stores)
+4. Mouse pointer is "Aidwta" or "X11 Default Black" (as found on KDE or Gnome stores)

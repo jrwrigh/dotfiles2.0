@@ -47,10 +47,10 @@ See `SETUP.md` for more detailed notes on setting up a system.
 
 ### git alias
 
-If no other `[include]` is in the `~/.gitconfig`, then use:
-`git config --global include.path '~/.config/gitconfig.aliases'`
+If no other `[include]` is in the `~/.config/git/config`, then use:
+`git config --global include.path '~/.config/git/gitconfig'`
 
-Otherwise simply add `'~/.config/gitconfig.aliases'` to `~/.gitconfig`:
+Otherwise simply add `'~/.config/git/gitconfig'` to `~/.config/git/config`:
 
 ```gitconfig
 [include]
@@ -58,8 +58,9 @@ Otherwise simply add `'~/.config/gitconfig.aliases'` to `~/.gitconfig`:
     path = ~/.config/gitconfig.aliases
 ```
 
-Generally advised to put the includes at the beginning of the `.gitconfig` so
-that directives in that the local file overrides these "default" settings.
+Generally advised to put the includes at the beginning of the
+`~/.config/git/config` so that directives in that the local file overrides
+these "default" settings.
 
 ## List of common packages I use (and should remember)
 
