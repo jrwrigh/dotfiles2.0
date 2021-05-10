@@ -12,16 +12,17 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $def_border_pix 2
 floating_modifier $mod
-for_window [class="^.*"] border pixel 3
-default_border pixel 3
+for_window [class="^.*"] border pixel $def_border_pix
+default_border pixel $def_border_pix
 default_floating_border normal
 hide_edge_borders none
 font pango:ShureTechMono Nerd Font Mono NoLiga 10
 
 # change borders
 bindsym $mod+u border none
-bindsym $mod+y border pixel 3
+bindsym $mod+y border pixel $def_border_pix
 bindsym $mod+n border normal
 
 for_window [class=".*"] title_format "<b>%class</b>%title"
@@ -291,8 +292,8 @@ exec --no-startup-id redshift-gtk
 ################################
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+gaps inner 7
+gaps outer -7
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
