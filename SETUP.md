@@ -82,3 +82,6 @@
 2. In `.config/gtk-3.0`, set `gtk-theme-name=Clearlooks`
 3. Adjust masterpdfeditor4 to default look
 4. Mouse pointer is "Aidwta" or "X11 Default Black" (as found on KDE or Gnome stores)
+
+## PulseAudio
+ - Simply use Manjaro's install script `install_pulse`
