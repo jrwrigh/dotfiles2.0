@@ -28,3 +28,4 @@ code
 npm
 texlive-most
 biber
+gnucash
