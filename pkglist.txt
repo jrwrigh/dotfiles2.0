@@ -23,6 +23,7 @@ polybar
 redshift
 tigervnc
 tree
+playerctl
 
 code
 npm
