@@ -85,3 +85,11 @@
 
 ## PulseAudio
  - Simply use Manjaro's install script `install_pulse`
+
+## Redshift
+ - Enable redshift via it's systemd service. After installing from AUR,
+ 1. `systemctl  --user enable redshift-gtk`
+ 2. `systemctl  --user start redshift-gtk`
+
+Note this means that Redshift will auto start after being shutdown. You must
+stop the systemd service to turn it off correctly.

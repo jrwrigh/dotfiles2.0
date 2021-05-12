@@ -275,7 +275,6 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id start_odrive
-exec --no-startup-id redshift-gtk
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
