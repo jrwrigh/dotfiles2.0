@@ -1,0 +1,27 @@
+# systemd user service to run odrive agent
+#
+# Use loginctl enable-linger to create a user manager for the user at boot and kept around after logouts. This will allow auto-starting of the odrive agent for that user
+# https://www.freedesktop.org/software/systemd/man/loginctl.html#enable-linger%20USER%E2%80%A6
+#
+# save this file as:
+# ~/.config/systemd/user/odrive.service
+#
+# enable: $ systemctl --user enable odrive.service
+# start:  $ systemctl --user start odrive.service
+# status: $ systemctl --user status odrive.service
+#
+
+[Unit]
+Description=Run odrive-agent as a user service
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/src/odrive/odriveagent
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
+# https://www.freedesktop.org/software/systemd/man/systemd.special.html#Units%20managed%20by%20the%20user%20service%20manager
