@@ -13,6 +13,8 @@ joplin-desktop
 discord
 zoom
 masterpdfeditor
+zathura
+zathura-pdf-poppler
 udiskie
 
 flameshot
