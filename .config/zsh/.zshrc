@@ -5,20 +5,34 @@
 #                              Initialization
 # =============================================================================
 
-if [ -f /etc/zshrc ]; then
-    . /etc/zshrc
-fi
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # =============================================================================
-#                              Oh-My-Zsh Setup
+#                                 Functions
 # =============================================================================
 
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh # Power on the Oh-My-ZSH suite
+[ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source $ZSH_CONFIG_DIR/functions.zsh
 
-# Prevent setup `nice(5) failed: operation not permitted` issues
-unsetopt BG_NICE
+# =============================================================================
+#                                  Settings
+# =============================================================================
+
+[ -f "$ZSH_CONFIG_DIR/settings.zsh" ] && source $ZSH_CONFIG_DIR/settings.zsh
+[ -f "$ZSH_CONFIG_DIR/colorsetup.zsh" ] && source $ZSH_CONFIG_DIR/colorsetup.zsh
+
+# =============================================================================
+#                                 Completion
+# =============================================================================
+
+autoload -U compinit; compinit
+
+[ -f "$ZSH_CONFIG_DIR/completion.zsh" ] && source $ZSH_CONFIG_DIR/completion.zsh
+
+# =============================================================================
+#                                 Key Bindings
+# =============================================================================
+
+[ -f "$ZSH_CONFIG_DIR/key-bindings.zsh" ] && source $ZSH_CONFIG_DIR/key-bindings.zsh
 
 # =============================================================================
 #                                   Plugins
@@ -49,41 +63,11 @@ eval "$(starship init zsh)"
     source "${XDG_CONFIG_HOME:-$HOME/.config}"/zsh/fzf-tab-config.zsh
 
 # =============================================================================
-#                                  Settings
-# =============================================================================
-export VISUAL='nvim'
-export EDITOR="$VISUAL"
-export MYDOTFILES="${HOME}/gitRepos/dotfiles2.0"
-
-
-eval $(dircolors ${MYDOTFILES}/dircolors.monokai)
-
-zstyle ':completion:*:ssh:*' hosts on
-zstyle ':completion:*:scp:*' hosts on
-
-# =============================================================================
 #                                   Aliases
 # =============================================================================
 
 [ -f "$HOME/.config/aliasrc" ] && source $HOME/.config/aliasrc
-
-# =============================================================================
-#                                 Functions
-# =============================================================================
-
-# Use Ctrl-z to reopen background process, equiv of OMZ/fancy-ctrl-z
-# From: https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-fancy-ctrl-z () {
-    if [[ $#BUFFER -eq 0 ]]; then
-        BUFFER="fg"
-        zle accept-line
-    else
-        zle push-input
-        zle clear-screen
-    fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
+[ -f "$ZSH_CONFIG_DIR/aliases.zsh" ] && source $ZSH_CONFIG_DIR/aliases.zsh
 
 # =============================================================================
 #                                  Startup
