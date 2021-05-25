@@ -5,6 +5,7 @@ starship
 tmux
 xfce4-terminal
 yay
+unzip
 
 chromium
 spotify
