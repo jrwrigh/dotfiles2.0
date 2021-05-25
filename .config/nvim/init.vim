@@ -30,6 +30,7 @@ Plug 'rbong/vim-flog' " for browsing git log branches
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Create docstring using :Pydocstring
 Plug '~/.local/src/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 
 let intellisense_plugin = "none"
 
@@ -207,6 +208,12 @@ let g:pydocstring_enable_mapping = 0
 "" indentLine
 let g:indentLine_fileTypeExclude = ['tex', 'markdown']
 let g:indentLine_char = "┊"
+
+"" vim-easy-align
+nmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
 
 " #######################################################
 " ---------------------- REMAPS -------------------------
