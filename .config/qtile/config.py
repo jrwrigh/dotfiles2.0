@@ -1,0 +1,240 @@
+from typing import List  # noqa: F401
+import os
+import subprocess
+
+from libqtile import bar, layout, widget, hook
+from libqtile.config import Click, Drag, Group, Key, EzKey, Screen, KeyChord
+from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
+from libqtile.log_utils import logger
+from libqtile import qtile
+
+from plasma import Plasma
+
+import functions as f
+from theme import monokai
+from floating_rules import floating_matches
+
+try:
+    import aiomanhole
+except ImportError:
+    aiomanhole = None
+
+num_screens = f.get_num_monitors()
+logger.warning(f'Number of monitors: {num_screens}')
+
+mod = "mod4"
+terminal = guess_terminal()
+
+    # Keys to exit chords
+escapeChord = [
+    EzKey('q', f.ungrab_chord()),
+    EzKey('<Return>', f.ungrab_chord()),
+    EzKey('C-<bracketleft>', f.ungrab_chord()),
+    EzKey('<BackSpace>', f.ungrab_chord()),
+]
+
+
+keys = [
+    # Switch between windows
+    EzKey('M-h', lazy.layout.left(), desc='Switch focus left'),
+    EzKey('M-l', lazy.layout.right(), desc='Switch focus right'),
+    EzKey('M-j', lazy.layout.down(), desc='Switch focus lower'),
+    EzKey('M-k', lazy.layout.up(), desc='Switch focus upper'),
+
+    EzKey('M-S-h', lazy.layout.move_left()),
+    EzKey('M-S-l', lazy.layout.move_right()),
+    EzKey('M-S-j', lazy.layout.move_down()),
+    EzKey('M-S-k', lazy.layout.move_up()),
+
+    EzKey('M-A-h', lazy.layout.integrate_left()),
+    EzKey('M-A-l', lazy.layout.integrate_right()),
+    EzKey('M-A-j', lazy.layout.integrate_down()),
+    EzKey('M-A-k', lazy.layout.integrate_up()),
+
+    KeyChord([mod], 'q', [
+        EzKey('h',   lazy.layout.mode_horizontal(), f.ungrab_chord()),
+        EzKey('v',   lazy.layout.mode_vertical(), f.ungrab_chord()),
+        EzKey('S-h', lazy.layout.mode_horizontal_split(), f.ungrab_chord()),
+        EzKey('S-v', lazy.layout.mode_vertical_split(), f.ungrab_chord()),
+        *escapeChord
+    ], mode='(h)orizontal, (v)ertical, (H)orizontal split, (V)ertical split'),
+
+    EzKey('M-C-h', lazy.layout.grow_width(-30)),
+    EzKey('M-C-l', lazy.layout.grow_width(30)),
+    EzKey('M-C-j', lazy.layout.grow_height(-30)),
+    EzKey('M-C-k', lazy.layout.grow_height(30)),
+    EzKey('M-r', lazy.layout.reset_size()),
+
+    EzKey('M-S-<space>', lazy.window.toggle_floating()),
+    EzKey('M-f', lazy.window.toggle_fullscreen()),
+
+    KeyChord([mod], 'm', [
+        EzKey('m',  f.move_next_screen(), f.ungrab_chord()),
+        EzKey('s',   lazy.next_screen(), f.ungrab_chord()),
+        *escapeChord
+        # EzKey('q', f.ungrab_chord()),
+    ], mode='(s)wap or (m)ove to other screen'),
+    EzKey('M-s', lazy.next_screen()),
+
+    # Volume normally handled automatically by pa-applet
+    EzKey('M-S-C-k', lazy.spawn('playerctl play-pause'.split(' '))),
+    EzKey('M-S-C-j', lazy.spawn('playerctl previous'.split(' '))),
+    EzKey('M-S-C-l', lazy.spawn('playerctl next'.split(' '))),
+    EzKey('M-S-C-<Up>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
+    EzKey('M-S-C-<Down>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
+
+    EzKey('M-t', lazy.spawn('pkill picom'.split(' '))),
+    EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
+
+    Key([mod], 'Return', lazy.spawn(terminal)),
+
+    # Toggle between different layouts as defined below
+    Key([mod], 'Tab', lazy.next_layout()),
+    Key([mod, 'shift'], 'q', lazy.window.kill()),
+    EzKey('M-d', lazy.spawn('dmenu_recency')),
+    EzKey('M-z', lazy.spawn('morc_menu')),
+
+    Key([mod, 'shift'], 'r', lazy.restart()),
+]
+
+SystemStatus = '(l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (Shift+r)eboot, (Shift+s)hutdown'
+keys.append(
+    KeyChord([mod], '0', [
+        EzKey('l',   lazy.spawn('i3exit_custom lock'), f.ungrab_chord()),
+        EzKey('s',   lazy.spawn('i3exit_custom suspend'), f.ungrab_chord()),
+        EzKey('u',   lazy.spawn('i3exit_custom switch_user'), f.ungrab_chord()),
+        EzKey('e',   lazy.spawn('i3exit_custom logout'), f.ungrab_chord()),
+        EzKey('h',   lazy.spawn('i3exit_custom hibernate'), f.ungrab_chord()),
+        EzKey('S-r', lazy.spawn('i3exit_custom reboot'), f.ungrab_chord()),
+        EzKey('S-s', lazy.spawn('i3exit_custom shutdown'), f.ungrab_chord()),
+        *escapeChord
+    ], mode=SystemStatus)
+)
+
+
+groups = [Group(i) for i in '123456789']
+for group in groups:
+    keys.extend([
+        Key([mod], group.name, f.viewGroup(group.name),
+            desc='Switch to group {}'.format(group.name)),
+
+        Key([mod, 'shift'], group.name, lazy.window.togroup(group.name, switch_group=True),
+            desc='Switch to & move focused window to group {}'.format(group.name)),
+    ])
+
+layouts = [
+    Plasma(
+        border_normal='#333333',
+        border_focus=monokai.green,
+        border_normal_fixed='#006863',
+        border_focus_fixed='#00e8dc',
+        border_width=1,
+        border_width_single=0,
+        margin=2
+    ),
+    layout.TreeTab(),
+]
+
+
+widget_defaults = dict(
+    font='Hack Nerd Font',
+    fontsize=13,
+    padding=3,
+    background=monokai.black
+)
+extension_defaults = widget_defaults.copy()
+
+
+def init_widgets():
+    widgets = [
+        widget.CurrentLayout(),
+        widget.GroupBox(
+            highlight_method='box',
+            this_current_screen_border=monokai.green,
+            this_screen_border=monokai.yellow),
+        widget.WindowName(),
+        widget.Chord(
+            chords_colors={
+                SystemStatus: ("#ff0000", "#ffffff"),
+            },
+        ),
+        widget.Memory(
+            format='{MemUsed: .0f}M ({MemPercent}%)',
+            measure_mem='G',
+            background=monokai.aqua,
+            foreground=monokai.black,
+        ),
+        widget.CPU(
+            format='{freq_current}GHz{load_percent:5.1f}%',
+            background=monokai.pink),
+        widget.Battery(
+            format='{char} {percent:2.0%}',
+            charge_char='',
+            discharge_char='',
+            full_char=' ',
+        ),
+        widget.Clock(
+            format='%Y-%m-%d %a %H:%M',
+            background=monokai.lightblack2
+        ),
+        widget.Systray(),
+    ]
+    return widgets
+
+screens = [ Screen(top=bar.Bar(init_widgets(), 20)) ]
+
+
+for screen in range(1, num_screens):
+    screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
+
+@hook.subscribe.screen_change
+def screen_reset(qtile):
+    logger.warning('made it into screen_reset')
+    num_screens = f.get_num_monitors()
+    screens = [ Screen(top=bar.Bar(init_widgets(), 20)) ]
+    for _ in range(1, num_screens):
+        screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
+    qtile.restart()
+
+
+# Drag floating layouts.
+mouse = [
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
+         start=lazy.window.get_position()),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
+         start=lazy.window.get_size()),
+    Click([mod], "Button2", lazy.window.bring_to_front())
+]
+
+floating_layout = layout.Floating(float_rules=floating_matches)
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = True
+auto_fullscreen = True
+focus_on_window_activation = "urgent"
+reconfigure_screens = True
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
+
+
+@hook.subscribe.startup_complete
+def aiomanhole_start():
+    if aiomanhole:
+        aiomanhole.start_manhole(port=7113, namespace={"qtile": qtile})
+
+# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
+# string besides java UI toolkits; you can see several discussions on the
+# mailing lists, GitHub issues, and other WM documentation that suggest setting
+# this string if your java app doesn't work correctly. We may as well just lie
+# and say that we're a working one by default.
+#
+# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
+# java that happens to be on java's whitelist.
+wmname = "LG3D"
