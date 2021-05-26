@@ -36,7 +36,8 @@ def ungrab_chord():
     return _ungrab_chord
 
 def warp_cursor_here_win(win):
-    win.window.warp_pointer(win.width // 2, win.height // 2)
+    if win is not None:
+        win.window.warp_pointer(win.width // 2, win.height // 2)
 
 def warp_cursor_here():
     '''Warp the cursor to the currently focused window'''
