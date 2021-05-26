@@ -37,20 +37,20 @@ escapeChord = [
 
 keys = [
     # Switch between windows
-    EzKey('M-h', lazy.layout.left(), desc='Switch focus left'),
-    EzKey('M-l', lazy.layout.right(), desc='Switch focus right'),
-    EzKey('M-j', lazy.layout.down(), desc='Switch focus lower'),
-    EzKey('M-k', lazy.layout.up(), desc='Switch focus upper'),
+    EzKey('M-h', lazy.layout.left(), f.warp_cursor_here(), desc='Switch focus left'),
+    EzKey('M-l', lazy.layout.right(), f.warp_cursor_here(), desc='Switch focus right'),
+    EzKey('M-j', lazy.layout.down(), f.warp_cursor_here(), desc='Switch focus lower'),
+    EzKey('M-k', lazy.layout.up(), f.warp_cursor_here(), desc='Switch focus upper'),
 
-    EzKey('M-S-h', lazy.layout.move_left()),
-    EzKey('M-S-l', lazy.layout.move_right()),
-    EzKey('M-S-j', lazy.layout.move_down()),
-    EzKey('M-S-k', lazy.layout.move_up()),
+    EzKey('M-S-h', lazy.layout.move_left(), f.warp_cursor_here()),
+    EzKey('M-S-l', lazy.layout.move_right(), f.warp_cursor_here()),
+    EzKey('M-S-j', lazy.layout.move_down(), f.warp_cursor_here()),
+    EzKey('M-S-k', lazy.layout.move_up(), f.warp_cursor_here()),
 
-    EzKey('M-A-h', lazy.layout.integrate_left()),
-    EzKey('M-A-l', lazy.layout.integrate_right()),
-    EzKey('M-A-j', lazy.layout.integrate_down()),
-    EzKey('M-A-k', lazy.layout.integrate_up()),
+    EzKey('M-A-h', lazy.layout.integrate_left(), f.warp_cursor_here()),
+    EzKey('M-A-l', lazy.layout.integrate_right(), f.warp_cursor_here()),
+    EzKey('M-A-j', lazy.layout.integrate_down(), f.warp_cursor_here()),
+    EzKey('M-A-k', lazy.layout.integrate_up(), f.warp_cursor_here()),
 
     KeyChord([mod], 'q', [
         EzKey('h',   lazy.layout.mode_horizontal(), f.ungrab_chord()),
@@ -66,8 +66,8 @@ keys = [
     EzKey('M-C-k', lazy.layout.grow_height(30)),
     EzKey('M-r', lazy.layout.reset_size()),
 
-    EzKey('M-S-<space>', lazy.window.toggle_floating()),
-    EzKey('M-f', lazy.window.toggle_fullscreen()),
+    EzKey('M-S-<space>', lazy.window.toggle_floating(), f.warp_cursor_here()),
+    EzKey('M-f', lazy.window.toggle_fullscreen(), f.warp_cursor_here()),
 
     KeyChord([mod], 'm', [
         EzKey('m',  f.move_next_screen(), f.ungrab_chord()),
@@ -75,7 +75,7 @@ keys = [
         *escapeChord
         # EzKey('q', f.ungrab_chord()),
     ], mode='(s)wap or (m)ove to other screen'),
-    EzKey('M-s', lazy.next_screen()),
+    EzKey('M-s', lazy.next_screen(), f.warp_cursor_here()),
 
     # Volume normally handled automatically by pa-applet
     EzKey('M-S-C-k', lazy.spawn('playerctl play-pause'.split(' '))),
@@ -87,13 +87,13 @@ keys = [
     EzKey('M-t', lazy.spawn('pkill picom'.split(' '))),
     EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
 
-    Key([mod], 'Return', lazy.spawn(terminal)),
+    Key([mod], 'Return', lazy.spawn(terminal), f.warp_cursor_here()),
 
     # Toggle between different layouts as defined below
-    Key([mod], 'Tab', lazy.next_layout()),
-    Key([mod, 'shift'], 'q', lazy.window.kill()),
-    EzKey('M-d', lazy.spawn('dmenu_recency')),
-    EzKey('M-z', lazy.spawn('morc_menu')),
+    Key([mod], 'Tab', lazy.next_layout(), f.warp_cursor_here()),
+    Key([mod, 'shift'], 'q', lazy.window.kill(), f.warp_cursor_here()),
+    EzKey('M-d', lazy.spawn('dmenu_recency'), f.warp_cursor_here()),
+    EzKey('M-z', lazy.spawn('morc_menu'), f.warp_cursor_here()),
 
     Key([mod, 'shift'], 'r', lazy.restart()),
 ]
@@ -213,7 +213,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = True
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "urgent"
 reconfigure_screens = True

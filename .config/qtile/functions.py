@@ -35,12 +35,15 @@ def ungrab_chord():
         qtile.ungrab_chord()
     return _ungrab_chord
 
+def warp_cursor_here_win(win):
+    win.window.warp_pointer(win.width // 2, win.height // 2)
 
 def warp_cursor_here():
     '''Warp the cursor to the currently focused window'''
     @lazy.function
     def _warp_cursor_here(qtile):
-        qtile.current_window.focus(warp=True)
+        win = qtile.current_window
+        warp_cursor_here_win(win)
     return _warp_cursor_here
 
 
@@ -88,7 +91,7 @@ def viewGroup(name):
         if group != qtile.current_group:
             if group.screen:
                 qtile.cmd_to_screen(group.screen.index)
-
+                warp_cursor_here_win(qtile.current_window)
             else:
                 group.cmd_toscreen()
 
