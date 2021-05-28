@@ -50,4 +50,5 @@ floating_matches = [
     Match(title='^pdfpc - present'),
     Match(wm_class='Gnucash', title=r'(?!.* - GnuCash)'),
     Match(title='LastPass: Free Password Manager'),
+    Match(wm_class='kcharselect'),
 ]
