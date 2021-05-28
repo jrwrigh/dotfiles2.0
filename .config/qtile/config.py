@@ -174,6 +174,7 @@ def init_widgets():
             discharge_char='',
             full_char=' ',
         ),
+        widget.CheckUpdates(),
         widget.Clock(
             format='%Y-%m-%d %a %H:%M',
             background=monokai.lightblack2
