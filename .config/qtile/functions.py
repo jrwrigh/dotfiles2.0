@@ -95,5 +95,6 @@ def viewGroup(name):
                 warp_cursor_here_win(qtile.current_window)
             else:
                 group.cmd_toscreen()
+                warp_cursor_here_win(qtile.current_window)
 
     return _viewGroup
