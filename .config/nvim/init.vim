@@ -31,6 +31,7 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Create docstring 
 Plug '~/.local/src/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-repeat'
 
 let intellisense_plugin = "none"
 
