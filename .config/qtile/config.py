@@ -67,6 +67,7 @@ keys = [
     EzKey('M-r', lazy.layout.reset_size()),
 
     EzKey('M-S-<space>', lazy.window.toggle_floating(), f.warp_cursor_here()),
+    EzKey('M-<space>', f.toggle_focus_floating(), f.warp_cursor_here()),
     EzKey('M-f', lazy.window.toggle_fullscreen(), f.warp_cursor_here()),
 
     KeyChord([mod], 'm', [
