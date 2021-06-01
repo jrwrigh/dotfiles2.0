@@ -71,8 +71,9 @@ def move_next_screen():
         if qtile.current_group:
             group = qtile.current_group
             logger.warning(f'Move group "{group.name}" from screen {i}->{j}')
-            qtile.cmd_to_screen(j)
+            qtile.focus_screen(j)
             group.cmd_toscreen()
+            warp_cursor_here_win(group.current_window)
 
     return _move_next_screen
 

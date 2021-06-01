@@ -191,13 +191,13 @@ for screen in range(1, num_screens):
     screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
 
 @hook.subscribe.screen_change
-def screen_reset(qtile):
+def screen_reset(_):
     logger.warning('made it into screen_reset')
     num_screens = f.get_num_monitors()
     screens = [ Screen(top=bar.Bar(init_widgets(), 20)) ]
     for _ in range(1, num_screens):
         screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
-    qtile.restart()
+    # libqtile.qtile.cmd_restart()
 
 
 # Drag floating layouts.

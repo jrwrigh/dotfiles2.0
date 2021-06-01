@@ -1,5 +1,6 @@
 from libqtile.config import Match
 from libqtile import layout
+import re
 
 
 # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -48,7 +49,7 @@ floating_matches = [
     Match(wm_class='Zotero', title='Zotero Preferences'),
     Match(wm_class='Zotero', wm_instance_class='Toplevel'),
     Match(title='^pdfpc - present'),
-    Match(wm_class='Gnucash', title=r'(?!.* - GnuCash)'),
+    Match(wm_class='Gnucash', title=re.compile(r'(?!.* - GnuCash)')),
     Match(title='LastPass: Free Password Manager'),
     Match(wm_class='kcharselect'),
 ]
