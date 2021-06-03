@@ -124,6 +124,19 @@ for group in groups:
             desc='Switch to & move focused window to group {}'.format(group.name)),
     ])
 
+## Make MutScratch Group
+minscr = f.MutScratch()
+groups.append(Group(''))
+
+keys.extend( [
+    EzKey('M-S-<minus>', minscr.add2Scratch()),
+    EzKey('M-C-<minus>', minscr.removeScratch()),
+    EzKey('M-<minus>',   minscr.toggleScratch()),
+] )
+
+hook.subscribe.startup_complete(minscr.qtile_startup)
+
+
 layouts = [
     Plasma(
         border_normal='#333333',
