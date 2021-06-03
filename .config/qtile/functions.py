@@ -1,3 +1,4 @@
+import libqtile
 from libqtile.lazy import lazy
 from libqtile.log_utils import logger
 
@@ -122,3 +123,86 @@ def toggle_focus_floating():
                 group.focus(win)
                 return
     return _toggle_focus_floating
+
+
+class MutScratch(object):
+
+
+    def __init__(self, win_attr='mutscratch', grp_attr='mutscratch_history', grp_name=''):
+
+        self.win_attr = win_attr
+        self.grp_attr = grp_attr
+        self.grp_name = grp_name
+
+        self.win_stack = []
+
+    def add2Scratch(self):
+        '''Add current window to the MutScratch system'''
+        @lazy.function
+        def _add2Scratch(qtile):
+            win = qtile.current_window
+            win.hide()
+            win.floating = True
+            setattr(win, self.win_attr, True)
+
+            win.togroup(self.grp_name)
+            self.win_stack.append(win)
+
+        return _add2Scratch
+
+
+    def removeScratch(self):
+        '''Remove current window from MutScratch system'''
+        @lazy.function
+        def _removeScratch(qtile):
+            win = qtile.current_window
+            setattr(win, self.win_attr, False)
+
+            if win in self.win_stack:
+                self.win_stack.remove(win)
+        return _removeScratch
+
+
+    def toggleScratch(self):
+        '''Toggle between hiding/showing MinScratch windows'''
+        @lazy.function
+        def _toggleScratch(qtile):
+            win = qtile.current_window
+            if getattr(win, self.win_attr, False):
+                self._pushScratch(win)
+            else:
+                self._popScratch(qtile, win)
+        return _toggleScratch
+
+
+    def qtile_startup(self):
+        '''Initialize MinScratch group on restarts
+
+        Put
+            hook.subscribe.startup_complete(<MutScratch>.qtile_startup)
+        in your config.py to initialize the windows in the MutScratch group
+        '''
+
+        qtile = libqtile.qtile
+        group = qtile.groups_map[self.grp_name]
+
+        wins = list(group.windows)
+        for win in wins:
+            win.floating = True
+            setattr(win, self.win_attr, True)
+
+        self.win_stack = list(group.windows)
+
+    def _pushScratch(self, win):
+        win.togroup(self.grp_name)
+        self.win_stack.append(win)
+
+    def _popScratch(self, qtile, win):
+        group = qtile.groups_map[self.grp_name]
+        if set(self.win_stack) != group.windows:
+            logger.warning(f"{self}'s win_stack and {group}'s windows have mismatching windows: "
+                           f"{set(self.win_stack).symmetric_difference(group.windows)}")
+            self.win_stack = list(group.windows)
+        if self.win_stack:
+            win = self.win_stack.pop(0)
+            win.togroup(qtile.current_group.name)
