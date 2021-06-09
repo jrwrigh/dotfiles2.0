@@ -47,6 +47,7 @@ floating_matches = [
     Match(wm_class='Chromium', role='pop-up'),
     Match(wm_class='fontforge', title='FontForge'),
     Match(wm_class='Zotero', role=re.compile(r'^(?!.*browser).*$')),
+    Match(wm_class='Zotero',  wm_instance_class='Toplevel'),
     Match(title='^pdfpc - present'),
     Match(wm_class='Gnucash', title=re.compile(r'(?!.* - GnuCash)')),
     Match(title='LastPass: Free Password Manager'),
