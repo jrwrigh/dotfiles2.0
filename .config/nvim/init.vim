@@ -216,6 +216,13 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 
+"" fzf-------------------
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GitFiles<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fL :BLines<CR>
+
 " #######################################################
 " ---------------------- REMAPS -------------------------
 " #######################################################
