@@ -136,17 +136,29 @@ keys.extend( [
 
 hook.subscribe.startup_complete(minscr.qtile_startup)
 
-
-layouts = [
-    Plasma(
+plasma_kwargs = dict(
         border_normal='#333333',
         border_focus=monokai.green,
         border_normal_fixed='#006863',
         border_focus_fixed='#00e8dc',
         border_width=1,
-        border_width_single=0,
-        margin=2
-    ),
+        border_width_single=0
+)
+
+screen_res = f.get_XScreen_resolution()
+if screen_res[0] >= 3840:
+    plasma_kwargs |= dict(
+        margin=3,
+        margin_single=0,
+    )
+else:
+    plasma_kwargs |= dict(
+        margin=2,
+        margin_single=0,
+    )
+
+layouts = [
+    Plasma( **plasma_kwargs),
     layout.TreeTab(),
 ]
 
@@ -197,8 +209,14 @@ def init_widgets():
     ]
     return widgets
 
-screens = [ Screen(top=bar.Bar(init_widgets(), 20)) ]
+primary_screen_kwargs = dict(
+top=bar.Bar(init_widgets(), 20))
 
+if screen_res[0] >= 3840:
+    primary_screen_kwargs.update(dict(
+    left=bar.Gap(10), right=bar.Gap(10), bottom=bar.Gap(10)))
+
+screens = [ Screen(**primary_screen_kwargs) ]
 
 for screen in range(1, num_screens):
     screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
