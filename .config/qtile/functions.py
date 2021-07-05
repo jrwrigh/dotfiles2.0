@@ -29,6 +29,16 @@ def get_num_monitors():
         return num_monitors
 
 
+def get_XScreen_resolution():
+    """Get resolution of XScreen (not monitors)"""
+    try:
+        display = xdisplay.Display()
+        screen = display.screen()
+    except Exception:
+        return (0, 0)
+    else:
+        return (screen.width_in_pixels, screen.height_in_pixels)
+
 def ungrab_chord():
     """Shortened version for ungrabing keychords"""
     @lazy.function
