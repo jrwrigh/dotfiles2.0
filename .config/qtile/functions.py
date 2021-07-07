@@ -4,6 +4,22 @@ from libqtile.log_utils import logger
 
     # Display handling
 from Xlib import display as xdisplay
+from Xlib.ext.randr import Connected as RR_Connected
+import re, glob
+
+def is_closed_lid(output: str):
+    """Determine if laptop lid is closed
+
+    Taken from autorandr: https://github.com/phillipberndt/autorandr/blob/4f010c576/autorandr.py#L99-L108"""
+    if not re.match(r'(eDP(-?[0-9]\+)*|LVDS(-?[0-9]\+)*)', output):
+        return False
+    lids = glob.glob("/proc/acpi/button/lid/*/state")
+    if len(lids) == 1:
+        state_file = lids[0]
+        with open(state_file) as f:
+            content = f.read()
+            return "close" in content
+    return False
 
 def get_num_monitors():
     """Get the number of monitors activated on the computer"""
@@ -15,18 +31,32 @@ def get_num_monitors():
 
         for output in resources['outputs']:
             monitor = display.xrandr_get_output_info(output, resources['config_timestamp'])._data
-            preferred = False
-            if "preferred" in monitor.keys():
-                preferred = monitor['preferred']
-            elif "num_preferred" in monitor.keys():
-                preferred = monitor['num_preferred']
-            if preferred:
+            if monitor['connection'] == RR_Connected and not is_closed_lid(monitor['name']):
                 num_monitors += 1
     except Exception:
-        # always setup at least one monitor
-        return 1
+        return 1 #always return at least 1 monitor
     else:
         return num_monitors
+
+
+def get_monitor_resolutions() -> list[tuple]:
+    """Resolutions of monitors"""
+    resolutions = []
+    try:
+        display = xdisplay.Display()
+        screen = display.screen()
+        resources = screen.root.xrandr_get_screen_resources()._data
+
+        for output in resources['outputs']:
+            monitor = display.xrandr_get_output_info(output, resources['config_timestamp'])._data
+            if monitor['connection'] == RR_Connected and not is_closed_lid(monitor['name']) and monitor['crtc']:
+                crtc = display.xrandr_get_crtc_info(monitor['crtc'], resources['config_timestamp'])._data
+                resolutions.append((crtc['width'], crtc['height']))
+    except Exception:
+        logger.error('Failed to get monitor resolutions', exc_info=True)
+        return [(0,0)]
+    else:
+        return resolutions
 
 
 def get_XScreen_resolution():
