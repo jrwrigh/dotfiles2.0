@@ -259,6 +259,10 @@ def start_once():
 
 @hook.subscribe.startup_complete
 def aiomanhole_start():
+    """Start aiomanhole to access qtile's python process.
+
+    To access the process, run `nc localhost 7113`
+    """
     if aiomanhole:
         aiomanhole.start_manhole(port=7113, namespace={"qtile": qtile})
 
