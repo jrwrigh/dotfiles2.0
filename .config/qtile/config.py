@@ -20,6 +20,9 @@ try:
 except ImportError:
     aiomanhole = None
 
+from importlib import reload
+reload(f)
+
 num_screens = f.get_num_monitors()
 logger.warning(f'Number of monitors: {num_screens}')
 
