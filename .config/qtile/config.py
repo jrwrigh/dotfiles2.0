@@ -145,8 +145,8 @@ plasma_kwargs = dict(
         border_width_single=0
 )
 
-screen_res = f.get_XScreen_resolution()
-if screen_res[0] >= 3840:
+screen_res = f.get_monitor_resolutions()
+if any(res[0] > 3840 for res in screen_res):
     plasma_kwargs |= dict(
         margin=3,
         margin_single=0,
@@ -212,7 +212,7 @@ def init_widgets():
 primary_screen_kwargs = dict(
 top=bar.Bar(init_widgets(), 20))
 
-if screen_res[0] >= 3840:
+if any(res[0] > 3840 for res in screen_res):
     primary_screen_kwargs.update(dict(
     left=bar.Gap(10), right=bar.Gap(10), bottom=bar.Gap(10)))
 
