@@ -25,6 +25,7 @@ reload(f)
 
 num_screens = f.get_num_monitors()
 logger.warning(f'Number of monitors: {num_screens}')
+logger.warning(f'Monitor resolutions:{f.get_monitor_resolutions()}')
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -149,7 +150,7 @@ plasma_kwargs = dict(
 )
 
 screen_res = f.get_monitor_resolutions()
-if any(res[0] > 3840 for res in screen_res):
+if any(res[0] >= 3840 for res in screen_res):
     plasma_kwargs |= dict(
         margin=3,
         margin_single=0,
@@ -215,7 +216,7 @@ def init_widgets():
 primary_screen_kwargs = dict(
 top=bar.Bar(init_widgets(), 20))
 
-if any(res[0] > 3840 for res in screen_res):
+if any(res[0] >= 3840 for res in screen_res):
     primary_screen_kwargs.update(dict(
     left=bar.Gap(10), right=bar.Gap(10), bottom=bar.Gap(10)))
 
