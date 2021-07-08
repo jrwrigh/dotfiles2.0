@@ -54,4 +54,5 @@ floating_matches = [
     Match(wm_class='kcharselect'),
     Match(wm_class='Nm-connection-editor', title='Network Connections'),
     Match(wm_class='soffice'),
+    Match(wm_class='SimpleScreenRecorder'),
 ]
