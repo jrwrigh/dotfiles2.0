@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+FPATH_Backup=$FPATH
+
+source /etc/profile.d/modules.sh
+
+module load $1
+
+export FPATH=${FPATH}:${FPATH_Backup}
+
