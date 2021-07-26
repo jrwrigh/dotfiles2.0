@@ -6,6 +6,7 @@ from libqtile.log_utils import logger
 from Xlib import display as xdisplay
 from Xlib.ext.randr import Connected as RR_Connected
 import re, glob
+import warnings
 
 def is_closed_lid(output: str):
     """Determine if laptop lid is closed
@@ -73,6 +74,7 @@ def ungrab_chord():
     """Shortened version for ungrabing keychords"""
     @lazy.function
     def _ungrab_chord(qtile):
+        warnings.warn('Replaced by `lazy.ungrab_chord()`', DeprecationWarning)
         qtile.ungrab_chord()
     return _ungrab_chord
 
