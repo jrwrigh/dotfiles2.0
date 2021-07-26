@@ -30,14 +30,8 @@ logger.warning(f'Monitor resolutions:{f.get_monitor_resolutions()}')
 mod = "mod4"
 terminal = guess_terminal()
 
-    # Keys to exit chords
-escapeChord = [
-    EzKey('q', f.ungrab_chord()),
-    EzKey('<Return>', f.ungrab_chord()),
-    EzKey('C-<bracketleft>', f.ungrab_chord()),
-    EzKey('<BackSpace>', f.ungrab_chord()),
-]
-
+escapeKeys = ['q', '<Return>', 'C-<bracketleft>', '<BackSpace>']
+escapeChord = [ EzKey(key, lazy.ungrab_chord()) for key in  escapeKeys]
 
 keys = [
     # Switch between windows
@@ -57,10 +51,10 @@ keys = [
     EzKey('M-A-k', lazy.layout.integrate_up(), f.warp_cursor_here()),
 
     KeyChord([mod], 'q', [
-        EzKey('h',   lazy.layout.mode_horizontal(), f.ungrab_chord()),
-        EzKey('v',   lazy.layout.mode_vertical(), f.ungrab_chord()),
-        EzKey('S-h', lazy.layout.mode_horizontal_split(), f.ungrab_chord()),
-        EzKey('S-v', lazy.layout.mode_vertical_split(), f.ungrab_chord()),
+        EzKey('h',   lazy.layout.mode_horizontal(), lazy.ungrab_chord()),
+        EzKey('v',   lazy.layout.mode_vertical(), lazy.ungrab_chord()),
+        EzKey('S-h', lazy.layout.mode_horizontal_split(), lazy.ungrab_chord()),
+        EzKey('S-v', lazy.layout.mode_vertical_split(), lazy.ungrab_chord()),
         *escapeChord
     ], mode='(h)orizontal, (v)ertical, (H)orizontal split, (V)ertical split'),
 
@@ -75,10 +69,9 @@ keys = [
     EzKey('M-f', lazy.window.toggle_fullscreen(), f.warp_cursor_here()),
 
     KeyChord([mod], 'm', [
-        EzKey('m',  f.move_next_screen(), f.ungrab_chord()),
-        EzKey('s',   lazy.next_screen(), f.ungrab_chord()),
+        EzKey('m',  f.move_next_screen(), lazy.ungrab_chord()),
+        EzKey('s',   lazy.next_screen(), lazy.ungrab_chord()),
         *escapeChord
-        # EzKey('q', f.ungrab_chord()),
     ], mode='(s)wap or (m)ove to other screen'),
     EzKey('M-s', lazy.next_screen(), f.warp_cursor_here()),
 
@@ -106,13 +99,13 @@ keys = [
 SystemStatus = '(l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (Shift+r)eboot, (Shift+s)hutdown'
 keys.append(
     KeyChord([mod], '0', [
-        EzKey('l',   lazy.spawn('i3exit_custom lock'), f.ungrab_chord()),
-        EzKey('s',   lazy.spawn('i3exit_custom suspend'), f.ungrab_chord()),
-        EzKey('u',   lazy.spawn('i3exit_custom switch_user'), f.ungrab_chord()),
-        EzKey('e',   lazy.spawn('i3exit_custom logout'), f.ungrab_chord()),
-        EzKey('h',   lazy.spawn('i3exit_custom hibernate'), f.ungrab_chord()),
-        EzKey('S-r', lazy.spawn('i3exit_custom reboot'), f.ungrab_chord()),
-        EzKey('S-s', lazy.spawn('i3exit_custom shutdown'), f.ungrab_chord()),
+        EzKey('l',   lazy.spawn('i3exit_custom lock'), lazy.ungrab_chord()),
+        EzKey('s',   lazy.spawn('i3exit_custom suspend'), lazy.ungrab_chord()),
+        EzKey('u',   lazy.spawn('i3exit_custom switch_user'), lazy.ungrab_chord()),
+        EzKey('e',   lazy.spawn('i3exit_custom logout'), lazy.ungrab_chord()),
+        EzKey('h',   lazy.spawn('i3exit_custom hibernate'), lazy.ungrab_chord()),
+        EzKey('S-r', lazy.spawn('i3exit_custom reboot'), lazy.ungrab_chord()),
+        EzKey('S-s', lazy.spawn('i3exit_custom shutdown'), lazy.ungrab_chord()),
         *escapeChord
     ], mode=SystemStatus)
 )
@@ -227,7 +220,7 @@ for screen in range(1, num_screens):
 
 @hook.subscribe.screen_change
 def screen_reset(_):
-    logger.warning('made it into screen_reset')
+    # logger.warning('made it into screen_reset')
     num_screens = f.get_num_monitors()
     screens = [ Screen(top=bar.Bar(init_widgets(), 20)) ]
     for _ in range(1, num_screens):
