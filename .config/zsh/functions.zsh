@@ -108,3 +108,9 @@ bindkey '^Z' fancy-ctrl-z
 if (( $+commands[broot] )); then
     eval "$(broot --print-shell-function zsh)"
 fi
+
+# Add soft function for ALCF purposes
+soft ()
+{
+    eval "`/soft/environment/softenv-1.6.2/bin/soft-dec sh $1 $2`"
+}
