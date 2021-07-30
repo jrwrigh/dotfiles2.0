@@ -218,6 +218,7 @@ xmap ga <Plug>(EasyAlign)
 
 "" fzf-------------------
 nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fF :Files
 nnoremap <leader>fg :GitFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fl :Lines<CR>
