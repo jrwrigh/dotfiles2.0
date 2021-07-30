@@ -22,6 +22,10 @@ export KEYTIMEOUT=1
 [ -f "$ZSH_CONFIG_DIR/cursor_mode.zsh" ] && source $ZSH_CONFIG_DIR/cursor_mode.zsh
 cursor_mode
 
+# Add back emacs commands for history navigation
+bindkey -M viins '^p' up-line-or-history
+bindkey -M viins '^n' down-line-or-history
+
 # [PageUp] - Up a line of history
 if [[ -n "${terminfo[kpp]}" ]]; then
   bindkey -M emacs "${terminfo[kpp]}" up-line-or-history
