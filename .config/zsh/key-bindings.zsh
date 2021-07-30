@@ -15,8 +15,12 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
   zle -N zle-line-finish
 fi
 
-# Use emacs key bindings
-bindkey -e
+# Use vim key bindings
+bindkey -v
+export KEYTIMEOUT=1
+
+[ -f "$ZSH_CONFIG_DIR/cursor_mode.zsh" ] && source $ZSH_CONFIG_DIR/cursor_mode.zsh
+cursor_mode
 
 # [PageUp] - Up a line of history
 if [[ -n "${terminfo[kpp]}" ]]; then

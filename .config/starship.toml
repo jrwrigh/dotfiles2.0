@@ -6,3 +6,6 @@ disabled=true
 
 [conda]
 ignore_base=false
+
+[character]
+vicmd_symbol="[ ❯](bold red)"
