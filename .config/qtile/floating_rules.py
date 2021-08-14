@@ -55,4 +55,6 @@ floating_matches = [
     Match(wm_class='Nm-connection-editor', title='Network Connections'),
     Match(wm_class='soffice'),
     Match(wm_class='SimpleScreenRecorder'),
+    Match(role='pop-up'),
+    Match(title='JupyterLab'),
 ]
