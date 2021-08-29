@@ -20,7 +20,11 @@ function sshAndVNC {
         eval $sshCommand
     fi
 
-    setsid -f vncviewer localhost:59${port}
+    if [ $port -eq 14 ]; then
+        setsid -f vncviewer localhost:59${port} -ViewOnly=0
+    else
+        setsid -f vncviewer localhost:59${port}
+    fi
 }
 
 sshAndVNC $port
