@@ -43,4 +43,7 @@ do
     esac
 done
 
+[ -S "$SSH_AUTH_SOCK" ] && echo -e 'Try with `-f` to remove unix socket\n'
+
 eval `ssh-agent -s -a $SSH_AUTH_SOCK`
+ssh-add
