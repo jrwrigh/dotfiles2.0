@@ -36,6 +36,7 @@
     sts = status -s
     cp = cherry-pick
     co = checkout
+    cod = checkout --detach
     aliases = "!git config -l | grep ^alias\\. | cut -c 7-"
     graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
     grep = grep -Ii
