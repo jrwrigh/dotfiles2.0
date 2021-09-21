@@ -81,6 +81,7 @@ keys = [
     EzKey('M-S-C-l', lazy.spawn('playerctl next'.split(' '))),
     EzKey('M-S-C-<Up>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
     EzKey('M-S-C-<Down>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
+    EzKey('M-S-C-m', lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'.split(' '))),
 
     EzKey('M-t', lazy.spawn('pkill picom'.split(' '))),
     EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
