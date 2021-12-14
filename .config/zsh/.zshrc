@@ -1,6 +1,7 @@
 # vim: set filetype=sh :
 # zmodload zsh/zprof # Performance Profiler
 
+. "/users/jrwrigh/.local/src/cargo/env"
 # =============================================================================
 #                              Initialization
 # =============================================================================
