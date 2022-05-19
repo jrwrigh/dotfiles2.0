@@ -5,15 +5,20 @@
 
 ## zsh
 
-1. Install `oh-my-zsh`
-2. Install `antibody` (either through AUR or command line)
-3. Remove `oh-my-zsh`'s `.zshrc`
-4. `symlndotf` the `.zshrc` file and `.config/zsh/zshPluginList`
-5. Source `.zshrc` and run `antibody_bundle_loadfile`
-6. Download starship to `.local/src/starship` (MUSL version if on remote
+1. Install `antibody` (either through AUR or command line)
+2. Remove `oh-my-zsh`'s `.zshrc`
+3. `symlndotf` the `.zshrc` file and `.config/zsh/zshPluginList`
+4. Source `.zshrc` and run `antibody_bundle_loadfile`
+5. Download starship to `.local/src/starship` (MUSL version if on remote
    system) and symlink to `.local/bin`
-7. Source `.zshrc` again
+6. Source `.zshrc` again
    - Everything should now be running normally
+
+## fzf
+
+1. Load git repository to `~/.local/src/fzf`
+2. Install using `~/.local/src/fzf/install --xdg`
+3. Symlink `.config/fzf/fzf.zsh`
 
 ## ranger
 
@@ -32,12 +37,6 @@
 4. Start neovim
 5. Run `:PlugInstall`
 
-## fzf
-
-1. Load git repository to `~/.local/src/fzf`
-2. Install using `~/.local/src/fzf/install --xdg`
-3. Symlink `.config/fzf/fzf.zsh`
-
 ## git
 
 1. `symlndotf` `.config/git/gitconfig`
@@ -47,8 +46,10 @@
 
 1. `symlndotf .config/systemd/user/ssh-agent.service`
 2. `cd ~/.config/systemd/user`
-3. `systemd --user enable ssh-agent`
-4. `systemd --user start ssh-agent`
+3. `systemctl --user enable ssh-agent`
+4. `systemctl --user start ssh-agent`
+5. Prepend `AddKeysToAgent yes` to `~/.ssh/config` (assuming the option is
+   valid for the version of `ssh` installed)
 
 ## odrive
 
@@ -91,5 +92,5 @@
  1. `systemctl  --user enable redshift-gtk`
  2. `systemctl  --user start redshift-gtk`
 
-Note this means that Redshift will auto start after being shutdown. You must
+Note this means that systemd will restart Redshift if it is killed. You must
 stop the systemd service to turn it off correctly.
