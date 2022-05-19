@@ -9,3 +9,5 @@ robbyrussell/oh-my-zsh path:plugins/tmux
 
 molovo/tipz # alias tips
 Aloxaf/fzf-tab # use fzf as the zsh tab completion interface
+
+esc/conda-zsh-completion # Get completion for conda

@@ -50,6 +50,8 @@ antibody_bundle_loadfile() {
 # The load file is then sourced
 [ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
 
+compinit
+
 eval "$(starship init zsh)"
 
 # =============================================================================

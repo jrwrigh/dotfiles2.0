@@ -88,3 +88,9 @@ function d () {
 }
 compdef _dirs d
 
+# conda completion settings
+zstyle ':completion::complete:*' use-cache 1
+zstyle ":conda_zsh_completion:*" use-groups true
+zstyle ":conda_zsh_completion:*" show-unnamed true
+zstyle ":conda_zsh_completion:*" sort-envs-by-time true
+zstyle ":conda_zsh_completion:*" show-global-envs-first true
