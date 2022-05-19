@@ -25,7 +25,7 @@ alias ll='ls -lh --color=tty'
 alias lal='ls -alh --color=tty'
 alias lalt='ls -alht --color=tty'
 
-alias rm='rm -i'
+alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
 
