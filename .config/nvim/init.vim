@@ -16,7 +16,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
-Plug 'brennier/quicktex'
 Plug 'nvie/vim-flake8'
 Plug 'svermeulen/vim-subversive' " adds substitute commmmands to paste over a text object (ie. `siw`)
 Plug 'chrisbra/improvedft' "allows f, t, F, and T to be used over multiple lines
@@ -32,6 +31,7 @@ Plug '~/.local/src/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-repeat'
+Plug 'lervag/vimtex'
 
 let intellisense_plugin = "none"
 
@@ -80,12 +80,15 @@ colorscheme monokai
 highlight Normal ctermbg=none guibg=none
 highlight NonText ctermbg=none guibg=none
 highlight LineNr ctermbg=none guibg=none
+highlight clear Conceal
 
 set list
 set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
 set showbreak=↳\ \ \ \ 
 
 set diffopt+=algorithm:minimal
+
+let g:tex_conceal='abdmg'
 
 " #######################################################
 " ------------------ PLUGIN SETTINGS --------------------
@@ -158,24 +161,6 @@ let g:ctrlp_show_hidden = 1
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* " Ignore source control folders
 
-"" QuickTeX---------------------
-let g:quicktex_tex = {
-            \' '   : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-            \'m'   : '\( <+++> \) <++>',
-            \'prf' : "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
-            \}
-
-let g:quicktex_math = {
-            \' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-            \'fr'   : '\mathcal{R} ',
-            \'eq'   : '= ',
-            \'set'  : '\{ <+++> \} <++>',
-            \'frac' : '\frac{<+++>}{<++>} <++>',
-            \'one'  : '1 ',
-            \'st'   : ': ',
-            \'in'   : '\in ',
-            \'bn'   : '\mathbb{N} ',
-            \}
 
 
 "" subversive----------------------------
@@ -223,6 +208,9 @@ nnoremap <leader>fg :GitFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fL :BLines<CR>
+
+"" Vim-tex ---------------
+let g:vimtex_view_method = 'zathura'
 
 " #######################################################
 " ---------------------- REMAPS -------------------------
