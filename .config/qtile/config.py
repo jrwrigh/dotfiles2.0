@@ -15,6 +15,9 @@ import functions as f
 from theme import monokai
 from floating_rules import floating_matches
 
+from pathlib import Path
+import os
+
 try:
     import aiomanhole
 except ImportError:
@@ -29,6 +32,17 @@ logger.warning(f'Monitor resolutions:{f.get_monitor_resolutions()}')
 
 mod = "mod4"
 terminal = guess_terminal()
+
+wallpaper_envvar = 'QTILE_WALLPAPER'
+wallpaper_mode = 'fill'
+wallpaper_default = Path('~/.local/share/backgrounds/SquareTopMountain_4K.jpg').expanduser()
+wallpaper_dir = Path('~/.local/share/backgrounds/').expanduser()
+if  wallpaper_envvar in os.environ.keys():
+    logger.warning(f'Found ${wallpaper_envvar}: {os.environ[wallpaper_envvar]}')
+    wallpaper = Path(os.environ[wallpaper_envvar]).expanduser()
+else:
+    logger.warning(f"Didn't find ${wallpaper_envvar}. Using {wallpaper_default} instead")
+    wallpaper = wallpaper_default
 
 escapeKeys = ['q', '<Return>', 'C-<bracketleft>', '<BackSpace>']
 escapeChord = [ EzKey(key, lazy.ungrab_chord()) for key in  escapeKeys]
@@ -74,6 +88,8 @@ keys = [
         *escapeChord
     ], mode='(s)wap or (m)ove to other screen'),
     EzKey('M-s', lazy.next_screen(), f.warp_cursor_here()),
+    EzKey('M-b', f.set_wallpaper(wallpaper_dir, mode=wallpaper_mode),
+          f.warp_cursor_here()),
 
     # Volume normally handled automatically by pa-applet
     EzKey('M-S-C-k', lazy.spawn('playerctl play-pause'.split(' '))),
@@ -157,7 +173,7 @@ else:
 
 layouts = [
     Plasma( **plasma_kwargs),
-    layout.TreeTab(),
+    layout.TreeTab(sections=[''], panel_width=80),
 ]
 
 
@@ -208,7 +224,9 @@ def init_widgets():
     return widgets
 
 primary_screen_kwargs = dict(
-top=bar.Bar(init_widgets(), 20))
+top=bar.Bar(init_widgets(), 20),
+wallpaper=wallpaper.as_posix(),
+wallpaper_mode=wallpaper_mode)
 
 if any(res[0] >= 3840 for res in screen_res):
     primary_screen_kwargs.update(dict(
@@ -216,8 +234,11 @@ if any(res[0] >= 3840 for res in screen_res):
 
 screens = [ Screen(**primary_screen_kwargs) ]
 
-for screen in range(1, num_screens):
-    screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20)) )
+for _ in range(1, num_screens):
+    screens.append( Screen(top=bar.Bar(init_widgets()[:-1], 20),
+                           wallpaper=wallpaper.as_posix(),
+                           wallpaper_mode=wallpaper_mode)
+                           )
 
 # Drag floating layouts.
 mouse = [

@@ -5,8 +5,9 @@ from libqtile.log_utils import logger
     # Display handling
 from Xlib import display as xdisplay
 from Xlib.ext.randr import Connected as RR_Connected
-import re, glob
+import re, glob, os
 import warnings
+from pathlib import Path
 
 def is_closed_lid(output: str):
     """Determine if laptop lid is closed
@@ -119,6 +120,21 @@ def move_next_screen():
             warp_cursor_here_win(group.current_window)
 
     return _move_next_screen
+
+
+def set_wallpaper(wallpaper_dir: Path, mode=None):
+    @lazy.function
+    def _set_wallpaper(qtile):
+        wallpapers = {x.name: x for x in wallpaper_dir.glob('*')}
+        logger.info(f'Wallpaper files found: {wallpapers.keys()}')
+        dmenu = libqtile.extension.Dmenu(fontsize=10, dmenu_ignorecase=True)
+        dmenu._configure(qtile)
+        proc = dmenu.run(items=wallpapers.keys())
+        wallpaper = wallpapers[proc.strip()]
+
+        for screen in qtile.screens:
+            screen.cmd_set_wallpaper(wallpaper, mode=mode)
+    return _set_wallpaper
 
 
 def viewGroup(name):
