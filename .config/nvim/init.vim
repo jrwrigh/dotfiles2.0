@@ -84,7 +84,7 @@ highlight clear Conceal
 
 set list
 set listchars=tab:⇄\ ,trail:␣,extends:❯,precedes:❮
-set showbreak=↳\ \ \ \ 
+set showbreak=↳
 
 set diffopt+=algorithm:minimal
 
@@ -199,6 +199,25 @@ let g:indentLine_char = "┊"
 nmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
+let g:easy_align_delimiters = {
+\ '>': { 'pattern': '>>\|=>\|>' },
+\ '/': {
+\     'pattern':         '//\+\|/\*\|\*/',
+\     'delimiter_align': 'l',
+\     'ignore_groups':   ['!Comment'] },
+\ ']': {
+\     'pattern':       '[[\]]',
+\     'left_margin':   0,
+\     'right_margin':  0,
+\     'stick_to_left': 0
+\   },
+\ ')': {
+\     'pattern':       '[()]',
+\     'left_margin':   0,
+\     'right_margin':  0,
+\     'stick_to_left': 0
+\   },
+\ }
 
 
 "" fzf-------------------
@@ -278,6 +297,7 @@ endfunction
 " #######################################################
 
 autocmd FileType c call SetCOptions()
+autocmd FileType cpp call SetCppOptions()
 autocmd FileType fortran call SetFortranOptions()
 autocmd FileType xdefaults call SetXdefaultsOptions()
 autocmd FileType text,markdown setlocal spell
@@ -288,6 +308,13 @@ source ~/.config/nvim/i3config_folding.vim
 source ~/.config/nvim/vim_folding.vim
 
 function! SetCOptions()
+    setlocal expandtab
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+    setlocal commentstring=//\ %s
+endfunction
+
+function! SetCppOptions()
     setlocal expandtab
     setlocal tabstop=2
     setlocal shiftwidth=2
