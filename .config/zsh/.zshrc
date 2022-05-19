@@ -79,6 +79,7 @@ eval "$(starship init zsh)"
 #                                  Startup
 # =============================================================================
 
+for f (/etc/profile.d/*.sh(A)) source $f
 
 # Performance Profiler
 # zprof
