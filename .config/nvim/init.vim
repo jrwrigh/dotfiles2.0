@@ -339,3 +339,9 @@ endfunction
 function! SetGitOptions()
     setlocal foldlevel=20
 endfunction
+
+" Set file type for phasta input files
+augroup inp_ft
+  au!
+  autocmd BufNewFile,BufRead *.inp   set ft=conf
+augroup END
