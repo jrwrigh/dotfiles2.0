@@ -140,3 +140,6 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# Remove binding for clear-screen
+bindkey -r '^L'
