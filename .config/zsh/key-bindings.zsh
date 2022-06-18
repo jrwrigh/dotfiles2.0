@@ -124,8 +124,7 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 # file rename magick
-bindkey "^[m" copy-prev-shell-word
-
+bindkey "^[m" copy-prev-shell-word # Alt-m
 
 # Use Ctrl-z to reopen background process, equiv of OMZ/fancy-ctrl-z
 # From: https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
@@ -143,3 +142,28 @@ bindkey '^Z' fancy-ctrl-z
 
 # Remove binding for clear-screen
 bindkey -r '^L'
+
+# Include vim-surround-esque bindings for vim mode
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -M vicmd cs change-surround
+bindkey -M vicmd ds delete-surround
+bindkey -M vicmd ys add-surround
+bindkey -M visual S add-surround
+
+# Add back in text objects for surrounding characters
+# ie. enable `ci(` and `da'`
+autoload -Uz select-bracketed select-quoted
+zle -N select-quoted
+zle -N select-bracketed
+for km in viopp visual; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
+  done
+done
