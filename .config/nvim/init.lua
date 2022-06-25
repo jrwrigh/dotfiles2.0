@@ -18,13 +18,15 @@ vim.api.nvim_exec(
 local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
-  use 'tpope/vim-fugitive' -- Git commands in nvim
+  use {'tpope/vim-fugitive', tag='*'} -- Git commands in nvim
   use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
+  use 'tpope/vim-git' -- plugin/syntax stuff for git files (commit, rebase -i, etc)
+  use { 'rbong/vim-flog', branch='master'}  -- for browsing git log branches
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'tanvirtin/monokai.nvim'
-  -- use 'crusoexia/vim-monokai'
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
@@ -36,18 +38,19 @@ require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter'
     -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
 
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'saadparwaiz1/cmp_luasnip'
   use 'junegunn/vim-easy-align'
   use "williamboman/nvim-lsp-installer"
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use 'chrisbra/improvedft'
 
 end)
 
@@ -83,7 +86,7 @@ vim.opt.showbreak = '↳    '
 vim.opt.listchars:append { tab= '⇄ ', trail= '␣', extends= '❯', precedes= '❮' }
 
 vim.opt.inccommand = 'nosplit' -- Incremental live completion
-vim.opt.hlsearch   = false     -- Set highlight on search
+vim.opt.hlsearch   = true      -- Set highlight on search
 vim.opt.hidden     = true      -- Do not save when switching buffers
 vim.o.breakindent  = true      -- Enable break indent
 vim.o.undofile     = true      -- Save undo history
@@ -96,10 +99,12 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme (order is important here)
 vim.go.termguicolors = true
--- vim.cmd [[colorscheme monokai]]
--- require('monokai')
-require('monokai').setup { palette = require('monokai') }
--- vim.cmd('colorscheme monokai')
+local monokai = require('monokai')
+monokai.setup {
+  palette = {
+    base5 = '#606569',
+    },
+}
 
 -- Make background opacity terminal emulator dependent
 -- !! Must be after colorsceme setting
@@ -112,38 +117,46 @@ vim.cmd('highlight clear Conceal')
 vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
 vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
--- Gitsigns
+---- Gitsigns
 require('gitsigns').setup {
   signs = {
-    add = { hl = 'GitGutterAdd', text = '+' },
-    change = { hl = 'GitGutterChange', text = '~' },
-    delete = { hl = 'GitGutterDelete', text = '_' },
-    topdelete = { hl = 'GitGutterDelete', text = '‾' },
+    add          = { hl = 'GitGutterAdd', text    = '+' },
+    change       = { hl = 'GitGutterChange', text = '~' },
+    delete       = { hl = 'GitGutterDelete', text = '_' },
+    topdelete    = { hl = 'GitGutterDelete', text = '‾' },
     changedelete = { hl = 'GitGutterChange', text = '~' },
   },
 }
 
--- Telescope
+---- Telescope
+local actions = require('telescope.actions')
 require('telescope').setup {
   defaults = {
     mappings = {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
       },
     },
+    winblend = 20
   },
 }
 --Add leader shortcuts
 local nore_sil = { noremap = true, silent = true }
 
-vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>st', [[<cmd>lua require('telescope.builtin').tags()<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>sd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], nore_sil)
-vim.api.nvim_set_keymap('n', '<leader>sp', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], nore_sil)
+vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]],                       nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>ff',      [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>sb',      [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],     nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>sh',      [[<cmd>lua require('telescope.builtin').help_tags()<CR>]],                     nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>st',      [[<cmd>lua require('telescope.builtin').tags()<CR>]],                          nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>sd',      [[<cmd>lua require('telescope.builtin').grep_string()<CR>]],                   nore_sil)
+vim.api.nvim_set_keymap('n', '<leader>sp',      [[<cmd>lua require('telescope.builtin').live_grep()<CR>]],                     nore_sil)
+
+-- To get fzf loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require('telescope').load_extension('fzf')
 
 -- Highlight on yank
 vim.api.nvim_exec(
@@ -169,7 +182,7 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd',         '<Cmd>lua vim.lsp.buf.definition()<CR>',                                 opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K',          '<Cmd>lua vim.lsp.buf.hover()<CR>',                                      opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>',                             opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>',                             opts)
+  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>',                             opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',                       opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',                    opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -217,7 +230,7 @@ table.insert(runtime_path, 'lua/?/init.lua')
 ---- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {'c', 'python', 'fortran', 'bash', 'lua', 'vim'},
+  ensure_installed = {'c', 'python', 'fortran', 'bash', 'lua', 'vim', 'cpp'},
   highlight = {
     enable = true, -- false will disable the whole extension
   },
@@ -278,10 +291,7 @@ vim.o.completeopt = 'menu,menuone,noselect'
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
     window = {
@@ -297,10 +307,8 @@ vim.o.completeopt = 'menu,menuone,noselect'
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
+      { name = 'nvim_lsp_signature_help' },
     }, {
       { name = 'buffer' },
     })
@@ -425,6 +433,8 @@ vim.g.airline_right_sep=''
 ----------------- FILE TYPE OVERRIDES -------------------
 --#######################################################
 
+-- vim.go.load_doxygen_syntax = true
+vim.cmd [[let g:load_doxygen_syntax = 1]]
 vim.cmd [[
 autocmd FileType c call SetCOptions()
 autocmd FileType cpp call SetCppOptions()
@@ -475,3 +485,13 @@ augroup inp_ft
   au!
   autocmd BufNewFile,BufRead *.inp   set ft=conf
 augroup END ]]
+
+-- vim.api.nvim_create_autocmd({'FileType'}, {
+--     pattern = 'c',
+--     command = 'SetCOptions()'
+-- })
+
+vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
+    pattern = {"*.h"},
+    callback = function() vim.o.filetype='c' end
+})
