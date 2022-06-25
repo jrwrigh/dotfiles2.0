@@ -65,10 +65,10 @@ keys = [
     EzKey('M-A-k', lazy.layout.integrate_up(), f.warp_cursor_here()),
 
     KeyChord([mod], 'q', [
-        EzKey('h',   lazy.layout.mode_horizontal(), lazy.ungrab_chord()),
-        EzKey('v',   lazy.layout.mode_vertical(), lazy.ungrab_chord()),
-        EzKey('S-h', lazy.layout.mode_horizontal_split(), lazy.ungrab_chord()),
-        EzKey('S-v', lazy.layout.mode_vertical_split(), lazy.ungrab_chord()),
+        EzKey('v',   lazy.layout.mode_horizontal(), lazy.ungrab_chord()),
+        EzKey('h',   lazy.layout.mode_vertical(), lazy.ungrab_chord()),
+        EzKey('S-v', lazy.layout.mode_horizontal_split(), lazy.ungrab_chord()),
+        EzKey('S-h', lazy.layout.mode_vertical_split(), lazy.ungrab_chord()),
         *escapeChord
     ], mode='(h)orizontal, (v)ertical, (H)orizontal split, (V)ertical split'),
 
