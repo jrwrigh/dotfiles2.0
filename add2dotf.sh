@@ -15,6 +15,8 @@
 # CurrentDir=$(pwd -P)
 # DotfileDir="$HomeDir/gitRepos/dotfiles2.0"
 
+set -e # Stop script on any error
+
 if [[ $SUDO_USER ]]; then
   echo "Running scripts you find on the internet as root is dangerous. Try again without 'sudo'."
   exit 1
@@ -27,6 +29,10 @@ DotfileDir=$HomeDir'/gitRepos/dotfiles2.0'
 for filepath in $@
 do
     echo WORKING ON $filepath .................
+    if [[ -d ${filepath} ]]; then
+        echo $filepath 'is a directory, skipping'
+        break
+    fi
     filepath2home=$(realpath --relative-to=$HomeDir $filepath)
     filepath2homedir=$(dirname $filepath2home)
     mkdir -p $DotfileDir/$filepath2homedir
