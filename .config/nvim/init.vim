@@ -53,23 +53,23 @@ set number relativenumber " hybrid relative line numbers
 set termguicolors     " Done due to MobaXterm not displaying cursor
 " correctly
 
-set showmatch           " Show matching brakets.
-set formatoptions+=o    " Continue comment marker in new line
-set expandtab           " Insert spaces when <TAB> is pressed
-set tabstop=4           " Set number of spaces inserted when <TAB> is pressed
-set shiftwidth=4        " Indentation amount when using << and >>
-set shiftround          " Makes the shift command move in multiples of shiftwidth
+set showmatch        " Show matching brakets.
+set formatoptions+=o " Continue comment marker in new line
+set expandtab        " Insert spaces when <TAB> is pressed
+set tabstop=4        " Set number of spaces inserted when <TAB> is pressed
+set shiftwidth=4     " Indentation amount when using << and >>
+set shiftround       " Makes the shift command move in multiples of shiftwidth
 
-set splitbelow          " Horizontal split below current
-set splitright          " Vetical split to right of current
+set splitbelow       " Horizontal split below current
+set splitright       " Vetical split to right of current
 
-set ignorecase          " Make searching case insensitive...
-set smartcase           " ... unless the query has a capital letter in it
-" set gdefault            " Use 'g' flag by default for :s/foo/bar/
+set ignorecase       " Make searching case insensitive...
+set smartcase        " ... unless the query has a capital letter in it
 
-set scrolloff=2         " Forces a minimum number of lines above and below cursor
+set scrolloff=2      " Forces a minimum number of lines above and below cursor
 
-set cursorline          " Highlights the current line of the cursor
+set cursorline       " Highlights the current line of the cursor
+set undofile         " Saves buffer change history after exit
 
 syntax on
 
