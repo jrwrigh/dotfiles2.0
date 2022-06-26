@@ -5,10 +5,6 @@ monokai.setup {
     },
 }
 
--- Make background opacity terminal emulator dependent
--- !! Must be after colorsceme setting
-vim.cmd('highlight Normal ctermbg=none guibg=none')
-vim.cmd('highlight NonText ctermbg=none guibg=none')
-vim.cmd('highlight LineNr ctermbg=none guibg=none')
-vim.cmd('highlight clear Conceal')
-
+-- Include custom highlights directly after the colorscheme is created
+package.path = package.path .. ";../?.lua"
+require('highlights')
