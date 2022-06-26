@@ -75,7 +75,8 @@ return require("packer").startup({
       config = get_setup('lualine'),
       after = 'monokai.nvim',
     }
-    use { 'junegunn/vim-easy-align', config = get_setup('easy_align')}
+    use { 'norcalli/nvim-colorizer.lua', config = get_setup('nvim-colorizer') }
+    use { 'junegunn/vim-easy-align',     config = get_setup('easy_align') }
     use 'chrisbra/improvedft'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
