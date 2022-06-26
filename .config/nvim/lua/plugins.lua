@@ -84,6 +84,7 @@ return require("packer").startup({
     use { 'tpope/vim-fugitive' } -- Git commands in nvim
     use { 'rbong/vim-flog', branch='master' }  -- for browsing git log branches
     use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
+    use { 'windwp/nvim-autopairs', config = get_setup('autopairs') }
 
     if Packer_bootstrap then
       require("packer").sync()
