@@ -15,7 +15,7 @@ vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 -- Telescope keymaps
 local nore_sil = { noremap = true, silent = true }
 local telebuiltin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff',      function() telebuiltin.find_files() end, nore_sil)
+vim.keymap.set('n', '<leader>ff',      function() telebuiltin.find_files({follow = true}) end, nore_sil)
 vim.keymap.set('n', '<leader><space>', function() telebuiltin.buffers() end,                       nore_sil)
 vim.keymap.set('n', '<leader>sb',      function() telebuiltin.current_buffer_fuzzy_find() end,     nore_sil)
 vim.keymap.set('n', '<leader>sh',      function() telebuiltin.help_tags() end,                     nore_sil)
