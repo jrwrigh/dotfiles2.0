@@ -81,10 +81,8 @@ return require("packer").startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-git' -- plugin/syntax stuff for git files (commit, rebase -i, etc)
-    use { 'tpope/vim-fugitive', tag='*' } -- Git commands in nvim
+    use { 'tpope/vim-fugitive' } -- Git commands in nvim
     use { 'rbong/vim-flog', branch='master' }  -- for browsing git log branches
-    -- use 'vim-airline/vim-airline'
-    -- use 'vim-airline/vim-airline-themes'
     use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
 
     if Packer_bootstrap then
