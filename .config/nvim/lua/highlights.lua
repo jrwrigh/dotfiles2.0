@@ -12,5 +12,9 @@ vim.cmd('highlight clear Conceal')
 -- Make the context indent vertical (highlights the level that you're currently
 -- in) not super bright. Currently the bold setting doesn't work, but leaving
 -- it just in case it starts to work at somepoint in the future.
-vim.cmd [[highlight IndentBlanklineContextChar guifg=#9385ab gui=bold ]]
+vim.cmd [[highlight IndentBlanklineContextChar guifg=#a999c4 gui=bold ]]
 vim.cmd [[highlight IndentBlanklineContextStart guisp=#ae81ff gui=underline ]]
+
+-- Highlight for treesitter-context
+vim.cmd [[highlight TreesitterContext guisp=#ffffff gui=underline ]]
+vim.cmd [[highlight TreesitterContextLineNumber guifg=#ffffff ]]
