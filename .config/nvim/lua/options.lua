@@ -10,9 +10,11 @@ vim.opt.splitright     = true -- Vetical split to right of current
 vim.opt.cursorline     = true
 vim.opt.scrolloff      = 2
 
-vim.opt.showbreak = '↳    '
-vim.opt.listchars:append { tab= '⇄ ', trail= '␣', extends= '❯', precedes= '❮' }
+vim.opt.list         = true
+vim.opt.showbreak    = '↳    '
+vim.opt.listchars    = { tab= '⇄ ', trail= '␣', extends= '❯', precedes= '❮' }
 vim.go.termguicolors = true   -- Allow use of non-256 colorschemes
+vim.g.tex_conceal = 'abdmg'
 
 vim.opt.inccommand = 'nosplit' -- Incremental live completion
 vim.opt.hlsearch   = true      -- Set highlight on search

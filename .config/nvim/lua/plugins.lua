@@ -38,7 +38,10 @@ return require("packer").startup({
       config = get_setup('telescope')
     }
     use { 'tanvirtin/monokai.nvim', config = get_setup('monokai') }
-    use { 'lukas-reineke/indent-blankline.nvim', config = get_setup('indent_blankline')}
+    use { 'lukas-reineke/indent-blankline.nvim',
+      config = get_setup('indent_blankline'),
+      ft = {'~tex', '~markdown'}
+    }
     use { 'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
       config = get_setup('gitsigns'),
