@@ -49,6 +49,7 @@ return require("packer").startup({
       run    = ':TsUpdate',
     }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+    use { 'nvim-treesitter/nvim-treesitter-context' }
 
     use { 'hrsh7th/nvim-cmp',
       requires = {
