@@ -114,3 +114,9 @@ vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
     callback = function() vim.o.filetype='c' end
 })
 
+vim.cmd [[
+  autocmd CursorHold   * lua vim.lsp.buf.document_highlight()
+  autocmd CursorHoldI  * lua vim.lsp.buf.document_highlight()
+  autocmd CursorMoved  * lua vim.lsp.buf.clear_references()
+  autocmd CursorMovedI * lua vim.lsp.buf.clear_references()
+]]

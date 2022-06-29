@@ -1,11 +1,18 @@
 local nore = { noremap = true }
 local nore_sil = { noremap = true, silent = true }
+local sil = { silent = true }
 
 -- Move between panes easier
 vim.api.nvim_set_keymap('', '<C-h>', '<C-w>h', nore_sil)
 vim.api.nvim_set_keymap('', '<C-j>', '<C-w>j', nore_sil)
 vim.api.nvim_set_keymap('', '<C-k>', '<C-w>k', nore_sil)
 vim.api.nvim_set_keymap('', '<C-l>', '<C-w>l', nore_sil)
+
+-- Resizing panes
+vim.keymap.set("n", "<Left>",  ":vertical resize +1<CR>", sil)
+vim.keymap.set("n", "<Right>", ":vertical resize -1<CR>", sil)
+vim.keymap.set("n", "<Up>",    ":resize -1<CR>",          sil)
+vim.keymap.set("n", "<Down>",  ":resize +1<CR>",          sil)
 
 --Remap for dealing with word wrap
 vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
