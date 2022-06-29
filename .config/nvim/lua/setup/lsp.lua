@@ -1,3 +1,16 @@
+local function telescope_lsp_references()
+  require('telescope.builtin').lsp_references {
+
+    layout_strategy = 'vertical',
+    layout_config = {
+      prompt_position = 'top',
+    },
+    sorting_strategy = "ascending",
+    ignore_filename = false,
+    winblend = 0,
+  }
+end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -28,7 +41,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gr', telescope_lsp_references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
@@ -46,11 +60,25 @@ lspconfig['pyright'].setup{
     flags = lsp_flags,
 }
 
-lspconfig['clangd'].setup{
+-- lspconfig['clangd'].setup{
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     flags = lsp_flags,
+-- }
+-- Use clangd_extensions, which requires setting it up instead of the lspconfig
+require('clangd_extensions').setup({
+  server = {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
-}
+  },
+  extensions = {
+    inlay_hints = {
+      only_current_line = true
+    }
+  }
+
+})
 
 lspconfig.sumneko_lua.setup{
     on_attach = on_attach,

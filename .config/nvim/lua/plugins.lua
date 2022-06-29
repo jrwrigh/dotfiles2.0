@@ -40,7 +40,6 @@ return require("packer").startup({
     use { 'tanvirtin/monokai.nvim', config = get_setup('monokai') }
     use { 'lukas-reineke/indent-blankline.nvim',
       config = get_setup('indent_blankline'),
-      ft = {'~tex', '~markdown'}
     }
     use { 'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
@@ -49,21 +48,24 @@ return require("packer").startup({
 
     use { 'nvim-treesitter/nvim-treesitter',
       config = get_setup('treesitter'),
-      run    = ':TsUpdate',
+      run    = ':TSUpdate',
     }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-    use { 'nvim-treesitter/nvim-treesitter-context' }
+    use { 'nvim-treesitter/nvim-treesitter-context', config = get_setup('treesitter-context'), branch = 'fix-context-line-wrap' }
 
+    use { 'p00f/clangd_extensions.nvim' }
     use { 'hrsh7th/nvim-cmp',
       requires = {
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/cmp-buffer' },
         { 'hrsh7th/cmp-path' },
         { 'hrsh7th/cmp-cmdline' },
+        { 'dmitmel/cmp-cmdline-history' },
         { 'hrsh7th/cmp-nvim-lsp-signature-help' },
         { 'saadparwaiz1/cmp_luasnip' },
       },
       config = get_setup('cmp'),
+      after = 'clangd_extensions.nvim'
     }
 
     use 'L3MON4D3/LuaSnip' -- Snippets plugin

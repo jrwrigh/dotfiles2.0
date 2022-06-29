@@ -16,7 +16,7 @@ vim.cmd [[highlight IndentBlanklineContextChar guifg=#a999c4 gui=bold ]]
 vim.cmd [[highlight IndentBlanklineContextStart guisp=#ae81ff gui=underline ]]
 
 -- Highlight for treesitter-context
-vim.cmd [[highlight TreesitterContext guisp=#ffffff gui=underline ]]
+vim.cmd [[highlight TreesitterContext guibg=#4d5154 guisp=#ffffff gui=underline ]]
 vim.cmd [[highlight TreesitterContextLineNumber guifg=#ffffff ]]
 
 -- Spell
@@ -25,4 +25,10 @@ hi SpellBad     gui=undercurl guisp=red term=undercurl cterm=undercurl
 hi SpellCap     gui=undercurl guisp=purple term=undercurl cterm=undercurl
 hi SpellLocal   gui=undercurl term=undercurl cterm=undercurl
 hi SpellRare    gui=undercurl term=undercurl cterm=undercurl
+]]
+
+vim.cmd [[
+hi LspReferenceText  guibg=#4d5154
+hi LspReferenceRead  guibg=#4d5154
+hi LspReferenceWrite guibg=#4d5154
 ]]
