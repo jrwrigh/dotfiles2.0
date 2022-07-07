@@ -3,6 +3,37 @@
 vim.o.completeopt = 'menu,menuone,noselect'
 local cmp = require'cmp'
 
+-- Move geometrically down rather than via low/high score
+local function SelectDown(fallback)
+  if cmp.visible() then
+    if cmp.core.view.custom_entries_view:is_direction_top_down() then
+      cmp.select_next_item()
+    else
+      cmp.select_prev_item()
+    end
+  else
+    fallback()
+  end
+end
+
+-- Move geometrically up rather than via low/high score
+local function SelectUp(fallback)
+  if cmp.visible() then
+    if cmp.core.view.custom_entries_view:is_direction_top_down() then
+      cmp.select_prev_item()
+    else
+      cmp.select_next_item()
+    end
+  else
+    fallback()
+  end
+end
+
+local cmdline_mappings = cmp.mapping.preset.cmdline({
+    ['<C-n>'] = {c = SelectDown},
+    ['<C-p>'] = {c = SelectUp},
+})
+
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -19,7 +50,10 @@ cmp.setup({
     ['<C-f>']     = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>']     = cmp.mapping.abort(),
-    ['<CR>']      = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>']      = cmp.mapping.confirm({ select = false }),
+    ['<C-n>']     = SelectDown,
+    ['<C-p>']     = SelectUp,
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -56,7 +90,7 @@ cmp.setup.filetype('gitcommit', {
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmdline_mappings,
   sources = {
     { name = 'buffer' }
   }
@@ -64,7 +98,7 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmdline_mappings,
   sources = cmp.config.sources({
     { name = 'cmdline_history' },
     { name = 'cmdline' },
