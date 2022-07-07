@@ -30,8 +30,9 @@ local function SelectUp(fallback)
 end
 
 local cmdline_mappings = cmp.mapping.preset.cmdline({
-    ['<C-n>'] = {c = SelectDown},
-    ['<C-p>'] = {c = SelectUp},
+  ['<C-j>'] = {c = SelectDown},
+  ['<C-k>'] = {c = SelectUp},
+  ['<Tab>'] = {c = cmp.mapping.complete()},
 })
 
 cmp.setup({
@@ -93,6 +94,9 @@ cmp.setup.cmdline('/', {
   mapping = cmdline_mappings,
   sources = {
     { name = 'buffer' }
+  },
+  completion = {
+    autocomplete = false
   }
 })
 
@@ -105,6 +109,9 @@ cmp.setup.cmdline(':', {
     { name = 'path' }
   }, {
     { name = 'cmdline' }
-  })
+  }),
+  completion = {
+    autocomplete = false
+  }
 })
 
