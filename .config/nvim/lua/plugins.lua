@@ -76,7 +76,15 @@ return require("packer").startup({
       },
       config = get_setup('lsp'),
     }
-    use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
+    use { "/home/jrwrigh/gitRepos/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
+    use { 'ldelossa/litee.nvim',
+      requires = {
+        { 'ldelossa/litee-calltree.nvim' },
+        { 'ldelossa/litee-symboltree.nvim' },
+      },
+      config = get_setup('litee')
+    }
+
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -103,7 +111,7 @@ return require("packer").startup({
       open_fn = require("packer.util").float,
     },
     profile = {
-      enable = false,
+      enable = true,
       threshold = 1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
   },
