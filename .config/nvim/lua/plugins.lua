@@ -67,6 +67,7 @@ return require("packer").startup({
       config = get_setup('cmp'),
       after = 'clangd_extensions.nvim'
     }
+    use { 'onsails/lspkind.nvim', config = get_setup('lspkind'), after = 'nvim-cmp' }
 
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use { 'neovim/nvim-lspconfig',
