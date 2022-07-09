@@ -22,11 +22,12 @@ vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true,
 vim.api.nvim_set_keymap('n', 'Y', 'y$', nore)
 
 -- Remaps for Tabs
-vim.keymap.set('n', 'tn', ':tabnew<Space>', nore)
-vim.keymap.set('n', 'tl', ':tabnext<CR>',   nore)
-vim.keymap.set('n', 'th', ':tabprev<CR>',   nore)
-vim.keymap.set('n', 'tj', ':tabfirst<CR>',  nore)
-vim.keymap.set('n', 'tk', ':tablast<CR>',   nore)
+vim.keymap.set('n', 'tn', ':tabnew<Space>',   nore)
+vim.keymap.set('n', 'tl', ':tabnext<CR>',     nore)
+vim.keymap.set('n', 'th', ':tabprev<CR>',     nore)
+vim.keymap.set('n', 'tj', ':tabfirst<CR>',    nore)
+vim.keymap.set('n', 'tk', ':tablast<CR>',     nore)
+vim.keymap.set('n', 'tq', ':tabclose<Space>', nore)
 
 -- Terminal Mode exit
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', nore)
@@ -66,4 +67,3 @@ vim.api.nvim_set_keymap('n', '<leader>ss', '<plug>(SubversiveSubstituteWordRange
 vim.api.nvim_set_keymap('n', '<leader>cr',  '<plug>(SubversiveSubstituteRangeConfirm)',     {})
 vim.api.nvim_set_keymap('x', '<leader>cr',  '<plug>(SubversiveSubstituteRangeConfirm)',     {})
 vim.api.nvim_set_keymap('n', '<leader>crr', '<plug>(SubversiveSubstituteWordRangeConfirm)', {})
-
