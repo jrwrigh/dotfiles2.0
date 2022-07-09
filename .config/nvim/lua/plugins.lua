@@ -75,6 +75,7 @@ return require("packer").startup({
       },
       config = get_setup('lsp'),
     }
+    use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -101,7 +102,7 @@ return require("packer").startup({
       open_fn = require("packer.util").float,
     },
     profile = {
-      enable = true,
+      enable = false,
       threshold = 1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
   },
