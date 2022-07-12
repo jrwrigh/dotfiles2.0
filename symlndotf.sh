@@ -45,6 +45,10 @@ backup_dotfile() {
         cp -L $HomeDir/$filepath $BackupDir/${filepath}_$datesuffix && rm $HomeDir/$filepath
         echo "    $(basename $filepath) backed up to $BackupDir/${filepath}_$datesuffix"
     fi
+    if [[ -L "$HomeDir/$filepath" ]]; then
+        echo "    $filepath is a broken symlink. Deleting..."
+        rm "$HomeDir/$filepath"
+    fi
 }
 
 symlink_dotfile() {
