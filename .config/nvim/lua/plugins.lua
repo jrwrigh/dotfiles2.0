@@ -71,6 +71,7 @@ return require("packer").startup({
         { 'dmitmel/cmp-cmdline-history' },
         { 'hrsh7th/cmp-nvim-lsp-signature-help' },
         { 'saadparwaiz1/cmp_luasnip' },
+        { 'hrsh7th/cmp-nvim-lua' },
       },
       config = get_setup('cmp'),
       after = 'clangd_extensions.nvim'
