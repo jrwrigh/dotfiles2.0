@@ -42,8 +42,8 @@ vim.keymap.set('n', '<leader>ff',      function() telebuiltin.find_files({follow
 vim.keymap.set('n', '<leader><space>', function() telebuiltin.buffers() end,                   nore_sil)
 vim.keymap.set('n', '<leader>sb',      function() telebuiltin.current_buffer_fuzzy_find() end, nore_sil)
 vim.keymap.set('n', '<leader>sh',      function() telebuiltin.help_tags() end,                 nore_sil)
-vim.keymap.set('n', '<leader>st',      function() telebuiltin.tags() end,                      nore_sil)
-vim.keymap.set('n', '<leader>sd',      function() telebuiltin.grep_string() end,               nore_sil)
+vim.keymap.set('n', '<leader>sds',     function() telebuiltin.lsp_document_symbols() end,      nore_sil)
+vim.keymap.set('n', '<leader>sg',      function() telebuiltin.grep_string() end,               nore_sil)
 vim.keymap.set('n', '<leader>sp',      function() telebuiltin.live_grep() end,                 nore_sil)
 
 ----------------------------
