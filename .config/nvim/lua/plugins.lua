@@ -85,7 +85,7 @@ return require("packer").startup({
       },
       config = get_setup('lsp'),
     }
-    use { "/home/jrwrigh/gitRepos/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
+    use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
     use { 'ldelossa/litee.nvim',
       requires = {
         { 'ldelossa/litee-calltree.nvim' },
