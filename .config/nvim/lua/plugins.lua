@@ -1,7 +1,15 @@
 local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
+
+local function sourcePackerCompile(input_table)
+  local filepath = input_table.file
+  if not filepath:find("fugitive://", 1, true) == 1 then
+    vim.api.nvim_exec("source <afile> | PackerCompile")
+  end
+end
+
 vim.api.nvim_create_autocmd(
   "BufWritePost",
-  { command = "source <afile> | PackerCompile", group = packer_group, pattern = "plugins.lua" }
+  { callback = sourcePackerCompile, group = packer_group, pattern = "plugins.lua" }
 )
 
 local fn = vim.fn
