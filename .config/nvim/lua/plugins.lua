@@ -80,10 +80,13 @@ return require("packer").startup({
 
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use { 'neovim/nvim-lspconfig',
-      requires = {
-        { "williamboman/nvim-lsp-installer", config = get_setup('lsp-installer') }
-      },
       config = get_setup('lsp'),
+    }
+    use { "williamboman/mason.nvim",
+      requires = {
+        use { "williamboman/mason-lspconfig.nvim" }
+      },
+      config = get_setup('mason'),
     }
     use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
     use { 'ldelossa/litee.nvim',
