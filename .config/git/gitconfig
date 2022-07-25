@@ -48,6 +48,7 @@
     pull-force = "!git fetch --all; git reset --hard @{u}"
     pull-stash = "!git fetch --all; git stash; git merge @{u}; git stash pop"
     re         = rebase
+    rei        = rebase --interactive
     rec        = rebase --continue
     reshow     = rebase --show-current-patch
     rea        = rebase --abort
