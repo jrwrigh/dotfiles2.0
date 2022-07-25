@@ -105,9 +105,9 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   mapping = cmdline_mappings,
   sources = cmp.config.sources({
-    { name = 'cmdline_history' },
     { name = 'cmdline' },
-    { name = 'path' }
+    { name = 'path' },
+    { name = 'cmdline_history' },
   }, {
     { name = 'cmdline' }
   }),
@@ -116,3 +116,42 @@ cmp.setup.cmdline(':', {
   }
 })
 
+local orig_cmdline_config = require('cmp.config').cmdline[':']
+
+local function FlogGraph_cmdline()
+  cmp.setup.cmdline(':', {
+    mapping = cmdline_mappings,
+    sorting = {
+      comparators = {
+        cmp.config.compare.order,
+      },
+    },
+    sources = cmp.config.sources({
+      { name = 'cmdline' },
+      { name = 'path' }
+    }),
+  })
+end
+
+local function Normal_cmdline()
+  cmp.setup.cmdline(':', orig_cmdline_config)
+end
+
+local function FlogGraph_autocmd()
+  FlogGraph_cmdline()
+  local Flog_cmdline_group = vim.api.nvim_create_augroup("Flog_cmdline_group", { clear = true })
+  vim.api.nvim_create_autocmd(
+    "BufEnter",
+    { callback = FlogGraph_cmdline, group = Flog_cmdline_group, pattern = "<buffer>" }
+  )
+  vim.api.nvim_create_autocmd(
+    "BufLeave",
+    { callback = Normal_cmdline, group = Flog_cmdline_group, pattern = "<buffer>" }
+  )
+end
+
+local cmp_augroup = vim.api.nvim_create_augroup("Custom cmp.nvim", { clear = true })
+vim.api.nvim_create_autocmd(
+  "FileType",
+  { callback = FlogGraph_autocmd, group = cmp_augroup, pattern = "floggraph" }
+)
