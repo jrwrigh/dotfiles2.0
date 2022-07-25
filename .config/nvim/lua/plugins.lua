@@ -78,7 +78,7 @@ return require("packer").startup({
     }
     use { 'onsails/lspkind.nvim', config = get_setup('lspkind'), after = 'nvim-cmp' }
 
-    use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    use { 'L3MON4D3/LuaSnip', config = get_setup('luasnip') }
     use { 'neovim/nvim-lspconfig',
       config = get_setup('lsp'),
     }
