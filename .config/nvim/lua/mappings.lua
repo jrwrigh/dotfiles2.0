@@ -68,3 +68,10 @@ vim.api.nvim_set_keymap('n', '<leader>ss', '<plug>(SubversiveSubstituteWordRange
 vim.api.nvim_set_keymap('n', '<leader>cr',  '<plug>(SubversiveSubstituteRangeConfirm)',     {})
 vim.api.nvim_set_keymap('x', '<leader>cr',  '<plug>(SubversiveSubstituteRangeConfirm)',     {})
 vim.api.nvim_set_keymap('n', '<leader>crr', '<plug>(SubversiveSubstituteWordRangeConfirm)', {})
+
+-- Return cursor to original location when escaping visual mode
+-- see https://stackoverflow.com/a/23459965/7564988
+vim.api.nvim_set_keymap('n', 'v',     'm`v',     nore)
+vim.api.nvim_set_keymap('n', 'V',     'm`V',     nore)
+vim.api.nvim_set_keymap('n', '<C-v>', 'm`<C-v>', nore)
+vim.api.nvim_set_keymap('v', '<esc>', '<esc>``', nore)
