@@ -114,6 +114,8 @@ return require("packer").startup({
     use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
     use { 'windwp/nvim-autopairs', config = get_setup('autopairs') }
 
+    use { 'ThePrimeagen/refactoring.nvim', config = get_setup('refactoring') , after='telescope.nvim'}
+
     if Packer_bootstrap then
       require("packer").sync()
     end
