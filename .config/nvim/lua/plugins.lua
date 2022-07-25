@@ -2,8 +2,8 @@ local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
 
 local function sourcePackerCompile(input_table)
   local filepath = input_table.file
-  if not filepath:find("fugitive://", 1, true) == 1 then
-    vim.api.nvim_exec("source <afile> | PackerCompile")
+  if not ( filepath:find("fugitive://", 1, true) == 1 ) then
+    vim.api.nvim_command("source <afile> | PackerCompile")
   end
 end
 
