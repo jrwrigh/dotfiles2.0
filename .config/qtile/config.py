@@ -29,6 +29,7 @@ reload(f)
 num_screens = f.get_num_monitors()
 logger.warning(f'Number of monitors: {num_screens}')
 logger.warning(f'Monitor resolutions:{f.get_monitor_resolutions()}')
+backup_monitor = 'eDP-1'
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -101,6 +102,7 @@ keys = [
 
     EzKey('M-t', lazy.spawn('pkill picom'.split(' '))),
     EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
+    EzKey('M-S-d', f.set_one_screen()),
 
     Key([mod], 'Return', lazy.spawn(terminal), f.warp_cursor_here()),
 

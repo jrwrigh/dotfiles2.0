@@ -5,7 +5,7 @@ from libqtile.log_utils import logger
     # Display handling
 from Xlib import display as xdisplay
 from Xlib.ext.randr import Connected as RR_Connected
-import re, glob, os
+import re, glob, os, subprocess
 import warnings
 from pathlib import Path
 
@@ -181,6 +181,21 @@ def toggle_focus_floating():
                 group.focus(win)
                 return
     return _toggle_focus_floating
+
+
+# def set_one_screen(monitor_id: str):
+def set_one_screen():
+    @lazy.function
+    def _set_one_screen(qtile):
+        monitor_id = 'eDP-1'
+        logger.warning(f'Called set_one_screen with {monitor_id} argument')
+        home = os.path.expanduser('~')
+        script_path = home + '/.config/qtile/load_single_monitor.sh'
+        command = [script_path, monitor_id]
+        logger.warning(f'Running: {command}')
+        subprocess.call(command)
+
+    return _set_one_screen
 
 
 class MutScratch(object):
