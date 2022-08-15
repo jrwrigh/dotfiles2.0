@@ -59,7 +59,7 @@ return require("packer").startup({
       run    = ':TSUpdate',
     }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-    use { 'nvim-treesitter/nvim-treesitter-context', config = get_setup('treesitter-context'), branch = 'fix-context-line-wrap' }
+    use { 'nvim-treesitter/nvim-treesitter-context', config = get_setup('treesitter-context') }
 
     use { 'p00f/clangd_extensions.nvim' }
     use { 'hrsh7th/nvim-cmp',
