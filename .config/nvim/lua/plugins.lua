@@ -116,6 +116,8 @@ return require("packer").startup({
 
     use { 'ThePrimeagen/refactoring.nvim', config = get_setup('refactoring') , after='telescope.nvim'}
 
+    use { 'karb94/neoscroll.nvim', config = get_setup('neoscroll')}
+
     if Packer_bootstrap then
       require("packer").sync()
     end
