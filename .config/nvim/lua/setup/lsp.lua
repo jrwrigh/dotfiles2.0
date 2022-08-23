@@ -59,6 +59,12 @@ lspconfig['pyright'].setup{
     flags = lsp_flags,
 }
 
+lspconfig['texlab'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+}
+
 -- lspconfig['clangd'].setup{
 --     on_attach = on_attach,
 --     capabilities = capabilities,
