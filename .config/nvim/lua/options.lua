@@ -1,4 +1,3 @@
-
 vim.opt.number         = true
 vim.opt.relativenumber = true
 vim.opt.expandtab      = true -- Insert spaces when <TAB> is pressed
@@ -11,7 +10,7 @@ vim.opt.cursorline     = true
 vim.opt.scrolloff      = 2
 
 vim.opt.list         = true
-vim.opt.showbreak    = '↳    '
+vim.opt.showbreak    = '↳ '
 vim.opt.listchars    = { tab= '⇄ ', trail= '␣', extends= '❯', precedes= '❮' }
 vim.go.termguicolors = true   -- Allow use of non-256 colorschemes
 vim.g.tex_conceal = 'abdmg'

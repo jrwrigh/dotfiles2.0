@@ -45,7 +45,7 @@ return require("packer").startup({
       },
       config = get_setup('telescope')
     }
-    use { 'tanvirtin/monokai.nvim', config = get_setup('monokai') }
+    use { 'sainnhe/sonokai', config = get_setup('sonokai') }
     use { 'lukas-reineke/indent-blankline.nvim',
       config = get_setup('indent_blankline'),
     }
@@ -60,6 +60,7 @@ return require("packer").startup({
     }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
     use { 'nvim-treesitter/nvim-treesitter-context', config = get_setup('treesitter-context') }
+    use { 'nvim-treesitter/playground'}
 
     use { 'p00f/clangd_extensions.nvim' }
     use { 'hrsh7th/nvim-cmp',
@@ -101,7 +102,6 @@ return require("packer").startup({
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       config = get_setup('lualine'),
-      after = 'monokai.nvim',
     }
     use { 'norcalli/nvim-colorizer.lua', config = get_setup('nvim-colorizer') }
     use { 'junegunn/vim-easy-align',     config = get_setup('easy_align') }
