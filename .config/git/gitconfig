@@ -21,7 +21,7 @@
 
 [diff]
     mnemonicPrefix = true
-    algorithm = minimal
+    algorithm = histogram
 
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
