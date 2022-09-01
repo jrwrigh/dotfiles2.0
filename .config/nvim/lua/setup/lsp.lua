@@ -84,6 +84,12 @@ lspconfig['texlab'].setup{
     flags = lsp_flags,
 }
 
+lspconfig['fortls'].setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+}
+
 -- lspconfig['clangd'].setup{
 --     on_attach = on_attach,
 --     capabilities = capabilities,
