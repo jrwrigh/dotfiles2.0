@@ -1,5 +1,7 @@
 ---- Telescope
 local actions = require('telescope.actions')
+local telebuiltin = require('telescope.builtin')
+
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -24,3 +26,40 @@ require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
+
+local neovim_dotfiles = {
+  prompt_title = "~ Neovim dotfiles ~",
+  shorten_path = false,
+  cwd = "~/.config/nvim",
+  follow = true,
+}
+
+local function isempty(s)
+  return s == nil or s == ''
+end
+
+local function teleFDPath(input)
+  print(vim.inspect(input))
+  if isempty(input.args) then
+    telebuiltin.find_files({follow = true})
+  else
+    telebuiltin.find_files({follow = true, cwd=input.args})
+  end
+end
+
+-- vim.api.nvim_create_user_command('TeleFDPath', teleFDPath, {nargs=1, complete='file'})
+vim.api.nvim_create_user_command('TeleFDPath', teleFDPath, {nargs=1})
+
+--------------------
+-- Telescope keymaps
+local nore_sil = { noremap = true, silent = true }
+vim.keymap.set('n', '<leader>ff',      function() telebuiltin.find_files({follow = true}) end,     nore_sil)
+vim.keymap.set('n', '<leader>fF',      ':TeleFDPath ',                                        {})
+vim.keymap.set('n', '<leader>fn',      function() telebuiltin.find_files(neovim_dotfiles) end,     nore_sil)
+vim.keymap.set('n', '<leader><space>', function() telebuiltin.buffers() end,                       nore_sil)
+vim.keymap.set('n', '<leader>sb',      function() telebuiltin.current_buffer_fuzzy_find() end,     nore_sil)
+vim.keymap.set('n', '<leader>sh',      function() telebuiltin.help_tags() end,                     nore_sil)
+vim.keymap.set('n', '<leader>sds',     function() telebuiltin.lsp_document_symbols() end,          nore_sil)
+vim.keymap.set('n', '<leader>sws',     function() telebuiltin.lsp_dynamic_workspace_symbols() end, nore_sil)
+vim.keymap.set('n', '<leader>sg',      function() telebuiltin.grep_string() end,                   nore_sil)
+vim.keymap.set('n', '<leader>sp',      function() telebuiltin.live_grep() end,                     nore_sil)

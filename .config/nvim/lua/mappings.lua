@@ -35,18 +35,6 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', nore)
 -- Add visual selection search
 vim.keymap.set('v', '//',  [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], nore)
 
---------------------
--- Telescope keymaps
-local telebuiltin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff',      function() telebuiltin.find_files({follow = true}) end, nore_sil)
-vim.keymap.set('n', '<leader><space>', function() telebuiltin.buffers() end,                   nore_sil)
-vim.keymap.set('n', '<leader>sb',      function() telebuiltin.current_buffer_fuzzy_find() end, nore_sil)
-vim.keymap.set('n', '<leader>sh',      function() telebuiltin.help_tags() end,                 nore_sil)
-vim.keymap.set('n', '<leader>sds',     function() telebuiltin.lsp_document_symbols() end,      nore_sil)
-vim.keymap.set('n', '<leader>sws',     function() telebuiltin.lsp_dynamic_workspace_symbols() end,     nore_sil)
-vim.keymap.set('n', '<leader>sg',      function() telebuiltin.grep_string() end,               nore_sil)
-vim.keymap.set('n', '<leader>sp',      function() telebuiltin.live_grep() end,                 nore_sil)
-
 ----------------------------
 ---- vim-easy-align Settings
 vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
