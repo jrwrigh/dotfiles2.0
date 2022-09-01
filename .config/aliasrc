@@ -21,9 +21,10 @@ alias rd=rmdir
 
 export TIME_STYLE=long-iso
 alias la='ls -a --color=tty'
-alias ll='ls -lh --color=tty'
-alias lal='ls -alh --color=tty'
-alias lalt='ls -alht --color=tty'
+alias la='ls -a --color=auto'
+alias ll='ls -lh --color=auto'
+alias lal='ls -alh --color=auto'
+alias lalt='ls -alht --color=auto'
 
 alias rm='rm -I'
 alias cp='cp -i'
