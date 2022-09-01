@@ -63,3 +63,10 @@ vim.api.nvim_set_keymap('n', 'v',     'm`v',     nore)
 vim.api.nvim_set_keymap('n', 'V',     'm`V',     nore)
 vim.api.nvim_set_keymap('n', '<C-v>', 'm`<C-v>', nore)
 vim.api.nvim_set_keymap('v', '<esc>', '<esc>``', nore)
+
+-- Redirect changes operations to blackhole register
+vim.keymap.set('n', 'c', '"_c', nore)
+vim.keymap.set('n', 'C', '"_C', nore)
+
+-- Run macro in q register over visual selection
+vim.keymap.set('x', 'Q', ":'<,'>:normal @q<CR>", nore)
