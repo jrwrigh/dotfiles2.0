@@ -20,7 +20,7 @@ alias md='mkdir -p'
 alias rd=rmdir
 
 export TIME_STYLE=long-iso
-alias la='ls -a --color=tty'
+alias ls=lsd
 alias la='ls -a --color=auto'
 alias ll='ls -lh --color=auto'
 alias lal='ls -alh --color=auto'
