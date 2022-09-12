@@ -78,6 +78,7 @@ export LANG=en_US.UTF-8
 #                                  Startup
 # =============================================================================
 
+module load pkgsrc/2021Q2
 
 # Performance Profiler
 # zprof
