@@ -106,6 +106,41 @@ set number
 set relativenumber
 colorscheme peachpuff
 
+set showmatch           " Show matching brakets.
+set formatoptions+=o    " Continue comment marker in new line
+set expandtab           " Insert spaces when <TAB> is pressed
+set tabstop=4           " Set number of spaces inserted when <TAB> is pressed
+set shiftwidth=4        " Indentation amount when using << and >>
+set shiftround          " Makes the shift command move in multiples of shiftwidth
 
+set splitbelow          " Horizontal split below current
+set splitright          " Vetical split to right of current
+
+set ignorecase          " Make searching case insensitive...
+set smartcase           " ... unless the query has a capital letter in it
+" set gdefault            " Use 'g' flag by default for :s/foo/bar/
+
+set scrolloff=2         " Forces a minimum number of lines above and below cursor
+
+set cursorline          " Highlights the current line of the cursor
+
+" Remaps for Tabs
+nnoremap tn :tabnew<Space>
+nnoremap tl :tabnext<CR>
+nnoremap th :tabprev<CR>
+nnoremap tj :tabfirst<CR>
+nnoremap tk :tablast<CR>
+
+" Navigate splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Add visual selection search
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 " vim:set ft=vim et sw=2:
