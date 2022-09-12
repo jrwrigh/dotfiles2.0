@@ -118,6 +118,8 @@ return require("packer").startup({
 
     use { 'karb94/neoscroll.nvim', config = get_setup('neoscroll')}
 
+    use { 'lervag/vimtex', config = get_setup('vimtex') }
+
     if Packer_bootstrap then
       require("packer").sync()
     end

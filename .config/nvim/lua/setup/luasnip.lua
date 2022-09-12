@@ -3,7 +3,8 @@ local ls = require('luasnip')
 ls.config.set_config {
 
   history = true,
-  updateevents = "TextChanged,TextChangedI"
+  updateevents = "TextChanged,TextChangedI",
+  delete_check_events="TextChanged,TextChangedI"
 
 }
 
