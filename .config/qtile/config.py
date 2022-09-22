@@ -194,7 +194,9 @@ def init_widgets():
         widget.GroupBox(
             highlight_method='box',
             this_current_screen_border=monokai.green,
-            this_screen_border=monokai.yellow),
+            this_screen_border=monokai.yellow,
+            use_mouse_wheel=False
+            disable_drag=True),
         widget.WindowName(),
         widget.Chord(
             chords_colors={
