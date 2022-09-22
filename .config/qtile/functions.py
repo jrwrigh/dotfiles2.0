@@ -189,9 +189,9 @@ def set_one_screen():
     def _set_one_screen(qtile):
         monitor_id = 'eDP-1'
         logger.warning(f'Called set_one_screen with {monitor_id} argument')
-        home = os.path.expanduser('~')
+        home        = os.path.expanduser('~')
         script_path = home + '/.config/qtile/load_single_monitor.sh'
-        command = [script_path, monitor_id]
+        command     = [script_path, monitor_id]
         logger.warning(f'Running: {command}')
         subprocess.call(command)
 
