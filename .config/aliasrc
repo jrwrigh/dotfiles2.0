@@ -34,7 +34,7 @@ alias dotf=${MYDOTFILES}
 
 alias lzg='lazygit'
 alias fugi='nvim +G' # Open nvim with vim-fugitive
-alias flg='nvim +Flog' # Open nvim with Flog
+alias flg="nvim +'Flog -open-cmd=edit'" # Open nvim with Flog
 
 alias xo='xdg-open'
 
