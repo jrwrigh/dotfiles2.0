@@ -29,10 +29,19 @@ local function SelectUp(fallback)
   end
 end
 
+local function TabComplete(fallback)
+  if cmp.visible() then
+    SelectUp(fallback)
+  else
+    cmp.complete()
+  end
+end
+
 local cmdline_mappings = cmp.mapping.preset.cmdline({
-  ['<C-j>'] = {c = SelectDown},
-  ['<C-k>'] = {c = SelectUp},
-  ['<Tab>'] = {c = cmp.mapping.complete()},
+  ['<C-j>']   = {c = SelectDown},
+  ['<C-k>']   = {c = SelectUp},
+  ['<S-Tab>'] = {c = SelectDown},
+  ['<Tab>']   = {c = TabComplete},
 })
 
 cmp.setup({
