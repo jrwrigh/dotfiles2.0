@@ -23,6 +23,8 @@ vim.o.undofile     = true      -- Save undo history
 vim.o.ignorecase   = true      -- Case insensitive searching ...
 vim.o.smartcase    = true      -- ... UNLESS /C or capital in search
 
+vim.opt.diffopt:append({'internal', 'algorithm:patience'})
+
 --Decrease update time
 vim.o.updatetime  = 250
 vim.wo.signcolumn = 'yes'
