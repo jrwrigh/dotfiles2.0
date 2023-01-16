@@ -57,9 +57,51 @@ local classic = {
 }
 
 local function customSonokaiHighlighting()
-  vim.cmd[[call sonokai#highlight('LightGrey', ['#b2b5b8', '246'], ['NONE', 'NONE'])]]
-  vim.cmd [[highlight! link TSPunctBracket LightGrey]]
-  vim.cmd [[highlight! link TSPunctDelimiter LightGrey]]
+  vim.cmd [[let s:configuration = sonokai#get_configuration()
+  let s:palette = sonokai#get_palette(s:configuration.style, s:configuration.colors_override)
+
+  call sonokai#highlight('LightGrey', ['#b2b5b8', '246'], ['NONE', 'NONE'])
+  highlight! link TSPunctBracket LightGrey
+  highlight! link TSPunctDelimiter LightGrey
+
+  call sonokai#highlight('FgCmpItem',     s:palette.black, s:palette.fg)
+  call sonokai#highlight('GreyCmpItem',   s:palette.black, s:palette.grey)
+  call sonokai#highlight('RedCmpItem',    s:palette.black, s:palette.red)
+  call sonokai#highlight('OrangeCmpItem', s:palette.black, s:palette.orange)
+  call sonokai#highlight('YellowCmpItem', s:palette.black, s:palette.yellow)
+  call sonokai#highlight('GreenCmpItem',  s:palette.black, s:palette.green)
+  call sonokai#highlight('BlueCmpItem',   s:palette.black, s:palette.blue)
+  call sonokai#highlight('PurpleCmpItem', s:palette.black, s:palette.purple)
+
+  highlight! link CmpItemAbbr              Fg
+  highlight! link CmpItemAbbrDeprecated    GreyCmpItem
+  highlight! link CmpItemMenu              Fg
+  highlight! link CmpItemKind              BlueCmpItem
+  highlight! link CmpItemKindText          FgCmpItem
+  highlight! link CmpItemKindMethod        GreenCmpItem
+  highlight! link CmpItemKindFunction      GreenCmpItem
+  highlight! link CmpItemKindConstructor   GreenCmpItem
+  highlight! link CmpItemKindField         GreenCmpItem
+  highlight! link CmpItemKindVariable      OrangeCmpItem
+  highlight! link CmpItemKindClass         BlueCmpItem
+  highlight! link CmpItemKindInterface     BlueCmpItem
+  highlight! link CmpItemKindModule        BlueCmpItem
+  highlight! link CmpItemKindProperty      OrangeCmpItem
+  highlight! link CmpItemKindUnit          PurpleCmpItem
+  highlight! link CmpItemKindValue         PurpleCmpItem
+  highlight! link CmpItemKindEnum          BlueCmpItem
+  highlight! link CmpItemKindKeyword       RedCmpItem
+  highlight! link CmpItemKindSnippet       YellowCmpItem
+  highlight! link CmpItemKindColor         YellowCmpItem
+  highlight! link CmpItemKindFile          YellowCmpItem
+  highlight! link CmpItemKindReference     YellowCmpItem
+  highlight! link CmpItemKindFolder        YellowCmpItem
+  highlight! link CmpItemKindEnumMember    PurpleCmpItem
+  highlight! link CmpItemKindConstant      OrangeCmpItem
+  highlight! link CmpItemKindStruct        BlueCmpItem
+  highlight! link CmpItemKindEvent         RedCmpItem
+  highlight! link CmpItemKindOperator      RedCmpItem
+  highlight! link CmpItemKindTypeParameter BlueCmpItem]]
 end
 
 vim.api.nvim_create_augroup('SonokaiCustom', {clear=true})

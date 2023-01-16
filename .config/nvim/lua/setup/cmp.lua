@@ -52,8 +52,22 @@ cmp.setup({
     end,
   },
   window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered({
+      col_offset = -3,
+      side_padding = 0,
+    }),
+    documentation = cmp.config.window.bordered(),
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50, ellipsis_char = '...' })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. (strings[1] or "") .. " "
+      kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+      return kind
+    end,
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>']     = cmp.mapping.scroll_docs(-4),
@@ -86,7 +100,7 @@ cmp.setup({
     },
   },
   view = {
-    entries = { name = 'custom', selection_order = 'bottom_up' }
+    entries = { name = 'custom', selection_order = 'near_cursor' }
   },
 })
 
@@ -116,7 +130,6 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'cmdline' },
     { name = 'path' },
-    { name = 'cmdline_history' },
   }, {
     { name = 'cmdline' }
   }),

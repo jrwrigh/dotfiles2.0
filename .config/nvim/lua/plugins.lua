@@ -74,11 +74,11 @@ return require("packer").startup({
         { 'hrsh7th/cmp-nvim-lsp-signature-help' },
         { 'saadparwaiz1/cmp_luasnip' },
         { 'hrsh7th/cmp-nvim-lua' },
+        { 'onsails/lspkind.nvim' },
       },
       config = get_setup('cmp'),
       after = 'clangd_extensions.nvim'
     }
-    use { 'onsails/lspkind.nvim', config = get_setup('lspkind'), after = 'nvim-cmp' }
 
     use { 'L3MON4D3/LuaSnip', config = get_setup('luasnip') }
     use { 'neovim/nvim-lspconfig',
