@@ -63,6 +63,11 @@ local function customSonokaiHighlighting()
   call sonokai#highlight('LightGrey', ['#b2b5b8', '246'], ['NONE', 'NONE'])
   highlight! link TSPunctBracket LightGrey
   highlight! link TSPunctDelimiter LightGrey
+  highlight! link LineNr LightGrey
+  call sonokai#highlight('LightGreen', ['#c5ebc3', '240'], ['NONE', 'NONE'])
+  highlight! link LineNrAbove LightGreen
+  call sonokai#highlight('LightRed', ['#ebc3c3', '240'], ['NONE', 'NONE'])
+  highlight! link LineNrBelow LightRed
 
   call sonokai#highlight('FgCmpItem',     s:palette.black, s:palette.fg)
   call sonokai#highlight('GreyCmpItem',   s:palette.black, s:palette.grey)
