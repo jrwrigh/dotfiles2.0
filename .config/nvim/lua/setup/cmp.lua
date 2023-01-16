@@ -139,6 +139,9 @@ local function FlogGraph_cmdline()
       { name = 'cmdline' },
       { name = 'path' }
     }),
+    completion = {
+      autocomplete = false
+    }
   })
 end
 
