@@ -111,7 +111,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Spack initialization
-source ~/.local/src/spack/spack/share/spack/setup-env.sh
+source ~/.local/src/spack/share/spack/setup-env.sh
 
 # Performance Profiler
 # zprof
