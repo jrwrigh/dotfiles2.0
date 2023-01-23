@@ -1,9 +1,10 @@
 ---- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {'c', 'python', 'bash', 'lua', 'vim', 'cpp'},
+  ensure_installed = "all",
   highlight = {
     enable = true, -- false will disable the whole extension
+    disable = { "fortran" },
   },
   incremental_selection = {
     enable = true,
@@ -27,6 +28,8 @@ require('nvim-treesitter.configs').setup {
         ['if'] = '@function.inner',
         ['ac'] = '@class.outer',
         ['ic'] = '@class.inner',
+        ['aa'] = '@parameter.outer',
+        ['ia'] = '@parameter.inner',
       },
     },
     move = {
