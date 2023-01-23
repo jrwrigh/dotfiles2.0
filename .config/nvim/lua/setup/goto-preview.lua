@@ -6,6 +6,8 @@ local select_to_edit_map = {
   tab        = "tabedit",
 }
 
+local keymapped_buffers = {}
+
 local function open_file(orig_window, filename, cursor_position, command)
   if orig_window ~= 0 and orig_window ~= nil then
     vim.api.nvim_set_current_win(orig_window)
@@ -23,20 +25,52 @@ local function open_preview(preview_win, type)
 
     vim.api.nvim_win_close(preview_win, gtp.conf.force_close)
     open_file(orig_window, filename, cursor_position, command)
-
-    local buffer = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_del_keymap(buffer, 'n', '<C-v>')
-    vim.api.nvim_buf_del_keymap(buffer, 'n', '<CR>')
-    vim.api.nvim_buf_del_keymap(buffer, 'n', '<C-x>')
-    vim.api.nvim_buf_del_keymap(buffer, 'n', '<C-t>')
   end
 end
 
+local goto_preview_keymap_token = 'goto preview token'
+
+local function nvim_buf_del_existing_keymap(buffer)
+  local keymaps = vim.api.nvim_buf_get_keymap(buffer, 'n')
+  for _,keymap in ipairs(keymaps) do
+    if keymap.desc and string.find(keymap.desc, goto_preview_keymap_token) then
+    vim.api.nvim_buf_del_keymap(buffer, 'n', keymap.lhs)
+    end
+  end
+end
+
+local function reset_buffer_goto_preview()
+  vim.api.nvim_del_augroup_by_name("goto_preview_group")
+  for _, buffer in ipairs(keymapped_buffers) do
+    nvim_buf_del_existing_keymap(buffer)
+  end
+  keymapped_buffers = {}
+end
+
+local function goto_preview_autocmd()
+  local goto_preview_group = vim.api.nvim_create_augroup("goto_preview_group", { clear = true })
+  vim.api.nvim_create_autocmd(
+    "WinClosed",
+    { callback = reset_buffer_goto_preview, group = goto_preview_group, pattern = "<buffer>" }
+  )
+end
+
+local function insert_unique(arr, value)
+  for _,v in ipairs(arr) do
+    if value == v then
+      return
+    end
+  end
+  table.insert(arr, value)
+end
+
 local function post_open_hook(buf, win)
-  vim.keymap.set('n', '<C-v>', open_preview(win, "vertical"),   { buffer = buf })
-  vim.keymap.set('n', '<CR>',  open_preview(win, "default"),    { buffer = buf })
-  vim.keymap.set('n', '<C-x>', open_preview(win, "horizontal"), { buffer = buf })
-  vim.keymap.set('n', '<C-t>', open_preview(win, "tab"),        { buffer = buf })
+  vim.keymap.set('n', '<C-v>', open_preview(win, "vertical"),   { buffer = buf, desc = goto_preview_keymap_token})
+  vim.keymap.set('n', '<CR>',  open_preview(win, "default"),    { buffer = buf, desc = goto_preview_keymap_token})
+  vim.keymap.set('n', '<C-x>', open_preview(win, "horizontal"), { buffer = buf, desc = goto_preview_keymap_token})
+  vim.keymap.set('n', '<C-t>', open_preview(win, "tab"),        { buffer = buf, desc = goto_preview_keymap_token})
+  goto_preview_autocmd()
+  insert_unique(keymapped_buffers, buf)
 end
 
 require('goto-preview').setup {
