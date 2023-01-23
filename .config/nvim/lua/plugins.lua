@@ -121,6 +121,8 @@ return require("packer").startup({
 
     use { 'lervag/vimtex', config = get_setup('vimtex') }
 
+    use { "folke/todo-comments.nvim", config = get_setup("todo-comments"), requires = "nvim-lua/plenary.nvim"}
+
     if Packer_bootstrap then
       require("packer").sync()
     end
