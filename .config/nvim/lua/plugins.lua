@@ -110,6 +110,7 @@ return require("packer").startup({
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-git' -- plugin/syntax stuff for git files (commit, rebase -i, etc)
+    use 'tpope/vim-abolish' -- substitute but keep capitalization with :S/-/-/g
     use { 'tpope/vim-fugitive' } -- Git commands in nvim
     use { 'rbong/vim-flog', branch='master' }  -- for browsing git log branches
     use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
@@ -122,6 +123,8 @@ return require("packer").startup({
     use { 'lervag/vimtex', config = get_setup('vimtex') }
 
     use { "folke/todo-comments.nvim", config = get_setup("todo-comments"), requires = "nvim-lua/plenary.nvim"}
+
+    use { 'sindrets/winshift.nvim', config = get_setup("winshift"), after='sonokai' }
 
     if Packer_bootstrap then
       require("packer").sync()
