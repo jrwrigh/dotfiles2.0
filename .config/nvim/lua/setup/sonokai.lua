@@ -1,7 +1,7 @@
 vim.g.sonokai_style = 'atlantis'
 vim.g.sonokai_enable_italic = 1
 vim.g.sonokai_transparent_background = 1
-vim.g.sonokai_colors_override = { 
+vim.g.sonokai_colors_override = {
   black       = {'#1c1e1f', '237'},
   bg0         = {'#273136', '235'},
   bg1         = {'#313b42', '236'},
@@ -57,7 +57,8 @@ local classic = {
 }
 
 local function customSonokaiHighlighting()
-  vim.cmd [[let s:configuration = sonokai#get_configuration()
+  vim.cmd [[
+  let s:configuration = sonokai#get_configuration()
   let s:palette = sonokai#get_palette(s:configuration.style, s:configuration.colors_override)
 
   call sonokai#highlight('LightGrey', ['#b2b5b8', '246'], ['NONE', 'NONE'])
@@ -106,7 +107,8 @@ local function customSonokaiHighlighting()
   highlight! link CmpItemKindStruct        BlueCmpItem
   highlight! link CmpItemKindEvent         RedCmpItem
   highlight! link CmpItemKindOperator      RedCmpItem
-  highlight! link CmpItemKindTypeParameter BlueCmpItem]]
+  highlight! link CmpItemKindTypeParameter BlueCmpItem
+  ]]
 end
 
 vim.api.nvim_create_augroup('SonokaiCustom', {clear=true})
