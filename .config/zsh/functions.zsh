@@ -104,3 +104,7 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+if (( $+commands[broot] )); then
+    eval "$(broot --print-shell-function zsh)"
+fi
