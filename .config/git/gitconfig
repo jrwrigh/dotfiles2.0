@@ -10,6 +10,8 @@
 #
 #   git config --global include.path '~/.config/gitconfig'
 
+[init]
+    defaultBranch = main
 [merge]
     conflictStyle = diff3
 [pull]
@@ -25,7 +27,8 @@
 
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-    prompt = false
+    prompt = true
+    trustExitCode = false
 
 [merge]
     tool = nvim
