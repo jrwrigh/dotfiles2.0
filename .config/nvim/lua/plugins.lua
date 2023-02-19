@@ -80,7 +80,11 @@ return require("packer").startup({
       after = 'clangd_extensions.nvim'
     }
 
-    use { 'L3MON4D3/LuaSnip', config = get_setup('luasnip') }
+    use { 'L3MON4D3/LuaSnip',
+      config = get_setup('luasnip'),
+      requires = {
+        { "rafamadriz/friendly-snippets" }
+    }}
     use { 'neovim/nvim-lspconfig',
       config = get_setup('lsp'),
     }
