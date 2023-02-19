@@ -101,6 +101,11 @@ require('clangd_extensions').setup({
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
+    cmd = {
+      "clangd",
+      "--completion-style=detailed",
+      "--header-insertion=never",
+    },
   },
   extensions = {
     inlay_hints = {
