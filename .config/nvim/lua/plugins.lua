@@ -116,7 +116,7 @@ return require("packer").startup({
     use 'tpope/vim-git' -- plugin/syntax stuff for git files (commit, rebase -i, etc)
     use 'tpope/vim-abolish' -- substitute but keep capitalization with :S/-/-/g
     use { 'tpope/vim-fugitive' } -- Git commands in nvim
-    use { 'rbong/vim-flog', branch='master' }  -- for browsing git log branches
+    use { 'rbong/vim-flog', branch='master', config = get_setup('vim-flog')}  -- for browsing git log branches
     use 'svermeulen/vim-subversive' --adds substitute commmmands to paste over a text object (ie. `siw`)
     use { 'windwp/nvim-autopairs', config = get_setup('autopairs') }
 
