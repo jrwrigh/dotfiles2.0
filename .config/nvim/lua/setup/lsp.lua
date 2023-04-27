@@ -115,16 +115,16 @@ require('clangd_extensions').setup({
 
 })
 
-lspconfig.sumneko_lua.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+lspconfig.lua_ls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
+  }
 }
 
