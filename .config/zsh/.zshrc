@@ -96,5 +96,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+source /lus/swift/home/jrwrigh/.local/src/spack/share/spack/setup-env.sh
+
+export TZ=US/Central
 # Performance Profiler
 # zprof
