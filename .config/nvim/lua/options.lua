@@ -24,6 +24,9 @@ vim.o.ignorecase   = true      -- Case insensitive searching ...
 vim.o.smartcase    = true      -- ... UNLESS /C or capital in search
 
 vim.opt.diffopt:append({'internal', 'algorithm:patience'})
+if vim.version().major >= 0 and vim.version().minor >= 9 then
+    vim.opt.diffopt:append({'linematch:60'})
+end
 
 --Decrease update time
 vim.o.updatetime  = 250
