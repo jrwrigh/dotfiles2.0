@@ -1,6 +1,5 @@
 local function telescope_lsp_references()
   require('telescope.builtin').lsp_references {
-
     layout_strategy = 'vertical',
     layout_config = {
       prompt_position = 'top',
@@ -37,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename,                  bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action,             bufopts)
   vim.keymap.set('n', 'gr',        telescope_lsp_references,            bufopts)
-  vim.keymap.set('n', '<space>f',  vim.lsp.buf.formatting,              bufopts)
+  vim.keymap.set('n', '<space>f',  vim.lsp.buf.format,                  bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder,    bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -73,21 +72,21 @@ local lsp_flags = {
 }
 
 lspconfig['pyright'].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 }
 
 lspconfig['texlab'].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 }
 
 lspconfig['fortls'].setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = lsp_flags,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 }
 
 -- lspconfig['clangd'].setup{
@@ -128,3 +127,18 @@ lspconfig.lua_ls.setup{
   }
 }
 
+lspconfig.ltex.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+  settings = {
+    ltex = {
+      language = "en-US",
+      checkFrequency = "edit",
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue= "en-US",
+      };
+    },
+  },
+}
