@@ -141,16 +141,19 @@ for group in groups:
     ])
 
 ## Make MutScratch Group
-minscr = f.MutScratch()
+import qtile_mutable_scratch
+reload(qtile_mutable_scratch)
+
+mutscr = qtile_mutable_scratch.MutableScratch()
 groups.append(Group(''))
 
 keys.extend( [
-    EzKey('M-S-<minus>', minscr.add2Scratch()),
-    EzKey('M-C-<minus>', minscr.removeScratch()),
-    EzKey('M-<minus>',   minscr.toggleScratch()),
+    EzKey('M-S-<minus>', mutscr.add_current_window()),
+    EzKey('M-C-<minus>', mutscr.remove_current_window()),
+    EzKey('M-<minus>',   mutscr.toggle()),
 ] )
 
-hook.subscribe.startup_complete(minscr.qtile_startup)
+hook.subscribe.startup_complete(mutscr.qtile_startup)
 
 plasma_kwargs = dict(
         border_normal       = '#333333',
