@@ -62,4 +62,4 @@ vim.keymap.set('n', '<leader>sh',      function() telebuiltin.help_tags() end,  
 vim.keymap.set('n', '<leader>sds',     function() telebuiltin.lsp_document_symbols() end,          nore_sil)
 vim.keymap.set('n', '<leader>sws',     function() telebuiltin.lsp_dynamic_workspace_symbols() end, nore_sil)
 vim.keymap.set('n', '<leader>sg',      function() telebuiltin.grep_string() end,                   nore_sil)
-vim.keymap.set('n', '<leader>sp',      function() telebuiltin.live_grep() end,                     nore_sil)
+vim.keymap.set('n', '<leader>sp',      function() telebuiltin.live_grep({additional_args={'-L'}}) end,                     nore_sil)
