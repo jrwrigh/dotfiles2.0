@@ -93,6 +93,7 @@ return require("packer").startup({
         use { "williamboman/mason-lspconfig.nvim" }
       },
       config = get_setup('mason'),
+      run = ':MasonUpdate',
     }
     use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
     use { 'ldelossa/litee.nvim',
@@ -111,7 +112,7 @@ return require("packer").startup({
     use { 'norcalli/nvim-colorizer.lua', config = get_setup('nvim-colorizer') }
     use { 'junegunn/vim-easy-align',     config = get_setup('easy_align') }
     use 'chrisbra/improvedft'
-    use 'tpope/vim-surround'
+    use {'kylechui/nvim-surround', config = function() require("nvim-surround").setup({}) end }
     use 'tpope/vim-repeat'
     use 'tpope/vim-git' -- plugin/syntax stuff for git files (commit, rebase -i, etc)
     use 'tpope/vim-abolish' -- substitute but keep capitalization with :S/-/-/g
@@ -129,6 +130,11 @@ return require("packer").startup({
     use { "folke/todo-comments.nvim", config = get_setup("todo-comments"), requires = "nvim-lua/plenary.nvim"}
 
     use { 'sindrets/winshift.nvim', config = get_setup("winshift"), after='sonokai' }
+
+    use { "danymat/neogen", config = function() require('neogen').setup {} end,
+        requires = "nvim-treesitter/nvim-treesitter", }
+
+    use { "Tummetott/reticle.nvim", config = function() require('reticle').setup {} end }
 
     if Packer_bootstrap then
       require("packer").sync()
