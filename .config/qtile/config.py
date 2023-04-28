@@ -71,7 +71,7 @@ keys = [
         EzKey('S-v', lazy.layout.mode_horizontal_split(), lazy.ungrab_chord()),
         EzKey('S-h', lazy.layout.mode_vertical_split(),   lazy.ungrab_chord()),
         *escapeChord
-    ], mode='(h)orizontal, (v)ertical, (H)orizontal split, (V)ertical split'),
+    ], name='(h)orizontal, (v)ertical, (H)orizontal split, (V)ertical split'),
 
     EzKey('M-C-h', lazy.layout.grow_width(-30)),
     EzKey('M-C-l', lazy.layout.grow_width(30)),
@@ -87,7 +87,7 @@ keys = [
         EzKey('m',  f.move_next_screen(), lazy.ungrab_chord()),
         EzKey('s',   lazy.next_screen(), lazy.ungrab_chord()),
         *escapeChord
-    ], mode='(s)wap or (m)ove to other screen'),
+    ], name='(s)wap or (m)ove to other screen'),
     EzKey('M-s', lazy.next_screen(), f.warp_cursor_here()),
     EzKey('M-b', f.set_wallpaper(wallpaper_dir, mode=wallpaper_mode),
           f.warp_cursor_here()),
@@ -126,7 +126,7 @@ keys.append(
         EzKey('S-r', lazy.spawn('i3exit_custom reboot'),      lazy.ungrab_chord()),
         EzKey('S-s', lazy.spawn('i3exit_custom shutdown'),    lazy.ungrab_chord()),
         *escapeChord
-    ], mode=SystemStatus)
+    ], name=SystemStatus)
 )
 
 
