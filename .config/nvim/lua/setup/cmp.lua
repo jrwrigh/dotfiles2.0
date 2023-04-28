@@ -1,6 +1,7 @@
 ---- nvim-comp Configuration
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menu,menuone,noselect'
+
 local cmp = require'cmp'
 
 -- Move geometrically down rather than via low/high score
@@ -29,11 +30,25 @@ local function SelectUp(fallback)
   end
 end
 
+local function CompleteCommonString(fallback)
+  if cmp.visible() then
+    -- Discovered through https://github.com/hrsh7th/nvim-cmp/issues/1276
+    if not cmp.complete_common_string() then
+      fallback()
+    end
+  else
+    print("Cannot run cmp.complete_common_string(), as cmp.visible() is false."
+      / "\n There's probably some edge case in the config that needs to be addressed")
+  end
+end
+
 local function TabComplete(fallback)
   if cmp.visible() then
-    SelectUp(fallback)
+    -- SelectUp(fallback)
+    CompleteCommonString(SelectUp)
   else
     cmp.complete()
+    SelectUp(fallback)
   end
 end
 
@@ -94,6 +109,14 @@ cmp.setup({
     ['<CR>']      = cmp.mapping.confirm({ select = false }),
     ['<C-n>']     = SelectDown,
     ['<C-p>']     = SelectUp,
+    ['<Tab>']     = cmp.mapping(
+                      function(fallback)
+                        if cmp.visible() then
+                          return cmp.complete_common_string()
+                        end
+                        fallback() -- Do original tab keymap if cmp not visible
+                      end,
+                    { 'i' }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -108,8 +131,11 @@ cmp.setup({
     comparators = {
       cmp.config.compare.offset,
       cmp.config.compare.exact,
-      cmp.config.compare.recently_used,
+      cmp.config.compare.scopes,
+      cmp.config.compare.score,
       require("clangd_extensions.cmp_scores"),
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
       cmp.config.compare.length,
@@ -147,8 +173,6 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'cmdline' },
     { name = 'path' },
-  }, {
-    { name = 'cmdline' }
   }),
   completion = {
     autocomplete = false
