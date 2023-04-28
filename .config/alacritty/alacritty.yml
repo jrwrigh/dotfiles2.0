@@ -1,5 +1,6 @@
 env:
-  TERM: xterm-256color
+  # TERM: xterm-256color
+  TERM: alacritty
 
 font:
   normal:
