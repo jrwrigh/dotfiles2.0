@@ -207,7 +207,7 @@ def init_widgets():
             },
         ),
         widget.Memory(
-            format      = '{MemUsed: .2f}G ({MemPercent}%)',
+            format      = "{MemUsed: .2f}{mm} /{MemTotal: .2f}{mm}",
             measure_mem = 'G',
             background  = monokai.aqua,
             foreground  = monokai.black,
