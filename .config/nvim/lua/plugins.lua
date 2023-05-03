@@ -134,7 +134,7 @@ return require("packer").startup({
     use { "danymat/neogen", config = function() require('neogen').setup {} end,
         requires = "nvim-treesitter/nvim-treesitter", }
 
-    use { "Tummetott/reticle.nvim", config = function() require('reticle').setup {} end }
+    use { "Tummetott/reticle.nvim", config = get_setup("reticle") } -- Change cursorline highlight based on active window
 
     if Packer_bootstrap then
       require("packer").sync()
