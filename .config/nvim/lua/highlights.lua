@@ -9,12 +9,6 @@ vim.cmd('highlight NonText ctermbg=none guibg=none')
 vim.cmd('highlight LineNr ctermbg=none guibg=none')
 vim.cmd('highlight clear Conceal')
 
--- Make the context indent vertical (highlights the level that you're currently
--- in) not super bright. Currently the bold setting doesn't work, but leaving
--- it just in case it starts to work at somepoint in the future.
-vim.cmd [[highlight IndentBlanklineContextChar guifg=#a999c4 gui=bold ]]
-vim.cmd [[highlight IndentBlanklineContextStart guisp=#ae81ff gui=underline ]]
-
 -- Highlight for treesitter-context
 vim.cmd [[highlight TreesitterContext guibg=#4d5154 guisp=#ffffff gui=underline ]]
 vim.cmd [[highlight TreesitterContextLineNumber guifg=#ffffff ]]
@@ -25,10 +19,4 @@ hi SpellBad     gui=undercurl guisp=red term=undercurl cterm=undercurl
 hi SpellCap     gui=undercurl guisp=purple term=undercurl cterm=undercurl
 hi SpellLocal   gui=undercurl term=undercurl cterm=undercurl
 hi SpellRare    gui=undercurl term=undercurl cterm=undercurl
-]]
-
-vim.cmd [[
-hi LspReferenceText  guibg=#4d5154
-hi LspReferenceRead  guibg=#4d5154
-hi LspReferenceWrite guibg=#4d5154
 ]]

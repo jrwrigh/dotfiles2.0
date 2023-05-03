@@ -108,6 +108,13 @@ local function customSonokaiHighlighting()
   highlight! link CmpItemKindEvent         RedCmpItem
   highlight! link CmpItemKindOperator      RedCmpItem
   highlight! link CmpItemKindTypeParameter BlueCmpItem
+
+  call sonokai#highlight('MonokaiBase8', ['#e3e3e1', 'NONE'], s:palette.none)
+  call sonokai#highlight('MonokaiBase7', ['#b1b1b1', 'NONE'], s:palette.none)
+  call sonokai#highlight('MonokaiBase7Underline', ['#b1b1b1', 'NONE'], s:palette.none, 'underline')
+  highlight! link IndentBlanklineContextChar MonokaiBase7
+  " highlight! link IndentBlanklineContextStart MonokaiBase7Underline
+  highlight IndentBlanklineContextStart guisp=#b1b1b1 gui=underline 
   ]]
 end
 
@@ -119,3 +126,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 })
 
 vim.cmd[[colorscheme sonokai]]
+
+-- Include custom highlights directly after the colorscheme is created
+package.path = package.path .. ";../?.lua"
+require('highlights')
