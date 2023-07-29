@@ -96,14 +96,6 @@ return require("packer").startup({
       run = ':MasonUpdate',
     }
     use { "rmagatti/goto-preview", config = get_setup('goto-preview') , after = 'telescope.nvim'}
-    use { 'ldelossa/litee.nvim',
-      requires = {
-        { 'ldelossa/litee-calltree.nvim' },
-        { 'ldelossa/litee-symboltree.nvim' },
-      },
-      config = get_setup('litee')
-    }
-
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
