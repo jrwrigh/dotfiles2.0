@@ -66,7 +66,7 @@ ls.add_snippets("c", {
   PetscFunctionBeginUser;
   {}
 
-  PetscFunctionReturn(0);
+  PetscFunctionReturn(PETSC_SUCCESS);
 }}]], {i(1, "func"), i(2, "void arg"), i(0)})),
 
   s("pc", fmt("PetscCall({});", {i(1, "...")})),
@@ -79,7 +79,7 @@ ls.add_snippets("c", {
   { i(1, "QF_Name"), i(0) } )),
 
   s("cdqfsh", fmt(
-[[CEED_QFUNCTION_HELPER {} {}(void *ctx, CeedInt Q, const CeedScalar *const *in, CeedScalar *const *out, StateFromQi_t StateFromQi,  StateFromQi_fwd_t StateFromQi_fwd) {{
+[[CEED_QFUNCTION_HELPER {} {}(void *ctx, CeedInt Q, const CeedScalar *const *in, CeedScalar *const *out, StateVariable state_var) {{
   {}
 }}]],
   { i(1, "void"), i(2, "QFHelper_State"), i(0) } )),
