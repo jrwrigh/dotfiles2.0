@@ -143,3 +143,10 @@ lspconfig.ltex.setup{
   },
   filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
 }
+
+lspconfig['julials'].setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+}
+
