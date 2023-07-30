@@ -75,6 +75,7 @@ return require("packer").startup({
         { 'saadparwaiz1/cmp_luasnip' },
         { 'hrsh7th/cmp-nvim-lua' },
         { 'onsails/lspkind.nvim' },
+        { 'kdheepak/cmp-latex-symbols' },
       },
       config = get_setup('cmp'),
       after = 'clangd_extensions.nvim'

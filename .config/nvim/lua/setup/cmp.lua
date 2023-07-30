@@ -123,6 +123,7 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'nvim_lsp_signature_help' },
+    { name = "latex_symbols" },
   }, {
     { name = 'path' },
     { name = 'buffer' },
