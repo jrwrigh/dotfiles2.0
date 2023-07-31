@@ -1,7 +1,9 @@
 ---- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "all",
+  ensure_installed = {"c", "cpp", "fortran", "python", "bash", "julia", "cmake", "comment", "cuda", "diff", "dockerfile", 
+    "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "hjson", "html", "json", "latex", "lua", "luadoc", 
+    "markdown", "markdown_inline", "matlab", "mermaid", "meson", "ninja", "perl", "regex", "rust", "scheme", "todotxt", "toml", "vim", "vimdoc", "yaml", "bibtex"},
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "fortran" },
