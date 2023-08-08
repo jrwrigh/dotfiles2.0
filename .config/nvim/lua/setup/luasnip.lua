@@ -71,6 +71,8 @@ ls.add_snippets("c", {
 
   s("pc", fmt("PetscCall({});", {i(1, "...")})),
 
+  s("pcc", fmt("PetscCallCeed(ceed, {});", {i(1, "...")})),
+
   s("cdqf", fmt(
 [[CEED_QFUNCTION({})(void *ctx, CeedInt Q, const CeedScalar *const *in, CeedScalar *const *out) {{
   {}
