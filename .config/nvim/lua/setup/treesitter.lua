@@ -1,9 +1,10 @@
 ---- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {"c", "cpp", "fortran", "python", "bash", "julia", "cmake", "comment", "cuda", "diff", "dockerfile", 
-    "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "hjson", "html", "json", "latex", "lua", "luadoc", 
-    "markdown", "markdown_inline", "matlab", "mermaid", "meson", "ninja", "perl", "regex", "rust", "scheme", "todotxt", "toml", "vim", "vimdoc", "yaml", "bibtex"},
+  ensure_installed = {"c", "fortran", "python", "bash", "cmake", "diff", "dockerfile", 
+    "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "hjson", "json", "lua", "luadoc", 
+    "markdown_inline", "mermaid", "meson", "ninja", "regex", "rust", "scheme", "todotxt", "toml", "vimdoc", "yaml", "bibtex"},
+    -- Removed because viz nodes have ancient compilers without default C99 standard support: "cpp", "comment", "html", "markdown", "matlab", "perl", "vim", "julia", "latex", "cuda",
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "fortran" },
