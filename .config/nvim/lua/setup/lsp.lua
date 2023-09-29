@@ -89,14 +89,7 @@ lspconfig['fortls'].setup{
   flags = lsp_flags,
 }
 
--- lspconfig['clangd'].setup{
---     on_attach = on_attach,
---     capabilities = capabilities,
---     flags = lsp_flags,
--- }
--- Use clangd_extensions, which requires setting it up instead of the lspconfig
-require('clangd_extensions').setup({
-  server = {
+lspconfig['clangd'].setup{
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -105,13 +98,12 @@ require('clangd_extensions').setup({
       "--completion-style=detailed",
       "--header-insertion=never",
     },
-  },
-  extensions = {
-    inlay_hints = {
-      only_current_line = true
-    }
+}
+-- Use clangd_extensions, which requires setting it up instead of the lspconfig
+require('clangd_extensions').setup({
+  inlay_hints = {
+    only_current_line = true
   }
-
 })
 
 lspconfig.lua_ls.setup{
