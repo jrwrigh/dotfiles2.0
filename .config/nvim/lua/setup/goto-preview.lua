@@ -70,6 +70,7 @@ local function post_open_hook(buf, win)
   vim.keymap.set('n', '<C-x>', open_preview(win, "horizontal"), { buffer = buf, desc = goto_preview_keymap_token})
   vim.keymap.set('n', '<C-t>', open_preview(win, "tab"),        { buffer = buf, desc = goto_preview_keymap_token})
   goto_preview_autocmd()
+  vim.api.nvim_feedkeys('zt', 'nx', false)
   insert_unique(keymapped_buffers, buf)
 end
 
