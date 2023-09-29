@@ -132,7 +132,7 @@ cmp.setup({
     comparators = {
       cmp.config.compare.offset,
       cmp.config.compare.exact,
-      cmp.config.compare.scopes,
+      -- cmp.config.compare.scopes,
       cmp.config.compare.score,
       require("clangd_extensions.cmp_scores"),
       cmp.config.compare.recently_used,
@@ -165,8 +165,49 @@ cmp.setup.cmdline('/', {
   },
   completion = {
     autocomplete = false
-  }
+  },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      -- cmp.config.compare.scopes,
+      cmp.config.compare.score,
+      require("clangd_extensions.cmp_scores"),
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
 })
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('?', {
+  mapping = cmdline_mappings,
+  sources = {
+    { name = 'buffer' }
+  },
+  completion = {
+    autocomplete = false
+  },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      require("clangd_extensions.cmp_scores"),
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+})
+
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
@@ -177,7 +218,21 @@ cmp.setup.cmdline(':', {
   }),
   completion = {
     autocomplete = false
-  }
+  },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      require("clangd_extensions.cmp_scores"),
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
 })
 
 local orig_cmdline_config = require('cmp.config').cmdline[':']
