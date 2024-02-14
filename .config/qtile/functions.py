@@ -101,7 +101,7 @@ def swap_next_screen():
 
         if qtile.current_group:
             group = qtile.screens[i - 1].group
-            qtile.groups[group.name].cmd_toscreen()
+            qtile.groups[group.name].toscreen()
     return _swap_next_screen
 
 
@@ -116,7 +116,7 @@ def move_next_screen():
             group = qtile.current_group
             logger.warning(f'Move group "{group.name}" from screen {i}->{j}')
             qtile.focus_screen(j)
-            group.cmd_toscreen()
+            group.toscreen()
             warp_cursor_here_win(group.current_window)
 
     return _move_next_screen
@@ -133,7 +133,8 @@ def set_wallpaper(wallpaper_dir: Path, mode=None):
         wallpaper = wallpapers[proc.strip()]
 
         for screen in qtile.screens:
-            screen.cmd_set_wallpaper(wallpaper, mode=mode)
+            # screen.cmd_set_wallpaper(wallpaper, mode=mode)
+            screen.set_wallpaper(wallpaper, mode=mode)
     return _set_wallpaper
 
 
@@ -151,10 +152,12 @@ def viewGroup(name):
         group = qtile.groups_map[name]
         if group != qtile.current_group:
             if group.screen:
-                qtile.cmd_to_screen(group.screen.index)
+                # qtile.cmd_to_screen(group.screen.index)
+                qtile.to_screen(group.screen.index)
                 warp_cursor_here_win(qtile.current_window)
             else:
-                group.cmd_toscreen()
+                # group.cmd_toscreen()
+                group.toscreen()
                 warp_cursor_here_win(qtile.current_window)
 
     return _viewGroup
