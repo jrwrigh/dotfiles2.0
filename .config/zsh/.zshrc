@@ -41,21 +41,33 @@ autoload -U compinit; compinit
 #                                   Plugins
 # =============================================================================
 
-# Plugins are listed in ~/.config/zsh/zshPluginList
-ANTIBODY_PLUGIN_LOAD_PATH=~/.config/zsh/.antibody_plugin_load.sh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-antibody_bundle_loadfile() {
-        # Create plugin load file
-    antibody bundle < ~/.config/zsh/zshPluginList > $ANTIBODY_PLUGIN_LOAD_PATH
-    source $ANTIBODY_PLUGIN_LOAD_PATH
-}
+zinit ice wait lucid
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit ice wait lucid
+zinit snippet OMZ::plugins/extract/extract.plugin.zsh
+zinit ice wait lucid
+zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zinit ice wait lucid
+zinit light Aloxaf/fzf-tab
 
-# The load file is then sourced
-[ -f $ANTIBODY_PLUGIN_LOAD_PATH ] && source $ANTIBODY_PLUGIN_LOAD_PATH
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
 
-compinit
+zinit ice blockf wait lucid
+zinit light zsh-users/zsh-completions
 
-eval "$(starship init zsh)"
+zinit ice as"completion"
+zinit snippet https://github.com/conda-incubator/conda-zsh-completion/blob/master/_conda
+
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit load starship/starship
 
 # =============================================================================
 #                                   fzf Setup
