@@ -138,6 +138,7 @@ local function lsp_setup()
         additionalRules = {
           enablePickyRules = true,
           motherTongue= "en-US",
+          languageModel="~/.local/share/ltex_ngram/ngrams-en-20150817",
         };
       },
     },
