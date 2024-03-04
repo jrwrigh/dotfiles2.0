@@ -9,6 +9,9 @@ local function treesitter_setup()
       enable = true, -- false will disable the whole extension
       disable = { "fortran" },
     },
+    endwise = {
+      enable = true,
+    },
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -125,5 +128,6 @@ return { 'nvim-treesitter/nvim-treesitter',
       }
     },
     { 'nvim-treesitter/playground' },
+    { 'RRethy/nvim-treesitter-endwise' },
   },
 }
