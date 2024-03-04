@@ -164,7 +164,7 @@ return {
     "williamboman/mason-lspconfig.nvim"
   },
   config = lsp_setup,
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "VeryLazy" },
   cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   lazy = true,
 }

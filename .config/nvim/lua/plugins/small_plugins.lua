@@ -1,19 +1,20 @@
 return {
   { 'numToStr/Comment.nvim', lazy = false, opts = {} },
   -- { 'chrisbra/improvedft' }, -- Probably doesn't do anything due to overriding of f/F/t/T in treesitter
-  { 'kylechui/nvim-surround' },
+  { 'kylechui/nvim-surround', event = "VeryLazy", opts = {} },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-git' }, -- plugin/syntax stuff for git files (commit, rebase -i, etc)
   { 'tpope/vim-abolish' }, -- substitute but keep capitalization with :S/-/-/g
   { 'tpope/vim-fugitive' }, -- Git commands in nvim
   { 'svermeulen/vim-subversive' }, --adds substitute commmmands to paste over a text object (ie. `siw`)
-  { 'windwp/nvim-autopairs' },
-  { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
+  { 'windwp/nvim-autopairs', event = "InsertEnter", lazy = true, config = true },
+  { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim", opts = {} },
   { "Tummetott/reticle.nvim", opts = { always_highlight_number = true } }, -- Change cursorline highlight based on active window
 
   { "danymat/neogen",
     event = "VeryLazy",
     dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = {},
   },
 
   { 'lukas-reineke/indent-blankline.nvim',
@@ -28,7 +29,8 @@ return {
         show_start = true,
         show_end = false,
       }
-    }
+    },
+    event = "VeryLazy",
   },
 
   { 'lewis6991/gitsigns.nvim',
@@ -41,7 +43,8 @@ return {
         topdelete    = { hl = 'GitGutterDelete', text = '‾' },
         changedelete = { hl = 'GitGutterChange', text = '~' },
       },
-    }
+    },
+    event = "VeryLazy",
   },
 
 
@@ -176,6 +179,7 @@ return {
   },
 
   { 'sindrets/winshift.nvim',
+    event = "VeryLazy",
     config = function()
       require("winshift").setup({
         highlight_moving_win = true,  -- Highlight the window being moved

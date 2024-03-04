@@ -107,4 +107,5 @@ return {
     { 'ThePrimeagen/refactoring.nvim' },
   },
   config = telescope_config,
+  event = "VeryLazy",
 }
