@@ -64,11 +64,11 @@ local function luasnip_setup()
   ls.add_snippets("c", {
     s("pf", fmt(
   [[PetscErrorCode {}({}) {{
-    PetscFunctionBeginUser;
-    {}
+  PetscFunctionBeginUser;
+  {}
 
-    PetscFunctionReturn(PETSC_SUCCESS);
-  }}]], {i(1, "func"), i(2, "void arg"), i(0)})),
+  PetscFunctionReturn(PETSC_SUCCESS);
+}}]], {i(1, "func"), i(2, "void arg"), i(0)})),
 
     s("pc", fmt("PetscCall({});", {i(1, "...")})),
 
