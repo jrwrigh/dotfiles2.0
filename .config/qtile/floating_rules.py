@@ -57,4 +57,5 @@ floating_matches = [
     Match(wm_class = 'SimpleScreenRecorder'),
     Match(role     = 'pop-up'),
     Match(title    = 'JupyterLab'),
+    Match(wm_class = 'matplotlib'),
 ]
