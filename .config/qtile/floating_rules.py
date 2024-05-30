@@ -34,6 +34,7 @@ floating_matches = [
     Match(title    = 'About Pale Moon'),
     Match(wm_class = 'Pamac-manager'),
     Match(wm_class = 'Pavucontrol'),
+    Match(wm_class = 'pavucontrol'),
     Match(wm_class = 'qt5ct'),
     Match(wm_class = 'Qtconfig-qt4'),
     Match(wm_class = 'Simple-scan'),
