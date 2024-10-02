@@ -222,6 +222,10 @@ def init_widgets():
             full_char      = ' ',
         ),
         widget.CheckUpdates(),
+        widget.DoNotDisturb(
+            enabled_icon = '',
+            disabled_icon= '',
+        ),
         widget.Clock(
             format     = '%Y-%m-%d %a %H:%M',
             background = monokai.lightblack2
