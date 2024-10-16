@@ -12,3 +12,10 @@ vicmd_symbol="[ ❯](bold red)"
 
 [status]
 disabled=false
+
+[env_var.PETSC_ARCH]
+variable = 'PETSC_ARCH'
+format = '([$symbol$env_value]($style)) '
+symbol = '🅟 '
+default = ''
+style = 'bold cyan'
