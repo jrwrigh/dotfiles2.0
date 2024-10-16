@@ -223,8 +223,8 @@ def init_widgets():
         ),
         widget.CheckUpdates(),
         widget.DoNotDisturb(
-            enabled_icon = '',
-            disabled_icon= '',
+            enabled_icon = '󰂛',
+            disabled_icon= '',
         ),
         widget.Clock(
             format     = '%Y-%m-%d %a %H:%M',
