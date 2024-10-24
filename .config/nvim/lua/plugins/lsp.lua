@@ -73,7 +73,10 @@ local function lsp_setup()
   }
 
   lspconfig['pyright'].setup{
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.diagnostic.config({ virtual_text = false })
+    end,
     capabilities = capabilities,
     flags = lsp_flags,
   }
@@ -121,7 +124,10 @@ local function lsp_setup()
   }
 
   lspconfig.ltex.setup{
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.diagnostic.config({ virtual_text = false })
+    end,
     capabilities = capabilities,
     flags = lsp_flags,
     settings = {
@@ -138,7 +144,10 @@ local function lsp_setup()
   }
 
   lspconfig['julials'].setup{
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.diagnostic.config({ virtual_text = false })
+    end,
     capabilities = capabilities,
     flags = lsp_flags,
   }
