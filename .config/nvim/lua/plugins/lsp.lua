@@ -127,6 +127,7 @@ local function lsp_setup()
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       vim.diagnostic.config({ virtual_text = false })
+      require('ltex_extra').setup()
     end,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -170,7 +171,8 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
+    "williamboman/mason-lspconfig.nvim",
+    "barreiroleo/ltex-extra.nvim",
   },
   config = lsp_setup,
   event = { "VeryLazy" },
