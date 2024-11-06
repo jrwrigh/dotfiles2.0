@@ -18,6 +18,9 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 # Show preview of directory contents
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -lt --color=always $realpath'
 
+# Show preview of zoxide directory contents
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -lt --color=always $realpath'
+
 # Show systemd service statuses when tabbing
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 

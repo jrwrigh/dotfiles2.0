@@ -27,7 +27,7 @@ export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-$HOME/.config}"/ripgrep.config
 #                                 Completion
 # =============================================================================
 
-autoload -U compinit; compinit
+autoload -Uz compinit; compinit
 
 [ -f "$ZSH_CONFIG_DIR/completion.zsh" ] && source $ZSH_CONFIG_DIR/completion.zsh
 
@@ -69,6 +69,10 @@ zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit load starship/starship
+
+zinit ice as"command" from"gh-r" lucid
+zinit light ajeetdsouza/zoxide
+eval "$(zoxide init --cmd cd zsh)"
 
 # =============================================================================
 #                                   fzf Setup
