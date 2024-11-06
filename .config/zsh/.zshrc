@@ -41,6 +41,7 @@ autoload -U compinit; compinit
 #                                   Plugins
 # =============================================================================
 
+export ZINIT_NO_ALIASES # turn off zinit aliases
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -52,7 +53,7 @@ zinit ice wait lucid
 zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit ice wait lucid
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
-zinit ice wait lucid
+zinit ice wait lucid atclone"git checkout 02ce77c" atpull"%atclone"  # See https://github.com/Aloxaf/fzf-tab/issues/481
 zinit light Aloxaf/fzf-tab
 
 zinit ice wait lucid
