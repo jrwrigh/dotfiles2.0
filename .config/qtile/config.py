@@ -99,6 +99,9 @@ keys = [
     EzKey('M-S-C-<Up>',   lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
     EzKey('M-S-C-<Down>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
     EzKey('M-S-C-m',      lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'.split(' '))),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
+    Key([], 'XF86AudioMute',        lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'.split(' '))),
 
     EzKey('M-t',   lazy.spawn('pkill picom'.split(' '))),
     EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
