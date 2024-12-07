@@ -29,6 +29,7 @@ alias lalt='ls -alht --color=auto'
 alias rm='rm -I'
 alias cp='cp -i'
 alias mv='mv -i'
+alias qmv='qmv -ospaces' # make qmv use spaces by default
 
 alias dotf=${MYDOTFILES}
 
