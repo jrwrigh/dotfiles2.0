@@ -123,7 +123,7 @@ local function lsp_setup()
     }
   }
 
-  lspconfig.ltex.setup{
+  lspconfig.ltex_plus.setup{
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       vim.diagnostic.config({ virtual_text = false })
