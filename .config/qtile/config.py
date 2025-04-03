@@ -96,12 +96,16 @@ keys = [
     EzKey('M-S-C-k',      lazy.spawn('playerctl play-pause'.split(' '))),
     EzKey('M-S-C-j',      lazy.spawn('playerctl previous'.split(' '))),
     EzKey('M-S-C-l',      lazy.spawn('playerctl next'.split(' '))),
-    EzKey('M-S-C-<Up>',   lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
-    EzKey('M-S-C-<Down>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
+    EzKey('M-S-C-<Up>',   lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +5%'.split(' '))),
+    EzKey('M-S-C-<Down>', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%'.split(' '))),
     EzKey('M-S-C-m',      lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'.split(' '))),
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +10%'.split(' '))),
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -10%'.split(' '))),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ +5%'.split(' '))),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pactl set-sink-volume @DEFAULT_SINK@ -5%'.split(' '))),
     Key([], 'XF86AudioMute',        lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle'.split(' '))),
+
+    # Restart to see if this works
+    Key([], 'XF86MonBrightnessUp', lazy.spawn('brightnessctl set +10%'.split(' '))),
+    Key([], 'XF86MonBrightnessDown', lazy.spawn('brightnessctl set 10%-'.split(' '))),
 
     EzKey('M-t',   lazy.spawn('pkill picom'.split(' '))),
     EzKey('M-C-t', lazy.spawn('picom -b'.split(' '))),
