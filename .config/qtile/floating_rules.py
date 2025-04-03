@@ -59,4 +59,5 @@ floating_matches = [
     Match(role     = 'pop-up'),
     Match(title    = 'JupyterLab'),
     Match(wm_class = 'matplotlib'),
+    Match(wm_class = "__main__.py", title=re.compile(r'.*TexText.*'))
 ]
