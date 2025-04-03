@@ -24,6 +24,16 @@
 [diff]
     mnemonicPrefix = true
     algorithm = histogram
+    colorMoved = plain
+    renames = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[help]
+    autocorrect = prompt
 
 [mergetool "nvim"]
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
