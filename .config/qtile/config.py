@@ -9,7 +9,7 @@ from libqtile.utils import guess_terminal
 from libqtile.log_utils import logger
 from libqtile import qtile
 
-from plasma import Plasma
+from libqtile.layout import Plasma
 
 import functions as f
 from theme import monokai
