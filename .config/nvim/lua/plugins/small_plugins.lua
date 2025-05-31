@@ -62,11 +62,11 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       signs = {
-        add          = { hl = 'GitGutterAdd', text    = '+' },
-        change       = { hl = 'GitGutterChange', text = '~' },
-        delete       = { hl = 'GitGutterDelete', text = '_' },
-        topdelete    = { hl = 'GitGutterDelete', text = '‾' },
-        changedelete = { hl = 'GitGutterChange', text = '~' },
+        add          = { text = '+' },
+        change       = { text = '~' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
+        changedelete = { text = '~' },
       },
     },
     event = "VeryLazy",
@@ -185,14 +185,17 @@ return {
           performance_mode = false,    -- Disable "Performance Mode" on all buffers.
       })
 
-      local t = {}
-      -- Syntax: t[keys] = {function, {function arguments}}
-      t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
-      t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
-      t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '150'}}
-      t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '150'}}
-
-      require('neoscroll.config').set_mappings(t)
+      neoscroll = require('neoscroll')
+      local keymap = {
+        ["<C-u>"] = function() neoscroll.ctrl_u({ duration = 150 }) end;
+        ["<C-d>"] = function() neoscroll.ctrl_d({ duration = 150 }) end;
+        ["<C-b>"] = function() neoscroll.ctrl_b({ duration = 150 }) end;
+        ["<C-f>"] = function() neoscroll.ctrl_f({ duration = 150 }) end;
+      }
+      local modes = { 'n', 'v', 'x' }
+      for key, func in pairs(keymap) do
+        vim.keymap.set(modes, key, func)
+      end
     end,
   },
 
@@ -201,6 +204,16 @@ return {
       vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_quickfix_open_on_warning = 0
       vim.g.vimtex_subfile_start_local = 1
+
+
+      local au_group = vim.api.nvim_create_augroup("vimtex_events", {})
+
+      -- Cleanup on quit
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "VimtexEventQuit",
+        group = au_group,
+        command = "VimtexClean"
+      })
     end
   },
 
