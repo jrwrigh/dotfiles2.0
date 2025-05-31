@@ -42,6 +42,10 @@
 1. `symlndotf` `.config/git/gitconfig`
 2. `git config --global include.path '~/.config/git/gitconfig'`
 
+## Zoxide
+
+Install currently handled by zinit
+
 ## ssh-agent systemd service
 
 1. `symlndotf .config/systemd/user/ssh-agent.service`
