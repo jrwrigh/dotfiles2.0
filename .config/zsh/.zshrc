@@ -56,6 +56,9 @@ zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 zinit ice wait lucid atclone"git checkout 02ce77c" atpull"%atclone"  # See https://github.com/Aloxaf/fzf-tab/issues/481
 zinit light Aloxaf/fzf-tab
 
+zinit lucid wait'0a' for \
+as"program" pick"$ZPFX/bin/git-*" src"etc/git-extras-completion.zsh" make"PREFIX=$ZPFX" tj/git-extras
+
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
