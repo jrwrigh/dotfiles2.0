@@ -1,0 +1,11 @@
+[Unit]
+Description=PulseAudio System Tray
+Documentation=https://github.com/christophgysin/pasystray
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/pasystray
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=NetworkManager Applet
+Documentation=https://gitlab.gnome.org/GNOME/network-manager-applet
+After=display-manager.service network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/nm-applet
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
