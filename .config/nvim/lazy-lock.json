@@ -1,5 +1,4 @@
 {
-  "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "dae4f5aaa3574bd0c2b9dd20fb9542a02c10471c" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "e84eaea7ca79610d7047fb1c9d74f15bb1c9db34" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
@@ -21,6 +20,7 @@
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "4823a251e7578a835bb979c37df390fca692ba39" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
+  "mini.comment": { "branch": "jrwrigh/surrounding_blank_lines", "commit": "800788ba79f90ac30f7d106ffe4af3ceb790990b" },
   "neogen": { "branch": "main", "commit": "23e7e9f883d01289ebd90e98025acc860ea26366" },
   "nvim-autopairs": { "branch": "master", "commit": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4" },
   "nvim-cmp": { "branch": "main", "commit": "da88697d7f45d16852c6b2769dc52387d1ddc45f" },

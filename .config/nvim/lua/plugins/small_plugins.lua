@@ -1,5 +1,5 @@
 return {
-  { 'numToStr/Comment.nvim', lazy = false, opts = {} },
+  { 'jrwrigh/mini.comment', branch = 'jrwrigh/surrounding_blank_lines', opts = {} },
   -- { 'chrisbra/improvedft' }, -- Probably doesn't do anything due to overriding of f/F/t/T in treesitter
   { 'kylechui/nvim-surround', event = "VeryLazy", opts = {} },
   { 'tpope/vim-repeat' },
