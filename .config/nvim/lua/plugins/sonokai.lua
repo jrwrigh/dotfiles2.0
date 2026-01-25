@@ -9,13 +9,6 @@ local function sonokai_setup()
     bg2         = {'#353f46', '236'},
     bg3         = {'#3a444b', '237'},
     bg4         = {'#414b53', '237'},
-    bg_red      = {'#ff6d7e', '203'},
-    diff_red    = {'#55393d', '52'},
-    bg_green    = {'#a2e57b', '107'},
-    diff_green  = {'#394634', '22'},
-    bg_blue     = {'#7cd5f1', '110'},
-    diff_blue   = {'#354157', '17'},
-    diff_yellow = {'#4e432f', '54'},
     fg          = {'#f8f8f0', '250'},
     red         = {'#f92672', '203'},
     orange      = {'#fd971f', '215'},
@@ -156,7 +149,6 @@ local function sonokai_setup()
     callback = customSonokaiHighlighting
   })
 
-  -- vim.cmd[[colorscheme sonokai]]
   vim.cmd.colorscheme 'sonokai'
 
   -- Include custom highlights directly after the colorscheme is created
