@@ -74,31 +74,28 @@ local function cmp_setup()
       documentation = cmp.config.window.bordered(),
     },
     formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        local kind = require("lspkind").cmp_format({
-          mode = "symbol_text",
-          maxwidth = 50,
-          ellipsis_char = '...',
-          menu = ({
-            buffer        = "[BUF]",
-            nvim_lsp      = "[LSP]",
-            luasnip       = "[SNP]",
-            nvim_lua      = "[LUA]",
-            latex_symbols = "[TEX]",
-            path          = "[PTH]",
-          })
-        })(entry, vim_item)
-        local strings = vim.split(kind.kind, "%s", { trimempty = true })
-        kind.kind = " " .. (strings[1] or "") .. " "
-        if kind.menu then
-          kind.menu = "    (" .. (strings[2] or "") .. ") " .. kind.menu
-        else
-          kind.menu = "    (" .. (strings[2] or "") .. ")"
-        end
-
-        return kind
-      end,
+      fields = { 'icon', 'abbr', 'kind', 'menu' },
+      format = require('lspkind').cmp_format({
+        maxwidth = {
+          menu = 5,  -- leading text (labelDetails)
+          abbr = 50, -- actual suggestion item
+        },
+        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+        show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+        before = function (entry, vim_item)
+          vim_item.icon = " " .. vim_item.icon .. " " -- add spaces to either side so highlighting covers full icon
+          vim_item.kind = " (" .. vim_item.kind .. ")"
+          return vim_item
+        end,
+        menu = ({
+          buffer        = "[BUF]",
+          nvim_lsp      = "[LSP]",
+          luasnip       = "[SNP]",
+          nvim_lua      = "[LUA]",
+          latex_symbols = "[TEX]",
+          path          = "[PTH]",
+        })
+      })
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>']     = cmp.mapping.scroll_docs(-4),

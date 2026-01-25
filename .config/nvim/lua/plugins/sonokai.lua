@@ -83,32 +83,62 @@ local function sonokai_setup()
     highlight! link CmpItemAbbr              Fg
     highlight! link CmpItemAbbrDeprecated    GreyCmpItem
     highlight! link CmpItemMenu              Fg
-    highlight! link CmpItemKind              BlueCmpItem
-    highlight! link CmpItemKindText          FgCmpItem
-    highlight! link CmpItemKindMethod        GreenCmpItem
-    highlight! link CmpItemKindFunction      GreenCmpItem
-    highlight! link CmpItemKindConstructor   GreenCmpItem
-    highlight! link CmpItemKindField         GreenCmpItem
-    highlight! link CmpItemKindVariable      OrangeCmpItem
-    highlight! link CmpItemKindClass         BlueCmpItem
-    highlight! link CmpItemKindInterface     BlueCmpItem
-    highlight! link CmpItemKindModule        BlueCmpItem
-    highlight! link CmpItemKindProperty      OrangeCmpItem
-    highlight! link CmpItemKindUnit          PurpleCmpItem
-    highlight! link CmpItemKindValue         PurpleCmpItem
-    highlight! link CmpItemKindEnum          BlueCmpItem
-    highlight! link CmpItemKindKeyword       RedCmpItem
-    highlight! link CmpItemKindSnippet       YellowCmpItem
-    highlight! link CmpItemKindColor         YellowCmpItem
-    highlight! link CmpItemKindFile          YellowCmpItem
-    highlight! link CmpItemKindReference     YellowCmpItem
-    highlight! link CmpItemKindFolder        YellowCmpItem
-    highlight! link CmpItemKindEnumMember    PurpleCmpItem
-    highlight! link CmpItemKindConstant      OrangeCmpItem
-    highlight! link CmpItemKindStruct        BlueCmpItem
-    highlight! link CmpItemKindEvent         RedCmpItem
-    highlight! link CmpItemKindOperator      RedCmpItem
-    highlight! link CmpItemKindTypeParameter BlueCmpItem
+
+    " Make the `(Variable)` not have any highlighting on it
+    highlight! link CmpItemKind              Fg
+    highlight! link CmpItemKindText          Fg
+    highlight! link CmpItemKindMethod        Fg
+    highlight! link CmpItemKindFunction      Fg
+    highlight! link CmpItemKindConstructor   Fg
+    highlight! link CmpItemKindField         Fg
+    highlight! link CmpItemKindVariable      Fg
+    highlight! link CmpItemKindClass         Fg
+    highlight! link CmpItemKindInterface     Fg
+    highlight! link CmpItemKindModule        Fg
+    highlight! link CmpItemKindProperty      Fg
+    highlight! link CmpItemKindUnit          Fg
+    highlight! link CmpItemKindValue         Fg
+    highlight! link CmpItemKindEnum          Fg
+    highlight! link CmpItemKindKeyword       Fg
+    highlight! link CmpItemKindSnippet       Fg
+    highlight! link CmpItemKindColor         Fg
+    highlight! link CmpItemKindFile          Fg
+    highlight! link CmpItemKindReference     Fg
+    highlight! link CmpItemKindFolder        Fg
+    highlight! link CmpItemKindEnumMember    Fg
+    highlight! link CmpItemKindConstant      Fg
+    highlight! link CmpItemKindStruct        Fg
+    highlight! link CmpItemKindEvent         Fg
+    highlight! link CmpItemKindOperator      Fg
+    highlight! link CmpItemKindTypeParameter Fg
+
+    " Make the icon have background highlighting on it
+    highlight! link CmpItemKindIcon              BlueCmpItem
+    highlight! link CmpItemKindTextIcon          FgCmpItem
+    highlight! link CmpItemKindMethodIcon        GreenCmpItem
+    highlight! link CmpItemKindFunctionIcon      GreenCmpItem
+    highlight! link CmpItemKindConstructorIcon   GreenCmpItem
+    highlight! link CmpItemKindFieldIcon         GreenCmpItem
+    highlight! link CmpItemKindVariableIcon      OrangeCmpItem
+    highlight! link CmpItemKindClassIcon         BlueCmpItem
+    highlight! link CmpItemKindInterfaceIcon     BlueCmpItem
+    highlight! link CmpItemKindModuleIcon        BlueCmpItem
+    highlight! link CmpItemKindPropertyIcon      OrangeCmpItem
+    highlight! link CmpItemKindUnitIcon          PurpleCmpItem
+    highlight! link CmpItemKindValueIcon         PurpleCmpItem
+    highlight! link CmpItemKindEnumIcon          BlueCmpItem
+    highlight! link CmpItemKindKeywordIcon       RedCmpItem
+    highlight! link CmpItemKindSnippetIcon       YellowCmpItem
+    highlight! link CmpItemKindColorIcon         YellowCmpItem
+    highlight! link CmpItemKindFileIcon          YellowCmpItem
+    highlight! link CmpItemKindReferenceIcon     YellowCmpItem
+    highlight! link CmpItemKindFolderIcon        YellowCmpItem
+    highlight! link CmpItemKindEnumMemberIcon    PurpleCmpItem
+    highlight! link CmpItemKindConstantIcon      OrangeCmpItem
+    highlight! link CmpItemKindStructIcon        BlueCmpItem
+    highlight! link CmpItemKindEventIcon         RedCmpItem
+    highlight! link CmpItemKindOperatorIcon      RedCmpItem
+    highlight! link CmpItemKindTypeParameterIcon BlueCmpItem
 
     call sonokai#highlight('MonokaiBase8', ['#e3e3e1', 'NONE'], s:palette.none)
     call sonokai#highlight('MonokaiBase7', ['#b1b1b1', 'NONE'], s:palette.none)
