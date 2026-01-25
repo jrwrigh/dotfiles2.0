@@ -66,34 +66,43 @@ local function lsp_setup()
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  local lspconfig = require('lspconfig')
+  local lspconfig = vim.lsp.config
   local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
   }
 
-  lspconfig['pyright'].setup{
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-      vim.diagnostic.config({ virtual_text = false })
-    end,
-    capabilities = capabilities,
-    flags = lsp_flags,
-  }
+  -- lspconfig['pyright'].setup{
+  --   on_attach = function(client, bufnr)
+  --     on_attach(client, bufnr)
+  --     vim.diagnostic.config({ virtual_text = false })
+  --   end,
+  --   capabilities = capabilities,
+  --   flags = lsp_flags,
+  -- }
 
-  lspconfig['texlab'].setup{
+  vim.lsp.config('ty', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
-  }
+  })
+  vim.lsp.enable('ty')
 
-  lspconfig['fortls'].setup{
+  vim.lsp.config('texlab', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
-  }
+  })
+  vim.lsp.enable('texlab')
 
-  lspconfig['clangd'].setup{
+  vim.lsp.config('fortls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = lsp_flags,
+  })
+  vim.lsp.enable('fortls')
+
+  vim.lsp.config('clangd', {
       on_attach = on_attach,
       capabilities = capabilities,
       flags = lsp_flags,
@@ -102,7 +111,8 @@ local function lsp_setup()
         "--completion-style=detailed",
         "--header-insertion=never",
       },
-  }
+  })
+  vim.lsp.enable('clangd')
 
   require('clangd_extensions').setup({
     inlay_hints = {
@@ -110,7 +120,7 @@ local function lsp_setup()
     }
   })
 
-  lspconfig.lua_ls.setup{
+  vim.lsp.config('lua_ls', {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -121,9 +131,10 @@ local function lsp_setup()
         }
       }
     }
-  }
+  })
+  vim.lsp.enable('lua_ls')
 
-  lspconfig.ltex_plus.setup{
+  vim.lsp.config('ltex_plus', {
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       vim.diagnostic.config({ virtual_text = false })
@@ -143,16 +154,18 @@ local function lsp_setup()
       },
     },
     filetypes = { "bib", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" }
-  }
+  })
+  vim.lsp.enable('ltex_plus')
 
-  lspconfig['julials'].setup{
+  vim.lsp.config('julials', {
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
       vim.diagnostic.config({ virtual_text = false })
     end,
     capabilities = capabilities,
     flags = lsp_flags,
-  }
+  })
+  vim.lsp.enable('julials')
 
   ---- Mason Setup ----
   require("mason").setup {
