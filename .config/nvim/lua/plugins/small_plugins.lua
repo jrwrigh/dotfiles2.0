@@ -46,7 +46,7 @@ return {
     main = 'ibl',
     opts = {
       indent = {
-        char = {'¦', '┊', '┊', '┊', '┊', '┊', '┊', '┊', '┊', '┊'},
+        char = {'¦', '┊'},
       },
       scope = {
         enabled = true,
