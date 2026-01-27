@@ -1,9 +1,17 @@
 from libqtile.config import Match
 from libqtile import layout
+from libqtile.backend import base
 import re
 
 
 # Run the utility of `xprop` to see the wm class and name of an X client.
+
+def match_paraview_dialog(win: base.WindowType) -> bool:
+    win_state: list[str] = win.window.get_net_wm_state()
+    valid_states = ("_NET_WM_STATE_ABOVE", "_NET_WM_STATE_STAYS_ON_TOP")
+    if any((state in valid_states for state in win_state)):
+        return True
+    return False
 
 floating_matches = [
     *layout.Floating.default_float_rules,
@@ -59,5 +67,6 @@ floating_matches = [
     Match(role     = 'pop-up'),
     Match(title    = 'JupyterLab'),
     Match(wm_class = 'matplotlib'),
-    Match(wm_class = "__main__.py", title=re.compile(r'.*TexText.*'))
+    Match(wm_class = "__main__.py", title=re.compile(r'.*TexText.*')),
+    Match(wm_class = "ParaView", func = match_paraview_dialog),
 ]
