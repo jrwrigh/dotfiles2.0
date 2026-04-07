@@ -1,0 +1,5 @@
+[Unit]
+Description=RClone Google Drive
+
+[Service]
+ExecStart=/usr/bin/rclone bisync googledrive: /home/jrwrigh/GoogleDrive --fast-list
