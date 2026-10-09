@@ -69,4 +69,5 @@ floating_matches = [
     Match(wm_class = 'matplotlib'),
     Match(wm_class = "__main__.py", title=re.compile(r'.*TexText.*')),
     Match(wm_class = "ParaView", func = match_paraview_dialog),
+    Match(wm_class = 'flameshot', title='About'),
 ]
