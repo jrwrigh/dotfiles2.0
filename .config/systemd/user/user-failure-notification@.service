@@ -1,0 +1,8 @@
+[Unit]
+Description=Send a notification about a failed systemd unit
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=notify-send --urgency=critical "%i service failed" "See `systemctl --user status %i`"
+StandardError=journal
