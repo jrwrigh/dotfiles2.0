@@ -167,6 +167,8 @@ local function lsp_setup()
   })
   vim.lsp.enable('julials')
 
+  vim.lsp.enable('fortls')
+
   ---- Mason Setup ----
   require("mason").setup {
     ui = {
