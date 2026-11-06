@@ -1,5 +1,11 @@
 [Unit]
 Description=RClone Google Drive
+Documentation=man:rclone(1)
+After=network-online.target
+Wants=network-online.target 
+StartLimitIntervalSec=60
+StartLimitBurst=1
 
 [Service]
+Type=oneshot
 ExecStart=/usr/bin/rclone bisync googledrive: /home/jrwrigh/GoogleDrive --fast-list
