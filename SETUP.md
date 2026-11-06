@@ -5,20 +5,14 @@
 
 ## zsh
 
-1. Install `antibody` (either through AUR or command line)
-2. Remove `oh-my-zsh`'s `.zshrc`
-3. `symlndotf` the `.zshrc` file and `.config/zsh/zshPluginList`
-4. Source `.zshrc` and run `antibody_bundle_loadfile`
-5. Download starship to `.local/src/starship` (MUSL version if on remote
-   system) and symlink to `.local/bin`
-6. Source `.zshrc` again
-   - Everything should now be running normally
+1. Symlink `.zshenv` to the home directory (to get the `ZSH_CONFIG_DIR` set)
+2. `symlndotf .config/zsh` to get the zsh config files into the `ZSH_CONFIG_DIR`
+3. Then relogin (or possibly just souce `.config/zsh/.zshrc`). zinit.zsh will auto install starship. zoxide, and the zsh plugins
 
 ## fzf
 
 1. Load git repository to `~/.local/src/fzf`
 2. Install using `~/.local/src/fzf/install --xdg`
-3. Symlink `.config/fzf/fzf.zsh`
 
 ## ranger
 
@@ -54,13 +48,6 @@ Install currently handled by zinit
 4. `systemctl --user start ssh-agent`
 5. Prepend `AddKeysToAgent yes` to `~/.ssh/config` (assuming the option is
    valid for the version of `ssh` installed)
-
-## odrive
-
-1. Run command line from odrive sync agent webpage
-2. symlink `odrive` from `$HOME/.odrive-agent`
-3. Create/symlink `start_odrive` shell script
-4. Follow online instructions for settings up authentication keys
 
 ## Miniconda
 
